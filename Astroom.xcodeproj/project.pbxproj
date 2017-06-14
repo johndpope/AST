@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BD604E5B1EEBEFFF005058C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E5A1EEBEFFF005058C7 /* AppDelegate.swift */; };
+		BD604E5D1EEBEFFF005058C7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BD604E5C1EEBEFFF005058C7 /* art.scnassets */; };
+		BD604E5F1EEBEFFF005058C7 /* ASTMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E5E1EEBEFFF005058C7 /* ASTMainViewController.swift */; };
+		BD604E621EEBEFFF005058C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD604E601EEBEFFF005058C7 /* Main.storyboard */; };
+		BD604E641EEBEFFF005058C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD604E631EEBEFFF005058C7 /* Assets.xcassets */; };
+		BD604E671EEBEFFF005058C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD604E651EEBEFFF005058C7 /* LaunchScreen.storyboard */; };
+		BD604E721EEBEFFF005058C7 /* AstroomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E711EEBEFFF005058C7 /* AstroomTests.swift */; };
+		BD604E7D1EEBEFFF005058C7 /* AstroomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E7C1EEBEFFF005058C7 /* AstroomUITests.swift */; };
+		BDBFDD5F1EEF3E01004F3F0A /* ASTInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFDD5E1EEF3E01004F3F0A /* ASTInformationView.swift */; };
+		BDBFDD611EEF3E10004F3F0A /* ASTInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDBFDD601EEF3E10004F3F0A /* ASTInformationView.xib */; };
+		BDBFDD631EEF3FAB004F3F0A /* ASTUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */; };
+		BDD3BBCE1EEF328300139070 /* ASTCGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BBCD1EEF328300139070 /* ASTCGRectExtension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BD604E6E1EEBEFFF005058C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD604E4F1EEBEFFF005058C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD604E561EEBEFFF005058C7;
+			remoteInfo = Astroom;
+		};
+		BD604E791EEBEFFF005058C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BD604E4F1EEBEFFF005058C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD604E561EEBEFFF005058C7;
+			remoteInfo = Astroom;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BD604E571EEBEFFF005058C7 /* Astroom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astroom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD604E5A1EEBEFFF005058C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BD604E5C1EEBEFFF005058C7 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		BD604E5E1EEBEFFF005058C7 /* ASTMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTMainViewController.swift; sourceTree = "<group>"; };
+		BD604E611EEBEFFF005058C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BD604E631EEBEFFF005058C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD604E661EEBEFFF005058C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BD604E681EEBEFFF005058C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD604E6D1EEBEFFF005058C7 /* AstroomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstroomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD604E711EEBEFFF005058C7 /* AstroomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroomTests.swift; sourceTree = "<group>"; };
+		BD604E731EEBEFFF005058C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD604E781EEBEFFF005058C7 /* AstroomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstroomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD604E7C1EEBEFFF005058C7 /* AstroomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroomUITests.swift; sourceTree = "<group>"; };
+		BD604E7E1EEBEFFF005058C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDBFDD5E1EEF3E01004F3F0A /* ASTInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTInformationView.swift; sourceTree = "<group>"; };
+		BDBFDD601EEF3E10004F3F0A /* ASTInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASTInformationView.xib; sourceTree = "<group>"; };
+		BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTUIConstants.swift; sourceTree = "<group>"; };
+		BDD3BBCD1EEF328300139070 /* ASTCGRectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTCGRectExtension.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BD604E541EEBEFFF005058C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD604E6A1EEBEFFF005058C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD604E751EEBEFFF005058C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BD604E4E1EEBEFFF005058C7 = {
+			isa = PBXGroup;
+			children = (
+				BD604E591EEBEFFF005058C7 /* Astroom */,
+				BD604E701EEBEFFF005058C7 /* AstroomTests */,
+				BD604E7B1EEBEFFF005058C7 /* AstroomUITests */,
+				BD604E581EEBEFFF005058C7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BD604E581EEBEFFF005058C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BD604E571EEBEFFF005058C7 /* Astroom.app */,
+				BD604E6D1EEBEFFF005058C7 /* AstroomTests.xctest */,
+				BD604E781EEBEFFF005058C7 /* AstroomUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD604E591EEBEFFF005058C7 /* Astroom */ = {
+			isa = PBXGroup;
+			children = (
+				BDBFDD5D1EEF3DF4004F3F0A /* View */,
+				BDBFDD5C1EEF3DDC004F3F0A /* Controller */,
+				BDBFDD5B1EEF3DCF004F3F0A /* Extension */,
+				BD604E5A1EEBEFFF005058C7 /* AppDelegate.swift */,
+				BD604E601EEBEFFF005058C7 /* Main.storyboard */,
+				BD604E5C1EEBEFFF005058C7 /* art.scnassets */,
+				BD604E631EEBEFFF005058C7 /* Assets.xcassets */,
+				BD604E651EEBEFFF005058C7 /* LaunchScreen.storyboard */,
+				BD604E681EEBEFFF005058C7 /* Info.plist */,
+			);
+			path = Astroom;
+			sourceTree = "<group>";
+		};
+		BD604E701EEBEFFF005058C7 /* AstroomTests */ = {
+			isa = PBXGroup;
+			children = (
+				BD604E711EEBEFFF005058C7 /* AstroomTests.swift */,
+				BD604E731EEBEFFF005058C7 /* Info.plist */,
+			);
+			path = AstroomTests;
+			sourceTree = "<group>";
+		};
+		BD604E7B1EEBEFFF005058C7 /* AstroomUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BD604E7C1EEBEFFF005058C7 /* AstroomUITests.swift */,
+				BD604E7E1EEBEFFF005058C7 /* Info.plist */,
+			);
+			path = AstroomUITests;
+			sourceTree = "<group>";
+		};
+		BDBFDD5B1EEF3DCF004F3F0A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BDD3BBCD1EEF328300139070 /* ASTCGRectExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		BDBFDD5C1EEF3DDC004F3F0A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BD604E5E1EEBEFFF005058C7 /* ASTMainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BDBFDD5D1EEF3DF4004F3F0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */,
+				BDBFDD5E1EEF3E01004F3F0A /* ASTInformationView.swift */,
+				BDBFDD601EEF3E10004F3F0A /* ASTInformationView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD604E561EEBEFFF005058C7 /* Astroom */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD604E811EEBF000005058C7 /* Build configuration list for PBXNativeTarget "Astroom" */;
+			buildPhases = (
+				BD604E531EEBEFFF005058C7 /* Sources */,
+				BD604E541EEBEFFF005058C7 /* Frameworks */,
+				BD604E551EEBEFFF005058C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Astroom;
+			productName = Astroom;
+			productReference = BD604E571EEBEFFF005058C7 /* Astroom.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BD604E6C1EEBEFFF005058C7 /* AstroomTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD604E841EEBF000005058C7 /* Build configuration list for PBXNativeTarget "AstroomTests" */;
+			buildPhases = (
+				BD604E691EEBEFFF005058C7 /* Sources */,
+				BD604E6A1EEBEFFF005058C7 /* Frameworks */,
+				BD604E6B1EEBEFFF005058C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD604E6F1EEBEFFF005058C7 /* PBXTargetDependency */,
+			);
+			name = AstroomTests;
+			productName = AstroomTests;
+			productReference = BD604E6D1EEBEFFF005058C7 /* AstroomTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BD604E771EEBEFFF005058C7 /* AstroomUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD604E871EEBF000005058C7 /* Build configuration list for PBXNativeTarget "AstroomUITests" */;
+			buildPhases = (
+				BD604E741EEBEFFF005058C7 /* Sources */,
+				BD604E751EEBEFFF005058C7 /* Frameworks */,
+				BD604E761EEBEFFF005058C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD604E7A1EEBEFFF005058C7 /* PBXTargetDependency */,
+			);
+			name = AstroomUITests;
+			productName = AstroomUITests;
+			productReference = BD604E781EEBEFFF005058C7 /* AstroomUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BD604E4F1EEBEFFF005058C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Ryan-King";
+				TargetAttributes = {
+					BD604E561EEBEFFF005058C7 = {
+						CreatedOnToolsVersion = 9.0;
+					};
+					BD604E6C1EEBEFFF005058C7 = {
+						CreatedOnToolsVersion = 9.0;
+						TestTargetID = BD604E561EEBEFFF005058C7;
+					};
+					BD604E771EEBEFFF005058C7 = {
+						CreatedOnToolsVersion = 9.0;
+						TestTargetID = BD604E561EEBEFFF005058C7;
+					};
+				};
+			};
+			buildConfigurationList = BD604E521EEBEFFF005058C7 /* Build configuration list for PBXProject "Astroom" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BD604E4E1EEBEFFF005058C7;
+			productRefGroup = BD604E581EEBEFFF005058C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BD604E561EEBEFFF005058C7 /* Astroom */,
+				BD604E6C1EEBEFFF005058C7 /* AstroomTests */,
+				BD604E771EEBEFFF005058C7 /* AstroomUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BD604E551EEBEFFF005058C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD604E5D1EEBEFFF005058C7 /* art.scnassets in Resources */,
+				BD604E671EEBEFFF005058C7 /* LaunchScreen.storyboard in Resources */,
+				BDBFDD611EEF3E10004F3F0A /* ASTInformationView.xib in Resources */,
+				BD604E641EEBEFFF005058C7 /* Assets.xcassets in Resources */,
+				BD604E621EEBEFFF005058C7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD604E6B1EEBEFFF005058C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD604E761EEBEFFF005058C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD604E531EEBEFFF005058C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDBFDD631EEF3FAB004F3F0A /* ASTUIConstants.swift in Sources */,
+				BDBFDD5F1EEF3E01004F3F0A /* ASTInformationView.swift in Sources */,
+				BD604E5F1EEBEFFF005058C7 /* ASTMainViewController.swift in Sources */,
+				BD604E5B1EEBEFFF005058C7 /* AppDelegate.swift in Sources */,
+				BDD3BBCE1EEF328300139070 /* ASTCGRectExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD604E691EEBEFFF005058C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD604E721EEBEFFF005058C7 /* AstroomTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD604E741EEBEFFF005058C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD604E7D1EEBEFFF005058C7 /* AstroomUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BD604E6F1EEBEFFF005058C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD604E561EEBEFFF005058C7 /* Astroom */;
+			targetProxy = BD604E6E1EEBEFFF005058C7 /* PBXContainerItemProxy */;
+		};
+		BD604E7A1EEBEFFF005058C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD604E561EEBEFFF005058C7 /* Astroom */;
+			targetProxy = BD604E791EEBEFFF005058C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BD604E601EEBEFFF005058C7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD604E611EEBEFFF005058C7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BD604E651EEBEFFF005058C7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BD604E661EEBEFFF005058C7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BD604E7F1EEBF000005058C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BD604E801EEBF000005058C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BD604E821EEBF000005058C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FECG24D3AX;
+				INFOPLIST_FILE = Astroom/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RyanKing.Astroom;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BD604E831EEBF000005058C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FECG24D3AX;
+				INFOPLIST_FILE = Astroom/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RyanKing.Astroom;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BD604E851EEBF000005058C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = FECG24D3AX;
+				INFOPLIST_FILE = AstroomTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RyanKing.AstroomTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Astroom.app/Astroom";
+			};
+			name = Debug;
+		};
+		BD604E861EEBF000005058C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = FECG24D3AX;
+				INFOPLIST_FILE = AstroomTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RyanKing.AstroomTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Astroom.app/Astroom";
+			};
+			name = Release;
+		};
+		BD604E881EEBF000005058C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = FECG24D3AX;
+				INFOPLIST_FILE = AstroomUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RyanKing.AstroomUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Astroom;
+			};
+			name = Debug;
+		};
+		BD604E891EEBF000005058C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = FECG24D3AX;
+				INFOPLIST_FILE = AstroomUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.RyanKing.AstroomUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Astroom;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BD604E521EEBEFFF005058C7 /* Build configuration list for PBXProject "Astroom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD604E7F1EEBF000005058C7 /* Debug */,
+				BD604E801EEBF000005058C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD604E811EEBF000005058C7 /* Build configuration list for PBXNativeTarget "Astroom" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD604E821EEBF000005058C7 /* Debug */,
+				BD604E831EEBF000005058C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD604E841EEBF000005058C7 /* Build configuration list for PBXNativeTarget "AstroomTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD604E851EEBF000005058C7 /* Debug */,
+				BD604E861EEBF000005058C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD604E871EEBF000005058C7 /* Build configuration list for PBXNativeTarget "AstroomUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD604E881EEBF000005058C7 /* Debug */,
+				BD604E891EEBF000005058C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BD604E4F1EEBEFFF005058C7 /* Project object */;
+}

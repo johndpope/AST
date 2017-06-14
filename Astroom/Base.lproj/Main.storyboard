@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="ASTMainViewController" customModule="Astroom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iFD-PD-CMK"/>
+                        <viewControllerLayoutGuide type="bottom" id="rGK-xc-2nG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rmn-GL-oql">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOB-Ig-ues">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </arscnView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Rr-CG-V1H">
+                                <rect key="frame" x="16" y="667" width="343" height="360"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="360" id="vbM-57-4c1"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pOB-Ig-ues" firstAttribute="top" secondItem="rmn-GL-oql" secondAttribute="top" id="4XS-pA-Oah"/>
+                            <constraint firstItem="7Rr-CG-V1H" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leadingMargin" id="92v-KB-28r"/>
+                            <constraint firstItem="7Rr-CG-V1H" firstAttribute="top" secondItem="pOB-Ig-ues" secondAttribute="bottom" id="CXf-03-rTi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7Rr-CG-V1H" secondAttribute="trailing" id="Vrl-de-pjk"/>
+                            <constraint firstAttribute="trailing" secondItem="pOB-Ig-ues" secondAttribute="trailing" id="eXT-RB-cGw"/>
+                            <constraint firstItem="pOB-Ig-ues" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leading" id="hJK-cg-7nu"/>
+                            <constraint firstItem="rGK-xc-2nG" firstAttribute="top" secondItem="pOB-Ig-ues" secondAttribute="bottom" id="xDS-qQ-N3Z"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
+        </scene>
+    </scenes>
+</document>
