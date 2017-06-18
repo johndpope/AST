@@ -1,6 +1,6 @@
 import UIKit
 
-@IBDesignable class ASTInformationView : UIView, UITableViewDelegate, UITableViewDataSource {
+class ASTInformationView : UIView, UITableViewDelegate, UITableViewDataSource {
     
     let array = ["Name", "Moons", "Size", "Speed", "Temperature"]
     

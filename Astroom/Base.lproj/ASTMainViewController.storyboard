@@ -23,6 +23,9 @@
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOB-Ig-ues">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BV1-FR-VrT" id="hlO-aQ-xgw"/>
+                                </connections>
                             </arscnView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Rr-CG-V1H">
                                 <rect key="frame" x="16" y="667" width="343" height="360"/>
@@ -31,18 +34,40 @@
                                     <constraint firstAttribute="height" constant="360" id="vbM-57-4c1"/>
                                 </constraints>
                             </view>
+                            <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgu-Ia-zR1" customClass="ASTHelperView" customModule="Astroom" customModuleProvider="target">
+                                <rect key="frame" x="16" y="595" width="343" height="64"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="XYS-az-N1v"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="q1X-nn-i9d"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="pOB-Ig-ues" secondAttribute="bottom" id="2Gv-Gu-CFQ"/>
                             <constraint firstItem="pOB-Ig-ues" firstAttribute="top" secondItem="rmn-GL-oql" secondAttribute="top" id="4XS-pA-Oah"/>
                             <constraint firstItem="7Rr-CG-V1H" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leadingMargin" id="92v-KB-28r"/>
                             <constraint firstItem="7Rr-CG-V1H" firstAttribute="top" secondItem="pOB-Ig-ues" secondAttribute="bottom" id="CXf-03-rTi"/>
+                            <constraint firstItem="7Rr-CG-V1H" firstAttribute="top" secondItem="Mgu-Ia-zR1" secondAttribute="bottom" constant="8" id="DkR-FS-qTX"/>
+                            <constraint firstAttribute="trailing" secondItem="Mgu-Ia-zR1" secondAttribute="trailing" constant="16" id="EDJ-cQ-N25"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Rr-CG-V1H" secondAttribute="trailing" id="Vrl-de-pjk"/>
                             <constraint firstAttribute="trailing" secondItem="pOB-Ig-ues" secondAttribute="trailing" id="eXT-RB-cGw"/>
                             <constraint firstItem="pOB-Ig-ues" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leading" id="hJK-cg-7nu"/>
-                            <constraint firstItem="rGK-xc-2nG" firstAttribute="top" secondItem="pOB-Ig-ues" secondAttribute="bottom" id="xDS-qQ-N3Z"/>
+                            <constraint firstItem="Mgu-Ia-zR1" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leading" constant="16" id="vB6-sN-089"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="helperView" destination="Mgu-Ia-zR1" id="dLJ-mX-WbG"/>
+                        <outlet property="informationView" destination="7Rr-CG-V1H" id="Tnc-ez-opc"/>
+                        <outlet property="mainView" destination="rmn-GL-oql" id="8nA-Oz-mG3"/>
+                        <outlet property="sceneView" destination="pOB-Ig-ues" id="M3u-sw-4kd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>

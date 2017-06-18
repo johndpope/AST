@@ -9,16 +9,18 @@
 import UIKit
 import SceneKit
 import ARKit
-import CoreMotion
 
-class ASTMainViewController: UIViewController, ARSCNViewDelegate {
+class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotionDelegate {
     
     // Outlets
+    @IBOutlet var mainView: UIView!
     @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet var informationView: UIView!
+    @IBOutlet var helperView: ASTHelperView!
     
     // Variables and Constants
     let arSession = ARSession()
-    let motionManager = CMMotionManager()
+    let deviceMotionManager = ASTDeviceMotion()
     var screenCenter: CGPoint?
     var sessionConfig: ARSessionConfiguration = ARWorldTrackingSessionConfiguration()
     var use3DOFTrackingFallback = false
@@ -37,16 +39,11 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if motionManager.isGyroAvailable {
-            motionManager.gyroUpdateInterval = 0.1
-            motionManager.startGyroUpdates()
-            
-            let queue = OperationQueue()
-            motionManager.startGyroUpdates(to: queue) { (data, error) in
-                
-            }
-        }
+        // Setup device motion manager
+        deviceMotionManager.setupDeviceMotionManager()
+        deviceMotionManager.motionDelegate = self
         
+        // Setup Scene
         setupScene()
     }
     
@@ -62,7 +59,6 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate {
         super.viewWillDisappear(animated)
         // Pause the session on disappear
         arSession.pause()
-        motionManager.stopGyroUpdates()
     }
     
     override func didReceiveMemoryWarning() {
@@ -88,14 +84,14 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate {
     
     
     func setupScene() {
-        // set up sceneView
-        sceneView.delegate = self
+        // Create a new scene
+        let scene = SCNScene(named: "art.scnassets/AllPlanets/AllPlanetsScene.scn")!
+        sceneView.scene = scene
         sceneView.session = arSession
         sceneView.antialiasingMode = .multisampling4X
-        sceneView.automaticallyUpdatesLighting = false
         
         sceneView.preferredFramesPerSecond = 60
-        sceneView.contentScaleFactor = 1.3
+        sceneView.contentScaleFactor = 2.0
         
         DispatchQueue.main.async {
             self.screenCenter = self.sceneView.bounds.mid
@@ -133,25 +129,25 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         DispatchQueue.main.async {
-            if let planeAnchor = anchor as? ARPlaneAnchor {
-                
-            }
+//            if let planeAnchor = anchor as? ARPlaneAnchor {
+//
+//            }
         }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         DispatchQueue.main.async {
-            if let planeAnchor = anchor as? ARPlaneAnchor {
-                
-            }
+//            if let planeAnchor = anchor as? ARPlaneAnchor {
+//
+//            }
         }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
         DispatchQueue.main.async {
-            if let planeAnchor = anchor as? ARPlaneAnchor {
-                
-            }
+//            if let planeAnchor = anchor as? ARPlaneAnchor {
+//                
+//            }
         }
     }
     
@@ -212,5 +208,16 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate {
         arSession.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
         //restartExperience(self)
         //textManager.showMessage("RESETTING SESSION")
+    }
+    
+    // MARK: ASTDeviceMotionDelegate Methods
+    
+    // Function gets called when the device motion manger recognizes the orientation has changed state
+    func orientationCorrectChanged(orientationCorrect: Bool) {
+        if orientationCorrect {
+            helperView.formatHelperViewForNoMessage()
+        } else {
+            helperView.formatHelperViewForMessage(ASTHelperConstants.orientationWarning)
+        }
     }
 }

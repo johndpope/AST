@@ -10,11 +10,17 @@
 		BD604E5B1EEBEFFF005058C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E5A1EEBEFFF005058C7 /* AppDelegate.swift */; };
 		BD604E5D1EEBEFFF005058C7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BD604E5C1EEBEFFF005058C7 /* art.scnassets */; };
 		BD604E5F1EEBEFFF005058C7 /* ASTMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E5E1EEBEFFF005058C7 /* ASTMainViewController.swift */; };
-		BD604E621EEBEFFF005058C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD604E601EEBEFFF005058C7 /* Main.storyboard */; };
+		BD604E621EEBEFFF005058C7 /* ASTMainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD604E601EEBEFFF005058C7 /* ASTMainViewController.storyboard */; };
 		BD604E641EEBEFFF005058C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD604E631EEBEFFF005058C7 /* Assets.xcassets */; };
 		BD604E671EEBEFFF005058C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD604E651EEBEFFF005058C7 /* LaunchScreen.storyboard */; };
 		BD604E721EEBEFFF005058C7 /* AstroomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E711EEBEFFF005058C7 /* AstroomTests.swift */; };
 		BD604E7D1EEBEFFF005058C7 /* AstroomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E7C1EEBEFFF005058C7 /* AstroomUITests.swift */; };
+		BD7199E11EF71C170056A0D0 /* ASTUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7199E01EF71C170056A0D0 /* ASTUIViewExtension.swift */; };
+		BD882A781EF6DC5400C1C8F9 /* ASTDeviceMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882A771EF6DC5400C1C8F9 /* ASTDeviceMotion.swift */; };
+		BD882ABB1EF705CD00C1C8F9 /* ASTHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882ABA1EF705CD00C1C8F9 /* ASTHelperView.swift */; };
+		BD882ABD1EF705D700C1C8F9 /* ASTHelperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD882ABC1EF705D700C1C8F9 /* ASTHelperView.xib */; };
+		BD882ABF1EF70C2300C1C8F9 /* ASTHelperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882ABE1EF70C2300C1C8F9 /* ASTHelperConstants.swift */; };
+		BD882AC21EF70C6C00C1C8F9 /* HelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882AC11EF70C6C00C1C8F9 /* HelpViewModel.swift */; };
 		BDBFDD5F1EEF3E01004F3F0A /* ASTInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFDD5E1EEF3E01004F3F0A /* ASTInformationView.swift */; };
 		BDBFDD611EEF3E10004F3F0A /* ASTInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDBFDD601EEF3E10004F3F0A /* ASTInformationView.xib */; };
 		BDBFDD631EEF3FAB004F3F0A /* ASTUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */; };
@@ -43,7 +49,7 @@
 		BD604E5A1EEBEFFF005058C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD604E5C1EEBEFFF005058C7 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		BD604E5E1EEBEFFF005058C7 /* ASTMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTMainViewController.swift; sourceTree = "<group>"; };
-		BD604E611EEBEFFF005058C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BD604E611EEBEFFF005058C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ASTMainViewController.storyboard; sourceTree = "<group>"; };
 		BD604E631EEBEFFF005058C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD604E661EEBEFFF005058C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD604E681EEBEFFF005058C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +59,12 @@
 		BD604E781EEBEFFF005058C7 /* AstroomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstroomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD604E7C1EEBEFFF005058C7 /* AstroomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroomUITests.swift; sourceTree = "<group>"; };
 		BD604E7E1EEBEFFF005058C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD7199E01EF71C170056A0D0 /* ASTUIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTUIViewExtension.swift; sourceTree = "<group>"; };
+		BD882A771EF6DC5400C1C8F9 /* ASTDeviceMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTDeviceMotion.swift; sourceTree = "<group>"; };
+		BD882ABA1EF705CD00C1C8F9 /* ASTHelperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTHelperView.swift; sourceTree = "<group>"; };
+		BD882ABC1EF705D700C1C8F9 /* ASTHelperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASTHelperView.xib; sourceTree = "<group>"; };
+		BD882ABE1EF70C2300C1C8F9 /* ASTHelperConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTHelperConstants.swift; sourceTree = "<group>"; };
+		BD882AC11EF70C6C00C1C8F9 /* HelpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewModel.swift; sourceTree = "<group>"; };
 		BDBFDD5E1EEF3E01004F3F0A /* ASTInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTInformationView.swift; sourceTree = "<group>"; };
 		BDBFDD601EEF3E10004F3F0A /* ASTInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASTInformationView.xib; sourceTree = "<group>"; };
 		BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTUIConstants.swift; sourceTree = "<group>"; };
@@ -107,11 +119,13 @@
 		BD604E591EEBEFFF005058C7 /* Astroom */ = {
 			isa = PBXGroup;
 			children = (
-				BDBFDD5D1EEF3DF4004F3F0A /* View */,
-				BDBFDD5C1EEF3DDC004F3F0A /* Controller */,
-				BDBFDD5B1EEF3DCF004F3F0A /* Extension */,
 				BD604E5A1EEBEFFF005058C7 /* AppDelegate.swift */,
-				BD604E601EEBEFFF005058C7 /* Main.storyboard */,
+				BDBFDD5C1EEF3DDC004F3F0A /* Controller */,
+				BDBFDD5D1EEF3DF4004F3F0A /* View */,
+				BDBFDD5B1EEF3DCF004F3F0A /* Extension */,
+				BD882AC01EF70C4D00C1C8F9 /* Model */,
+				BD882A791EF6DCF700C1C8F9 /* Utils */,
+				BD604E601EEBEFFF005058C7 /* ASTMainViewController.storyboard */,
 				BD604E5C1EEBEFFF005058C7 /* art.scnassets */,
 				BD604E631EEBEFFF005058C7 /* Assets.xcassets */,
 				BD604E651EEBEFFF005058C7 /* LaunchScreen.storyboard */,
@@ -138,9 +152,61 @@
 			path = AstroomUITests;
 			sourceTree = "<group>";
 		};
+		BD882A791EF6DCF700C1C8F9 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BD882A771EF6DC5400C1C8F9 /* ASTDeviceMotion.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BD882AB81EF705A300C1C8F9 /* InformationView */ = {
+			isa = PBXGroup;
+			children = (
+				BDBFDD5E1EEF3E01004F3F0A /* ASTInformationView.swift */,
+				BDBFDD601EEF3E10004F3F0A /* ASTInformationView.xib */,
+			);
+			path = InformationView;
+			sourceTree = "<group>";
+		};
+		BD882AB91EF705B300C1C8F9 /* HelperView */ = {
+			isa = PBXGroup;
+			children = (
+				BD882ABE1EF70C2300C1C8F9 /* ASTHelperConstants.swift */,
+				BD882ABA1EF705CD00C1C8F9 /* ASTHelperView.swift */,
+				BD882ABC1EF705D700C1C8F9 /* ASTHelperView.xib */,
+			);
+			path = HelperView;
+			sourceTree = "<group>";
+		};
+		BD882AC01EF70C4D00C1C8F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD882AC41EF70CB300C1C8F9 /* Object Model */,
+				BD882AC31EF70CA400C1C8F9 /* View Model */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BD882AC31EF70CA400C1C8F9 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD882AC11EF70C6C00C1C8F9 /* HelpViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		BD882AC41EF70CB300C1C8F9 /* Object Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Object Model";
+			sourceTree = "<group>";
+		};
 		BDBFDD5B1EEF3DCF004F3F0A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				BD7199E01EF71C170056A0D0 /* ASTUIViewExtension.swift */,
 				BDD3BBCD1EEF328300139070 /* ASTCGRectExtension.swift */,
 			);
 			path = Extension;
@@ -158,8 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */,
-				BDBFDD5E1EEF3E01004F3F0A /* ASTInformationView.swift */,
-				BDBFDD601EEF3E10004F3F0A /* ASTInformationView.xib */,
+				BD882AB81EF705A300C1C8F9 /* InformationView */,
+				BD882AB91EF705B300C1C8F9 /* HelperView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -272,7 +338,8 @@
 				BD604E671EEBEFFF005058C7 /* LaunchScreen.storyboard in Resources */,
 				BDBFDD611EEF3E10004F3F0A /* ASTInformationView.xib in Resources */,
 				BD604E641EEBEFFF005058C7 /* Assets.xcassets in Resources */,
-				BD604E621EEBEFFF005058C7 /* Main.storyboard in Resources */,
+				BD604E621EEBEFFF005058C7 /* ASTMainViewController.storyboard in Resources */,
+				BD882ABD1EF705D700C1C8F9 /* ASTHelperView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,11 +364,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD882ABF1EF70C2300C1C8F9 /* ASTHelperConstants.swift in Sources */,
 				BDBFDD631EEF3FAB004F3F0A /* ASTUIConstants.swift in Sources */,
 				BDBFDD5F1EEF3E01004F3F0A /* ASTInformationView.swift in Sources */,
+				BD7199E11EF71C170056A0D0 /* ASTUIViewExtension.swift in Sources */,
 				BD604E5F1EEBEFFF005058C7 /* ASTMainViewController.swift in Sources */,
 				BD604E5B1EEBEFFF005058C7 /* AppDelegate.swift in Sources */,
+				BD882A781EF6DC5400C1C8F9 /* ASTDeviceMotion.swift in Sources */,
 				BDD3BBCE1EEF328300139070 /* ASTCGRectExtension.swift in Sources */,
+				BD882AC21EF70C6C00C1C8F9 /* HelpViewModel.swift in Sources */,
+				BD882ABB1EF705CD00C1C8F9 /* ASTHelperView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,12 +409,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BD604E601EEBEFFF005058C7 /* Main.storyboard */ = {
+		BD604E601EEBEFFF005058C7 /* ASTMainViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BD604E611EEBEFFF005058C7 /* Base */,
 			);
-			name = Main.storyboard;
+			name = ASTMainViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		BD604E651EEBEFFF005058C7 /* LaunchScreen.storyboard */ = {
@@ -463,10 +535,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FECG24D3AX;
+				DEVELOPMENT_TEAM = TPQ9WQCL4P;
 				INFOPLIST_FILE = Astroom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RyanKing.Astroom;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Ryan-King.Astroom";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -477,10 +549,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = FECG24D3AX;
+				DEVELOPMENT_TEAM = TPQ9WQCL4P;
 				INFOPLIST_FILE = Astroom/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.RyanKing.Astroom;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Ryan-King.Astroom";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -492,7 +564,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = FECG24D3AX;
+				DEVELOPMENT_TEAM = TPQ9WQCL4P;
 				INFOPLIST_FILE = AstroomTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RyanKing.AstroomTests;
@@ -508,7 +580,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = FECG24D3AX;
+				DEVELOPMENT_TEAM = TPQ9WQCL4P;
 				INFOPLIST_FILE = AstroomTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RyanKing.AstroomTests;
@@ -523,7 +595,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = FECG24D3AX;
+				DEVELOPMENT_TEAM = TPQ9WQCL4P;
 				INFOPLIST_FILE = AstroomUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RyanKing.AstroomUITests;
@@ -538,7 +610,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = FECG24D3AX;
+				DEVELOPMENT_TEAM = TPQ9WQCL4P;
 				INFOPLIST_FILE = AstroomUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RyanKing.AstroomUITests;
