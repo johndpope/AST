@@ -21,6 +21,7 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
     // Variables and Constants
     let arSession = ARSession()
     let deviceMotionManager = ASTDeviceMotion()
+    var focusSquare: FocusSquare?
     var screenCenter: CGPoint?
     var sessionConfig: ARSessionConfiguration = ARWorldTrackingSessionConfiguration()
     var use3DOFTrackingFallback = false
@@ -45,6 +46,8 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
         
         // Setup Scene
         setupScene()
+        // Setup Focus Square
+        setupFocusSquare()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,11 +85,10 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
         }
     }
     
-    
     func setupScene() {
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/AllPlanets/AllPlanetsScene.scn")!
-        sceneView.scene = scene
+        //let scene = SCNScene(named: "art.scnassets/AllPlanets/AllPlanetsScene.scn")!
+        //sceneView.scene = scene
         sceneView.session = arSession
         sceneView.antialiasingMode = .multisampling4X
         
@@ -112,6 +114,24 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
             }
         }
         sceneView.scene.lightingEnvironment.intensity = intensity
+    }
+    
+    // MARK: - Focus Square
+    
+    func setupFocusSquare() {
+        focusSquare?.isHidden = true
+        focusSquare?.removeFromParentNode()
+        focusSquare = FocusSquare()
+        sceneView.scene.rootNode.addChildNode(focusSquare!)
+    }
+    
+    func updateFocusSquare() {
+        guard let screenCenter = screenCenter else { return }
+        
+        let (worldPos, planeAnchor, _) = worldPositionFromScreenPosition(screenCenter, objectPos: focusSquare?.position)
+        if let worldPos = worldPos {
+            focusSquare?.update(for: worldPos, planeAnchor: planeAnchor, camera: self.arSession.currentFrame?.camera)
+        }
     }
     
     // MARK: - ARSCNViewDelegate
@@ -208,6 +228,77 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
         arSession.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
         //restartExperience(self)
         //textManager.showMessage("RESETTING SESSION")
+    }
+    
+    // MARK: Helper Methods
+    
+    func worldPositionFromScreenPosition(_ position: CGPoint,
+                                         objectPos: SCNVector3?,
+                                         infinitePlane: Bool = false) -> (position: SCNVector3?, planeAnchor: ARPlaneAnchor?, hitAPlane: Bool) {
+        
+        // -------------------------------------------------------------------------------
+        // 1. Always do a hit test against exisiting plane anchors first.
+        //    (If any such anchors exist & only within their extents.)
+        
+        let planeHitTestResults = sceneView.hitTest(position, types: .existingPlaneUsingExtent)
+        if let result = planeHitTestResults.first {
+            
+            let planeHitTestPosition = SCNVector3.positionFromTransform(result.worldTransform)
+            let planeAnchor = result.anchor
+            
+            // Return immediately - this is the best possible outcome.
+            return (planeHitTestPosition, planeAnchor as? ARPlaneAnchor, true)
+        }
+        
+        // -------------------------------------------------------------------------------
+        // 2. Collect more information about the environment by hit testing against
+        //    the feature point cloud, but do not return the result yet.
+        
+        var featureHitTestPosition: SCNVector3?
+        var highQualityFeatureHitTestResult = false
+        
+        let highQualityfeatureHitTestResults = sceneView.hitTestWithFeatures(position, coneOpeningAngleInDegrees: 18, minDistance: 0.2, maxDistance: 2.0)
+        
+        if !highQualityfeatureHitTestResults.isEmpty {
+            let result = highQualityfeatureHitTestResults[0]
+            featureHitTestPosition = result.position
+            highQualityFeatureHitTestResult = true
+        }
+        
+        // -------------------------------------------------------------------------------
+        // 3. If desired or necessary (no good feature hit test result): Hit test
+        //    against an infinite, horizontal plane (ignoring the real world).
+        
+        if !highQualityFeatureHitTestResult {
+            
+            let pointOnPlane = objectPos ?? SCNVector3Zero
+            
+            let pointOnInfinitePlane = sceneView.hitTestWithInfiniteHorizontalPlane(position, pointOnPlane)
+            if pointOnInfinitePlane != nil {
+                return (pointOnInfinitePlane, nil, true)
+            }
+        }
+        
+        // -------------------------------------------------------------------------------
+        // 4. If available, return the result of the hit test against high quality
+        //    features if the hit tests against infinite planes were skipped or no
+        //    infinite plane was hit.
+        
+        if highQualityFeatureHitTestResult {
+            return (featureHitTestPosition, nil, false)
+        }
+        
+        // -------------------------------------------------------------------------------
+        // 5. As a last resort, perform a second, unfiltered hit test against features.
+        //    If there are no features in the scene, the result returned here will be nil.
+        
+        let unfilteredFeatureHitTestResults = sceneView.hitTestWithFeatures(position)
+        if !unfilteredFeatureHitTestResults.isEmpty {
+            let result = unfilteredFeatureHitTestResults[0]
+            return (result.position, nil, false)
+        }
+        
+        return (nil, nil, false)
     }
     
     // MARK: ASTDeviceMotionDelegate Methods
