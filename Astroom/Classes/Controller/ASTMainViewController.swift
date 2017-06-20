@@ -17,25 +17,13 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet var informationView: UIView!
     @IBOutlet var helperView: ASTHelperView!
+    @IBOutlet var actionButton: UIButton!
     
-    // Variables and Constants
-    let arSession = ARSession()
     let deviceMotionManager = ASTDeviceMotion()
-    var focusSquare: FocusSquare?
-    var screenCenter: CGPoint?
+    let session = ARSession()
     var sessionConfig: ARSessionConfiguration = ARWorldTrackingSessionConfiguration()
-    var use3DOFTrackingFallback = false
-    var trackingFallbackTimer: Timer?
-    var use3DOFTracking = false {
-        didSet {
-            if use3DOFTracking {
-                sessionConfig = ARSessionConfiguration()
-            }
-            sessionConfig.isLightEstimationEnabled = true
-            arSession.run(sessionConfig)
-        }
-    }
-    
+    var skyPlane = ASTSkyPlane()
+
     // MARK: View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,8 +34,6 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
         
         // Setup Scene
         setupScene()
-        // Setup Focus Square
-        setupFocusSquare()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,39 +47,28 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // Pause the session on disappear
-        arSession.pause()
+        session.pause()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Release any cached data, images, etc that aren't in use.
+        helperView.formatHelperViewForMessage(ASTHelperConstants.memoryWarning)
+        session.pause()
     }
     
-    // MARK: Setup Methods
-    
-    func restartPlaneDetection() {
-        // Configure session
-        if let worldSessionConfig = sessionConfig as? ARWorldTrackingSessionConfiguration {
-            worldSessionConfig.planeDetection = .horizontal
-            arSession.run(worldSessionConfig, options: [.resetTracking, .removeExistingAnchors])
-        }
-        
-        // Reset timer
-        if trackingFallbackTimer != nil {
-            trackingFallbackTimer!.invalidate()
-            trackingFallbackTimer = nil
-        }
-    }
+    // MARK: - ARKit / ARSCNView
+    var screenCenter: CGPoint?
     
     func setupScene() {
-        // Create a new scene
-        //let scene = SCNScene(named: "art.scnassets/AllPlanets/AllPlanetsScene.scn")!
-        //sceneView.scene = scene
-        sceneView.session = arSession
+        // set up sceneView
+        sceneView.delegate = self
+        sceneView.session = session
         sceneView.antialiasingMode = .multisampling4X
+        sceneView.automaticallyUpdatesLighting = false
         
         sceneView.preferredFramesPerSecond = 60
-        sceneView.contentScaleFactor = 2.0
+        sceneView.contentScaleFactor = 1.3
         
         DispatchQueue.main.async {
             self.screenCenter = self.sceneView.bounds.mid
@@ -107,97 +82,90 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
         }
     }
     
-    func enableEnvironmentMapWithIntensity(_ intensity: CGFloat) {
-        if sceneView.scene.lightingEnvironment.contents == nil {
-            if let environmentMap = UIImage(named: "Models.scnassets/sharedImages/environment_blur.exr") {
-                sceneView.scene.lightingEnvironment.contents = environmentMap
-            }
+    func restartPlaneDetection() {
+        // Configure session
+        if let worldSessionConfig = sessionConfig as? ARWorldTrackingSessionConfiguration {
+            worldSessionConfig.planeDetection = .horizontal
+            session.run(worldSessionConfig, options: [.resetTracking, .removeExistingAnchors])
         }
-        sceneView.scene.lightingEnvironment.intensity = intensity
     }
     
-    // MARK: - Focus Square
-    
-    func setupFocusSquare() {
-        focusSquare?.isHidden = true
-        focusSquare?.removeFromParentNode()
-        focusSquare = FocusSquare()
-        sceneView.scene.rootNode.addChildNode(focusSquare!)
-    }
-    
-    func updateFocusSquare() {
-        guard let screenCenter = screenCenter else { return }
+    func createPlaneNode(anchor: ARPlaneAnchor) -> SCNNode {
+        // Create a SceneKit plane to visualize the node using its position and extent.
+        // Create the geometry and its materials
+        let plane = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))
         
-        let (worldPos, planeAnchor, _) = worldPositionFromScreenPosition(screenCenter, objectPos: focusSquare?.position)
-        if let worldPos = worldPos {
-            focusSquare?.update(for: worldPos, planeAnchor: planeAnchor, camera: self.arSession.currentFrame?.camera)
-        }
+        let nightMaterial = SCNMaterial()
+        nightMaterial.diffuse.contents = #imageLiteral(resourceName: "night")
+        nightMaterial.isDoubleSided = true
+        
+        plane.materials = [nightMaterial]
+        
+        // Create a node with the plane geometry we created
+        let planeNode = SCNNode(geometry: plane)
+        planeNode.position = SCNVector3Make(anchor.center.x, 0, anchor.center.z)
+        
+        // SCNPlanes are vertically oriented in their local coordinate space.
+        // Rotate it to match the horizontal orientation of the ARPlaneAnchor.
+        planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
+        
+        return planeNode
     }
     
     // MARK: - ARSCNViewDelegate
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         DispatchQueue.main.async {
-            // If light estimation is enabled, update the intensity of the model's lights and the environment map
-            if let lightEstimate = self.arSession.currentFrame?.lightEstimate {
-                self.enableEnvironmentMapWithIntensity(lightEstimate.ambientIntensity / 40)
-            } else {
-                self.enableEnvironmentMapWithIntensity(25)
-            }
+            
         }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        DispatchQueue.main.async {
-//            if let planeAnchor = anchor as? ARPlaneAnchor {
-//
-//            }
-        }
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        
+        let planeNode = createPlaneNode(anchor: planeAnchor)
+        // ARKit owns the node corresponding to the anchor, so make the plane a child node.
+        node.addChildNode(planeNode)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        DispatchQueue.main.async {
-//            if let planeAnchor = anchor as? ARPlaneAnchor {
-//
-//            }
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        // Remove existing plane nodes
+        node.enumerateChildNodes {
+            (childNode, _) in
+            childNode.removeFromParentNode()
         }
+        let planeNode = createPlaneNode(anchor: planeAnchor)
+        
+        node.addChildNode(planeNode)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
-        DispatchQueue.main.async {
-//            if let planeAnchor = anchor as? ARPlaneAnchor {
-//                
-//            }
+        guard anchor is ARPlaneAnchor else { return }
+        
+        // Remove existing plane nodes
+        node.enumerateChildNodes {
+            (childNode, _) in
+            childNode.removeFromParentNode()
         }
     }
     
     
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
-        
         switch camera.trackingState {
-        case .notAvailable:
-                print("Camera unavailable")
-        case .limited:
-            if use3DOFTrackingFallback {
-                // After 10 seconds of limited quality, fall back to 3DOF mode.
-                trackingFallbackTimer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false, block: { _ in
-                    self.use3DOFTracking = true
-                    self.trackingFallbackTimer?.invalidate()
-                    self.trackingFallbackTimer = nil
-                })
-            } else {
-                //textManager.escalateFeedback(for: camera.trackingState, inSeconds: 10.0)
-            }
-        case .normal:
-            if use3DOFTrackingFallback && trackingFallbackTimer != nil {
-                trackingFallbackTimer!.invalidate()
-                trackingFallbackTimer = nil
-            }
+            case .notAvailable:
+                // Not available
+                helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateNotAvailable)
+            case .limited:
+                // Limited
+                helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateLimited)
+            case .normal:
+                // Normal
+                helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateNormal)
         }
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
-        
         guard let arError = error as? ARError else { return }
         
         let nsError = error as NSError
@@ -215,90 +183,49 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
             sessionErrorMsg += "\nThis is an unrecoverable error that requires to quit the application."
         }
         
-        //displayErrorMessage(title: "We're sorry!", message: sessionErrorMsg, allowRestart: isRecoverable)
+        let errorMessage = ASTHelpViewModel(image: #imageLiteral(resourceName: "ic_attention"), title: "Error", description: sessionErrorMsg)
+        helperView.formatHelperViewForMessage(errorMessage)
     }
     
     func sessionWasInterrupted(_ session: ARSession) {
-        //textManager.blurBackground()
-        //textManager.showAlert(title: "Session Interrupted", message: "The session will be reset after the interruption has ended.")
+        helperView.formatHelperViewForMessage(ASTHelperConstants.sessionInterrupted)
     }
     
     func sessionInterruptionEnded(_ session: ARSession) {
-        //textManager.unblurBackground()
-        arSession.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
-        //restartExperience(self)
-        //textManager.showMessage("RESETTING SESSION")
+        session.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
+        restartSession(self)
     }
     
-    // MARK: Helper Methods
+    // MARK: ARSessionDelegate
     
-    func worldPositionFromScreenPosition(_ position: CGPoint,
-                                         objectPos: SCNVector3?,
-                                         infinitePlane: Bool = false) -> (position: SCNVector3?, planeAnchor: ARPlaneAnchor?, hitAPlane: Bool) {
+//    func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+//
+//    }
+//
+//    func session(_ session: ARSession, didRemove anchors: [ARAnchor]) {
+//
+//    }
+//
+//    func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+//
+//    }
+    
+    // MARK: Action Methods
+    
+    @IBAction func restartSession(_ sender: Any) {
+        guard actionButton.isUserInteractionEnabled else { return }
         
-        // -------------------------------------------------------------------------------
-        // 1. Always do a hit test against exisiting plane anchors first.
-        //    (If any such anchors exist & only within their extents.)
-        
-        let planeHitTestResults = sceneView.hitTest(position, types: .existingPlaneUsingExtent)
-        if let result = planeHitTestResults.first {
+        DispatchQueue.main.async {
+            // Disable the button temporarily
+            self.actionButton.isUserInteractionEnabled = false
+            // Display user a message
+            self.helperView.formatHelperViewForMessage(ASTHelperConstants.newSession)
             
-            let planeHitTestPosition = SCNVector3.positionFromTransform(result.worldTransform)
-            let planeAnchor = result.anchor
-            
-            // Return immediately - this is the best possible outcome.
-            return (planeHitTestPosition, planeAnchor as? ARPlaneAnchor, true)
+            // Disable Restart button for five seconds in order to give the session enough time to restart.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+                self.actionButton.isUserInteractionEnabled = true
+            })
         }
-        
-        // -------------------------------------------------------------------------------
-        // 2. Collect more information about the environment by hit testing against
-        //    the feature point cloud, but do not return the result yet.
-        
-        var featureHitTestPosition: SCNVector3?
-        var highQualityFeatureHitTestResult = false
-        
-        let highQualityfeatureHitTestResults = sceneView.hitTestWithFeatures(position, coneOpeningAngleInDegrees: 18, minDistance: 0.2, maxDistance: 2.0)
-        
-        if !highQualityfeatureHitTestResults.isEmpty {
-            let result = highQualityfeatureHitTestResults[0]
-            featureHitTestPosition = result.position
-            highQualityFeatureHitTestResult = true
-        }
-        
-        // -------------------------------------------------------------------------------
-        // 3. If desired or necessary (no good feature hit test result): Hit test
-        //    against an infinite, horizontal plane (ignoring the real world).
-        
-        if !highQualityFeatureHitTestResult {
-            
-            let pointOnPlane = objectPos ?? SCNVector3Zero
-            
-            let pointOnInfinitePlane = sceneView.hitTestWithInfiniteHorizontalPlane(position, pointOnPlane)
-            if pointOnInfinitePlane != nil {
-                return (pointOnInfinitePlane, nil, true)
-            }
-        }
-        
-        // -------------------------------------------------------------------------------
-        // 4. If available, return the result of the hit test against high quality
-        //    features if the hit tests against infinite planes were skipped or no
-        //    infinite plane was hit.
-        
-        if highQualityFeatureHitTestResult {
-            return (featureHitTestPosition, nil, false)
-        }
-        
-        // -------------------------------------------------------------------------------
-        // 5. As a last resort, perform a second, unfiltered hit test against features.
-        //    If there are no features in the scene, the result returned here will be nil.
-        
-        let unfilteredFeatureHitTestResults = sceneView.hitTestWithFeatures(position)
-        if !unfilteredFeatureHitTestResults.isEmpty {
-            let result = unfilteredFeatureHitTestResults[0]
-            return (result.position, nil, false)
-        }
-        
-        return (nil, nil, false)
     }
     
     // MARK: ASTDeviceMotionDelegate Methods

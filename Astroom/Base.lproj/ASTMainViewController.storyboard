@@ -47,6 +47,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqt-FP-Uzc">
+                                <rect key="frame" x="327" y="16" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="OTK-yD-yg6"/>
+                                    <constraint firstAttribute="height" constant="32" id="gF7-Ek-8IP"/>
+                                </constraints>
+                                <state key="normal" image="ic_play">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="restartSession:" destination="BV1-FR-VrT" eventType="touchUpInside" id="doU-7J-JOZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -57,12 +70,15 @@
                             <constraint firstItem="7Rr-CG-V1H" firstAttribute="top" secondItem="Mgu-Ia-zR1" secondAttribute="bottom" constant="8" id="DkR-FS-qTX"/>
                             <constraint firstAttribute="trailing" secondItem="Mgu-Ia-zR1" secondAttribute="trailing" constant="16" id="EDJ-cQ-N25"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7Rr-CG-V1H" secondAttribute="trailing" id="Vrl-de-pjk"/>
+                            <constraint firstAttribute="trailing" secondItem="Wqt-FP-Uzc" secondAttribute="trailing" constant="16" id="ZhD-HV-VeQ"/>
                             <constraint firstAttribute="trailing" secondItem="pOB-Ig-ues" secondAttribute="trailing" id="eXT-RB-cGw"/>
                             <constraint firstItem="pOB-Ig-ues" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leading" id="hJK-cg-7nu"/>
+                            <constraint firstItem="Wqt-FP-Uzc" firstAttribute="top" secondItem="rmn-GL-oql" secondAttribute="top" constant="16" id="ppH-bU-swX"/>
                             <constraint firstItem="Mgu-Ia-zR1" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leading" constant="16" id="vB6-sN-089"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actionButton" destination="Wqt-FP-Uzc" id="7nJ-4Y-w0j"/>
                         <outlet property="helperView" destination="Mgu-Ia-zR1" id="dLJ-mX-WbG"/>
                         <outlet property="informationView" destination="7Rr-CG-V1H" id="Tnc-ez-opc"/>
                         <outlet property="mainView" destination="rmn-GL-oql" id="8nA-Oz-mG3"/>
@@ -74,4 +90,7 @@
             <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_play" width="64" height="64"/>
+    </resources>
 </document>

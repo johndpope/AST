@@ -17,18 +17,18 @@
 		BD604E7D1EEBEFFF005058C7 /* AstroomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E7C1EEBEFFF005058C7 /* AstroomUITests.swift */; };
 		BD7199E11EF71C170056A0D0 /* ASTUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7199E01EF71C170056A0D0 /* ASTUIViewExtension.swift */; };
 		BD82B7321EF87C02003260CF /* ARUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3CCC51EF87AD20083A656 /* ARUtilities.swift */; };
-		BD82B7351EF87C1D003260CF /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD82B7341EF87C1D003260CF /* FocusSquare.swift */; };
 		BD82B7381EF87CBC003260CF /* ASTInformationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD82B7371EF87CBC003260CF /* ASTInformationViewCell.swift */; };
 		BD82B73A1EF87CC5003260CF /* ASTInformationViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD82B7391EF87CC5003260CF /* ASTInformationViewCell.xib */; };
 		BD882A781EF6DC5400C1C8F9 /* ASTDeviceMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882A771EF6DC5400C1C8F9 /* ASTDeviceMotion.swift */; };
 		BD882ABB1EF705CD00C1C8F9 /* ASTHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882ABA1EF705CD00C1C8F9 /* ASTHelperView.swift */; };
 		BD882ABD1EF705D700C1C8F9 /* ASTHelperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD882ABC1EF705D700C1C8F9 /* ASTHelperView.xib */; };
 		BD882ABF1EF70C2300C1C8F9 /* ASTHelperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882ABE1EF70C2300C1C8F9 /* ASTHelperConstants.swift */; };
-		BD882AC21EF70C6C00C1C8F9 /* HelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882AC11EF70C6C00C1C8F9 /* HelpViewModel.swift */; };
+		BD882AC21EF70C6C00C1C8F9 /* ASTHelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882AC11EF70C6C00C1C8F9 /* ASTHelpViewModel.swift */; };
 		BDBFDD5F1EEF3E01004F3F0A /* ASTInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFDD5E1EEF3E01004F3F0A /* ASTInformationView.swift */; };
 		BDBFDD611EEF3E10004F3F0A /* ASTInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDBFDD601EEF3E10004F3F0A /* ASTInformationView.xib */; };
 		BDBFDD631EEF3FAB004F3F0A /* ASTUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */; };
 		BDD3BBCE1EEF328300139070 /* ASTCGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BBCD1EEF328300139070 /* ASTCGRectExtension.swift */; };
+		BDE4C7B31EF9DAC300FE3292 /* ASTSkyPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4C7B21EF9DAC300FE3292 /* ASTSkyPlane.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,19 +64,19 @@
 		BD604E7C1EEBEFFF005058C7 /* AstroomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroomUITests.swift; sourceTree = "<group>"; };
 		BD604E7E1EEBEFFF005058C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD7199E01EF71C170056A0D0 /* ASTUIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTUIViewExtension.swift; sourceTree = "<group>"; };
-		BD82B7341EF87C1D003260CF /* FocusSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FocusSquare.swift; path = "../../../../../../Downloads/ARKit-Example-by-Apple-master/ARKitExample/UI Elements/FocusSquare.swift"; sourceTree = "<group>"; };
 		BD82B7371EF87CBC003260CF /* ASTInformationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTInformationViewCell.swift; sourceTree = "<group>"; };
 		BD82B7391EF87CC5003260CF /* ASTInformationViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASTInformationViewCell.xib; sourceTree = "<group>"; };
 		BD882A771EF6DC5400C1C8F9 /* ASTDeviceMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTDeviceMotion.swift; sourceTree = "<group>"; };
 		BD882ABA1EF705CD00C1C8F9 /* ASTHelperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTHelperView.swift; sourceTree = "<group>"; };
 		BD882ABC1EF705D700C1C8F9 /* ASTHelperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASTHelperView.xib; sourceTree = "<group>"; };
 		BD882ABE1EF70C2300C1C8F9 /* ASTHelperConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTHelperConstants.swift; sourceTree = "<group>"; };
-		BD882AC11EF70C6C00C1C8F9 /* HelpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewModel.swift; sourceTree = "<group>"; };
+		BD882AC11EF70C6C00C1C8F9 /* ASTHelpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTHelpViewModel.swift; sourceTree = "<group>"; };
 		BDBFDD5E1EEF3E01004F3F0A /* ASTInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTInformationView.swift; sourceTree = "<group>"; };
 		BDBFDD601EEF3E10004F3F0A /* ASTInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASTInformationView.xib; sourceTree = "<group>"; };
 		BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTUIConstants.swift; sourceTree = "<group>"; };
 		BDD3BBCD1EEF328300139070 /* ASTCGRectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTCGRectExtension.swift; sourceTree = "<group>"; };
 		BDD3CCC51EF87AD20083A656 /* ARUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARUtilities.swift; sourceTree = "<group>"; };
+		BDE4C7B21EF9DAC300FE3292 /* ASTSkyPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTSkyPlane.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,7 +205,7 @@
 		BD882AC31EF70CA400C1C8F9 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				BD882AC11EF70C6C00C1C8F9 /* HelpViewModel.swift */,
+				BD882AC11EF70C6C00C1C8F9 /* ASTHelpViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -213,6 +213,7 @@
 		BD882AC41EF70CB300C1C8F9 /* Object Model */ = {
 			isa = PBXGroup;
 			children = (
+				BDE4C7B21EF9DAC300FE3292 /* ASTSkyPlane.swift */,
 			);
 			path = "Object Model";
 			sourceTree = "<group>";
@@ -238,19 +239,10 @@
 			isa = PBXGroup;
 			children = (
 				BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */,
-				BDD3CCBE1EF875F50083A656 /* FocusSquare */,
 				BD882AB81EF705A300C1C8F9 /* InformationView */,
 				BD882AB91EF705B300C1C8F9 /* HelperView */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		BDD3CCBE1EF875F50083A656 /* FocusSquare */ = {
-			isa = PBXGroup;
-			children = (
-				BD82B7341EF87C1D003260CF /* FocusSquare.swift */,
-			);
-			path = FocusSquare;
 			sourceTree = "<group>";
 		};
 		BDD3CCC71EF87AEE0083A656 /* Vendor */ = {
@@ -418,17 +410,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD882ABF1EF70C2300C1C8F9 /* ASTHelperConstants.swift in Sources */,
-				BD82B7351EF87C1D003260CF /* FocusSquare.swift in Sources */,
 				BDBFDD631EEF3FAB004F3F0A /* ASTUIConstants.swift in Sources */,
 				BDBFDD5F1EEF3E01004F3F0A /* ASTInformationView.swift in Sources */,
 				BD82B7321EF87C02003260CF /* ARUtilities.swift in Sources */,
 				BD7199E11EF71C170056A0D0 /* ASTUIViewExtension.swift in Sources */,
+				BDE4C7B31EF9DAC300FE3292 /* ASTSkyPlane.swift in Sources */,
 				BD604E5F1EEBEFFF005058C7 /* ASTMainViewController.swift in Sources */,
 				BD604E5B1EEBEFFF005058C7 /* AppDelegate.swift in Sources */,
 				BD82B7381EF87CBC003260CF /* ASTInformationViewCell.swift in Sources */,
 				BD882A781EF6DC5400C1C8F9 /* ASTDeviceMotion.swift in Sources */,
 				BDD3BBCE1EEF328300139070 /* ASTCGRectExtension.swift in Sources */,
-				BD882AC21EF70C6C00C1C8F9 /* HelpViewModel.swift in Sources */,
+				BD882AC21EF70C6C00C1C8F9 /* ASTHelpViewModel.swift in Sources */,
 				BD882ABB1EF705CD00C1C8F9 /* ASTHelperView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

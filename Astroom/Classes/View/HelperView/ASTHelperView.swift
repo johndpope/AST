@@ -27,7 +27,7 @@ class ASTHelperView : UIView {
         
     // MARK: Format Methods
     
-    func formatHelperViewForMessage(_ helperViewMessageDetails: HelpViewModel) {
+    func formatHelperViewForMessage(_ helperViewMessageDetails: ASTHelpViewModel) {
         DispatchQueue.main.async {
             self.helperImageView.image = helperViewMessageDetails.image
             self.helperTitleLabel.text = helperViewMessageDetails.title
