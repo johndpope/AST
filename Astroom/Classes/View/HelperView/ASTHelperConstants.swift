@@ -5,7 +5,7 @@ class ASTHelperConstants {
     // MARK: Tracking States
     
     // Tracking State Not Available
-    static let trackingStateNotAvailable = ASTHelpViewModel(image: UIImage(named: "ic_attention"),
+    static let trackingStateNotAvailable = ASTHelpViewModel(image: UIImage(named: "ic_high_warning"),
                                                             title: "Tracking State - Not Available",
                                                             description: "The session tracking state is unavailable")
     
@@ -15,7 +15,7 @@ class ASTHelperConstants {
                                                        description: "The session is in a limited state")
     
     // Tracking State Normal
-    static let trackingStateNormal = ASTHelpViewModel(image: UIImage(named: "ic_attention"),
+    static let trackingStateNormal = ASTHelpViewModel(image: UIImage(named: "ic_info"),
                                                       title: "Tracking State - Normal",
                                                       description: "The session is running normally.")
     
@@ -34,7 +34,7 @@ class ASTHelperConstants {
     // MARK: Session States
     
     // Starting New Session
-    static let newSession = ASTHelpViewModel(image: UIImage(named: "ic_attention"),
+    static let newSession = ASTHelpViewModel(image: UIImage(named: "ic_info"),
                                              title: "Starting a New Session",
                                              description: "Preparing a new session")
     

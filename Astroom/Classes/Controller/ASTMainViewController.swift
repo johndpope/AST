@@ -22,7 +22,7 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
     let deviceMotionManager = ASTDeviceMotion()
     let session = ARSession()
     var sessionConfig: ARSessionConfiguration = ARWorldTrackingSessionConfiguration()
-    var skyPlane = ASTSkyPlane()
+    var skyPlane: ASTSkyPlane!
 
     // MARK: View Methods
     override func viewDidLoad() {
@@ -90,28 +90,6 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
         }
     }
     
-    func createPlaneNode(anchor: ARPlaneAnchor) -> SCNNode {
-        // Create a SceneKit plane to visualize the node using its position and extent.
-        // Create the geometry and its materials
-        let plane = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))
-        
-        let nightMaterial = SCNMaterial()
-        nightMaterial.diffuse.contents = #imageLiteral(resourceName: "night")
-        nightMaterial.isDoubleSided = true
-        
-        plane.materials = [nightMaterial]
-        
-        // Create a node with the plane geometry we created
-        let planeNode = SCNNode(geometry: plane)
-        planeNode.position = SCNVector3Make(anchor.center.x, 0, anchor.center.z)
-        
-        // SCNPlanes are vertically oriented in their local coordinate space.
-        // Rotate it to match the horizontal orientation of the ARPlaneAnchor.
-        planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
-        
-        return planeNode
-    }
-    
     // MARK: - ARSCNViewDelegate
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -122,34 +100,23 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        
-        let planeNode = createPlaneNode(anchor: planeAnchor)
-        // ARKit owns the node corresponding to the anchor, so make the plane a child node.
-        node.addChildNode(planeNode)
+        // Add another plane node
+        addPlane(node: node, on: planeAnchor)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         // Remove existing plane nodes
-        node.enumerateChildNodes {
-            (childNode, _) in
-            childNode.removeFromParentNode()
-        }
-        let planeNode = createPlaneNode(anchor: planeAnchor)
-        
-        node.addChildNode(planeNode)
+        removePlanes(node: node)
+        // Add another plane node
+        addPlane(node: node, on: planeAnchor)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
         guard anchor is ARPlaneAnchor else { return }
-        
         // Remove existing plane nodes
-        node.enumerateChildNodes {
-            (childNode, _) in
-            childNode.removeFromParentNode()
-        }
+        removePlanes(node: node)
     }
-    
     
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
         switch camera.trackingState {
@@ -196,20 +163,6 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
         restartSession(self)
     }
     
-    // MARK: ARSessionDelegate
-    
-//    func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-//
-//    }
-//
-//    func session(_ session: ARSession, didRemove anchors: [ARAnchor]) {
-//
-//    }
-//
-//    func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-//
-//    }
-    
     // MARK: Action Methods
     
     @IBAction func restartSession(_ sender: Any) {
@@ -222,20 +175,33 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
             self.helperView.formatHelperViewForMessage(ASTHelperConstants.newSession)
             
             // Disable Restart button for five seconds in order to give the session enough time to restart.
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + ASTUIConstants.actionButtonDisableDuration, execute: {
                 self.actionButton.isUserInteractionEnabled = true
             })
         }
+    }
+    
+    // MARK: Helper Methods
+    
+    /// Add a plane to a given node
+    private func addPlane(node: SCNNode, on planeAnchor: ARPlaneAnchor) {
+        skyPlane = ASTSkyPlane(anchor: planeAnchor)
+        node.addChildNode(skyPlane)
+    }
+    
+    /// Removes planes from the given node
+    private func removePlanes(node: SCNNode) {
+        skyPlane.removeFromParentNode()
     }
     
     // MARK: ASTDeviceMotionDelegate Methods
     
     // Function gets called when the device motion manger recognizes the orientation has changed state
     func orientationCorrectChanged(orientationCorrect: Bool) {
-        if orientationCorrect {
-            helperView.formatHelperViewForNoMessage()
-        } else {
-            helperView.formatHelperViewForMessage(ASTHelperConstants.orientationWarning)
-        }
+//        if orientationCorrect {
+//            helperView.formatHelperViewForNoMessage()
+//        } else {
+//            helperView.formatHelperViewForMessage(ASTHelperConstants.orientationWarning)
+//        }
     }
 }

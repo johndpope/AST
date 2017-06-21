@@ -35,10 +35,10 @@
                                 </constraints>
                             </view>
                             <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgu-Ia-zR1" customClass="ASTHelperView" customModule="Astroom" customModuleProvider="target">
-                                <rect key="frame" x="16" y="595" width="343" height="64"/>
+                                <rect key="frame" x="16" y="603" width="343" height="56"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="XYS-az-N1v"/>
+                                    <constraint firstAttribute="height" constant="56" id="XYS-az-N1v"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="q1X-nn-i9d"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -48,7 +48,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqt-FP-Uzc">
-                                <rect key="frame" x="327" y="16" width="32" height="32"/>
+                                <rect key="frame" x="327" y="32" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="32" id="OTK-yD-yg6"/>
                                     <constraint firstAttribute="height" constant="32" id="gF7-Ek-8IP"/>
@@ -73,7 +73,7 @@
                             <constraint firstAttribute="trailing" secondItem="Wqt-FP-Uzc" secondAttribute="trailing" constant="16" id="ZhD-HV-VeQ"/>
                             <constraint firstAttribute="trailing" secondItem="pOB-Ig-ues" secondAttribute="trailing" id="eXT-RB-cGw"/>
                             <constraint firstItem="pOB-Ig-ues" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leading" id="hJK-cg-7nu"/>
-                            <constraint firstItem="Wqt-FP-Uzc" firstAttribute="top" secondItem="rmn-GL-oql" secondAttribute="top" constant="16" id="ppH-bU-swX"/>
+                            <constraint firstItem="Wqt-FP-Uzc" firstAttribute="top" secondItem="rmn-GL-oql" secondAttribute="top" constant="32" id="ppH-bU-swX"/>
                             <constraint firstItem="Mgu-Ia-zR1" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leading" constant="16" id="vB6-sN-089"/>
                         </constraints>
                     </view>
