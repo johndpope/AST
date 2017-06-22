@@ -22,6 +22,7 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
     let deviceMotionManager = ASTDeviceMotion()
     let session = ARSession()
     var sessionConfig: ARSessionConfiguration = ARWorldTrackingSessionConfiguration()
+    var screenCenter: CGPoint?
     var skyPlane: ASTSkyPlane!
 
     // MARK: View Methods
@@ -34,6 +35,9 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
         
         // Setup Scene
         setupScene()
+        
+        // Display user a helpful message
+        self.helperView.formatHelperViewForMessage(ASTHelperConstants.startingInstruction)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -46,20 +50,16 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // Pause the session on disappear
         session.pause()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
         helperView.formatHelperViewForMessage(ASTHelperConstants.memoryWarning)
         session.pause()
     }
     
     // MARK: - ARKit / ARSCNView
-    var screenCenter: CGPoint?
-    
     func setupScene() {
         // set up sceneView
         sceneView.delegate = self
@@ -100,34 +100,30 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        // Add another plane node
         addPlane(node: node, on: planeAnchor)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        // Remove existing plane nodes
-        removePlanes(node: node)
-        // Add another plane node
+        removePlane()
         addPlane(node: node, on: planeAnchor)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
         guard anchor is ARPlaneAnchor else { return }
-        // Remove existing plane nodes
-        removePlanes(node: node)
+        removePlane()
     }
     
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
         switch camera.trackingState {
+            // Not available state
             case .notAvailable:
-                // Not available
                 helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateNotAvailable)
+            // Limited state
             case .limited:
-                // Limited
                 helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateLimited)
+            // Normal state
             case .normal:
-                // Normal
                 helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateNormal)
         }
     }
@@ -171,8 +167,10 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
         DispatchQueue.main.async {
             // Disable the button temporarily
             self.actionButton.isUserInteractionEnabled = false
+            // Remove planes from the node
+            self.removePlane()
             // Display user a message
-            self.helperView.formatHelperViewForMessage(ASTHelperConstants.newSession)
+            self.helperView.formatHelperViewForMessage(ASTHelperConstants.startingInstruction)
             
             // Disable Restart button for five seconds in order to give the session enough time to restart.
             DispatchQueue.main.asyncAfter(deadline: .now() + ASTUIConstants.actionButtonDisableDuration, execute: {
@@ -185,12 +183,14 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
     
     /// Add a plane to a given node
     private func addPlane(node: SCNNode, on planeAnchor: ARPlaneAnchor) {
-        skyPlane = ASTSkyPlane(anchor: planeAnchor)
-        node.addChildNode(skyPlane)
+        if skyPlane == nil {
+            skyPlane = ASTSkyPlane(anchor: planeAnchor)
+            node.addChildNode(skyPlane)
+        }
     }
     
     /// Removes planes from the given node
-    private func removePlanes(node: SCNNode) {
+    private func removePlane() {
         skyPlane.removeFromParentNode()
     }
     
