@@ -4,6 +4,7 @@ class ASTUIConstants {
     // Misc
     static let cornerRadius: CGFloat = 6.0
     static let tableViewCellHeight: CGFloat = 72.0
+    static let blurEffectViewTag: Int = 99
     
     // Timings
     static let shortAnimationDuration: TimeInterval = 0.2

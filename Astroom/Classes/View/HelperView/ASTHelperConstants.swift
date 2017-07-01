@@ -42,6 +42,14 @@ class ASTHelperConstants {
     static let sessionInterrupted = ASTHelpViewModel(image: UIImage(named: "ic_attention"),
                                                      title: "Session Interrupted",
                                                      description: "The session will be reset after the interruption has ended.")
+    
+    // MARK: Instructions
+    
+    // Starting instruction
+    static let startingInstruction = ASTHelpViewModel(image: UIImage(named: "ic_info"),
+                                                      title: "Get Started",
+                                                      description: "Point devices camera at a flat surface, such as a table")
+    
     // MARK: Misc
     
     // No Warning

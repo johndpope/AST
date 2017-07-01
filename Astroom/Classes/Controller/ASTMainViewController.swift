@@ -64,13 +64,11 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        // Pause the session on disappear
         session.pause()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
         helperView.formatHelperViewForMessage(ASTHelperConstants.memoryWarning)
         session.pause()
     }
@@ -146,7 +144,6 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        // Add another plane node
         addPlane(node: node, on: planeAnchor)
         // Add solar system to the scene
         addSolarSytem(node: node, on: planeAnchor)

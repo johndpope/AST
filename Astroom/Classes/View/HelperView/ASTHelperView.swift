@@ -20,6 +20,10 @@ class ASTHelperView : UIView {
     
     var blurEffectView: UIVisualEffectView!
     
+    private var isVisible: Bool {
+        return self.alpha > 0
+    }
+    
     // MARK: View Methods
     
     override init(frame: CGRect) {
@@ -36,18 +40,20 @@ class ASTHelperView : UIView {
     
     /// Formatter takes an ASTHelpViewModel and sets appropriate properties
     func formatHelperViewForMessage(_ helperViewMessageDetails: ASTHelpViewModel) {
-        DispatchQueue.main.async {
-            self.helperImageView.image = helperViewMessageDetails.image
-            self.helperTitleLabel.text = helperViewMessageDetails.title
-            self.helperDescriptionLabel.text = helperViewMessageDetails.description
-            
-            self.animateInView()
-            
-            // Fade out the helper view after user has read
-            let duration = self.calculateDisplayDuration(helperViewMessageDetails)
-            DispatchQueue.main.asyncAfter(deadline: .now() + duration, execute: {
-                self.animateOutView()
-            })
+        if !isVisible {
+            DispatchQueue.main.async {
+                self.helperImageView.image = helperViewMessageDetails.image
+                self.helperTitleLabel.text = helperViewMessageDetails.title
+                self.helperDescriptionLabel.text = helperViewMessageDetails.description
+                
+                self.animateInView()
+                
+                // Fade out the helper view after user has read
+                let duration = self.calculateDisplayDuration(helperViewMessageDetails)
+                DispatchQueue.main.asyncAfter(deadline: .now() + duration, execute: {
+                    self.animateOutView()
+                })
+            }
         }
     }
     
@@ -76,9 +82,9 @@ class ASTHelperView : UIView {
         // According to https://en.wikipedia.org/wiki/Words_per_minute, adults read
         // about 200 words per minute and the average English word is 5 characters
         // long. So 1000 characters per minute / 60 = 15 characters per second.
-        // We limit the duration to a range of 1-10 seconds.
+        // We limit the duration to a range of 1-6 seconds.
         let charCount = helperMessage.title.characters.count + helperMessage.description.characters.count
-        return min(10, Double(charCount) / 15.0 + 1.0) as TimeInterval
+        return min(6, Double(charCount) / 15.0 + 1.0) as TimeInterval
     }
     
     private func animateInView() {

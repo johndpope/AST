@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94311D1A1EFBE9FD00420071 /* ASTActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94311D191EFBE9FD00420071 /* ASTActionButtonView.swift */; };
+		94311D1E1EFBEF2000420071 /* ASTActionButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94311D1D1EFBEF2000420071 /* ASTActionButtonView.xib */; };
 		BD604E5B1EEBEFFF005058C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E5A1EEBEFFF005058C7 /* AppDelegate.swift */; };
 		BD604E5D1EEBEFFF005058C7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BD604E5C1EEBEFFF005058C7 /* art.scnassets */; };
 		BD604E5F1EEBEFFF005058C7 /* ASTMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E5E1EEBEFFF005058C7 /* ASTMainViewController.swift */; };
@@ -49,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		94311D191EFBE9FD00420071 /* ASTActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTActionButtonView.swift; sourceTree = "<group>"; };
+		94311D1D1EFBEF2000420071 /* ASTActionButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASTActionButtonView.xib; sourceTree = "<group>"; };
 		BD604E571EEBEFFF005058C7 /* Astroom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astroom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD604E5A1EEBEFFF005058C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD604E5C1EEBEFFF005058C7 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -106,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94311D181EFBE9E400420071 /* ActionButton */ = {
+			isa = PBXGroup;
+			children = (
+				94311D191EFBE9FD00420071 /* ASTActionButtonView.swift */,
+				94311D1D1EFBEF2000420071 /* ASTActionButtonView.xib */,
+			);
+			path = ActionButton;
+			sourceTree = "<group>";
+		};
 		BD604E4E1EEBEFFF005058C7 = {
 			isa = PBXGroup;
 			children = (
@@ -131,7 +144,6 @@
 			children = (
 				BDD3CCC81EF87AF90083A656 /* Classes */,
 				BDD3CCC71EF87AEE0083A656 /* Vendor */,
-				BD604E601EEBEFFF005058C7 /* ASTMainViewController.storyboard */,
 				BD604E5C1EEBEFFF005058C7 /* art.scnassets */,
 				BD604E631EEBEFFF005058C7 /* Assets.xcassets */,
 				BD604E651EEBEFFF005058C7 /* LaunchScreen.storyboard */,
@@ -235,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				BD604E5E1EEBEFFF005058C7 /* ASTMainViewController.swift */,
+				BD604E601EEBEFFF005058C7 /* ASTMainViewController.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */,
+				94311D181EFBE9E400420071 /* ActionButton */,
 				BD882AB81EF705A300C1C8F9 /* InformationView */,
 				BD882AB91EF705B300C1C8F9 /* HelperView */,
 			);
@@ -388,6 +402,7 @@
 				BD604E641EEBEFFF005058C7 /* Assets.xcassets in Resources */,
 				BD604E621EEBEFFF005058C7 /* ASTMainViewController.storyboard in Resources */,
 				BD882ABD1EF705D700C1C8F9 /* ASTHelperView.xib in Resources */,
+				94311D1E1EFBEF2000420071 /* ASTActionButtonView.xib in Resources */,
 				BD82B73A1EF87CC5003260CF /* ASTInformationViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,6 +436,7 @@
 				BDE4C7B31EF9DAC300FE3292 /* ASTSkyPlane.swift in Sources */,
 				BD604E5F1EEBEFFF005058C7 /* ASTMainViewController.swift in Sources */,
 				BD604E5B1EEBEFFF005058C7 /* AppDelegate.swift in Sources */,
+				94311D1A1EFBE9FD00420071 /* ASTActionButtonView.swift in Sources */,
 				BD82B7381EF87CBC003260CF /* ASTInformationViewCell.swift in Sources */,
 				BD882A781EF6DC5400C1C8F9 /* ASTDeviceMotion.swift in Sources */,
 				BDD3BBCE1EEF328300139070 /* ASTCGRectExtension.swift in Sources */,
