@@ -15,6 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASTHelperView" customModule="Astroom" customModuleProvider="target">
             <connections>
+                <outlet property="actionButton" destination="hSB-Rt-jdF" id="FMU-KH-raJ"/>
                 <outlet property="helperDescriptionLabel" destination="Eqi-fr-ZJN" id="ykC-IS-qxJ"/>
                 <outlet property="helperImageView" destination="MqI-UI-T0c" id="VNl-9f-38j"/>
                 <outlet property="helperTitleLabel" destination="Si8-hn-cft" id="Yac-h6-KOv"/>
@@ -25,8 +26,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Eqi-fr-ZJN">
-                    <rect key="frame" x="64" y="24" width="303" height="28"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Eqi-fr-ZJN">
+                    <rect key="frame" x="64" y="24" width="247" height="28"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="28" id="E9O-3S-U6R"/>
                     </constraints>
@@ -35,7 +36,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Si8-hn-cft">
-                    <rect key="frame" x="64" y="4" width="303" height="20"/>
+                    <rect key="frame" x="64" y="4" width="247" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Zqm-bl-XxF"/>
                     </constraints>
@@ -61,19 +62,36 @@
                         <constraint firstAttribute="width" constant="48" id="Hwh-ft-0y0"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSB-Rt-jdF">
+                    <rect key="frame" x="319" y="0.0" width="56" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="56" id="EQ3-EJ-M5O"/>
+                    </constraints>
+                    <state key="normal" image="ic_play"/>
+                    <connections>
+                        <action selector="actionButtonPressedWithSender:" destination="-1" eventType="touchUpInside" id="qRZ-bv-y1g"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="Si8-hn-cft" firstAttribute="top" secondItem="V0I-aE-HxA" secondAttribute="top" id="1OA-KT-rYw"/>
                 <constraint firstItem="Eqi-fr-ZJN" firstAttribute="leading" secondItem="V0I-aE-HxA" secondAttribute="trailing" constant="8" id="1ZO-if-JdX"/>
                 <constraint firstAttribute="bottom" secondItem="V0I-aE-HxA" secondAttribute="bottom" constant="4" id="58C-C4-CIQ"/>
-                <constraint firstAttribute="trailing" secondItem="Eqi-fr-ZJN" secondAttribute="trailing" constant="8" id="7LD-u1-KMu"/>
+                <constraint firstAttribute="trailing" secondItem="hSB-Rt-jdF" secondAttribute="trailing" id="Dcp-YR-fYM"/>
+                <constraint firstItem="hSB-Rt-jdF" firstAttribute="leading" secondItem="Eqi-fr-ZJN" secondAttribute="trailing" constant="8" id="NhS-By-bi3"/>
                 <constraint firstItem="Si8-hn-cft" firstAttribute="leading" secondItem="V0I-aE-HxA" secondAttribute="trailing" constant="8" id="Ouq-m2-S40"/>
                 <constraint firstItem="V0I-aE-HxA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="X7m-FV-PoY"/>
-                <constraint firstAttribute="trailing" secondItem="Si8-hn-cft" secondAttribute="trailing" constant="8" id="aeQ-iN-344"/>
+                <constraint firstItem="hSB-Rt-jdF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Yta-e4-d6f"/>
+                <constraint firstAttribute="bottom" secondItem="hSB-Rt-jdF" secondAttribute="bottom" id="cFR-96-gVO"/>
                 <constraint firstItem="Eqi-fr-ZJN" firstAttribute="bottom" secondItem="V0I-aE-HxA" secondAttribute="bottom" id="ca1-ky-7g7"/>
+                <constraint firstItem="hSB-Rt-jdF" firstAttribute="leading" secondItem="Si8-hn-cft" secondAttribute="trailing" constant="8" id="pRZ-tc-sgX"/>
                 <constraint firstItem="V0I-aE-HxA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="4" id="wjV-DT-OCy"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33.5" y="55"/>
         </view>
     </objects>
+    <resources>
+        <image name="ic_play" width="56" height="56"/>
+    </resources>
 </document>

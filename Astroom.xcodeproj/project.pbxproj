@@ -16,7 +16,6 @@
 		BD604E721EEBEFFF005058C7 /* AstroomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E711EEBEFFF005058C7 /* AstroomTests.swift */; };
 		BD604E7D1EEBEFFF005058C7 /* AstroomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E7C1EEBEFFF005058C7 /* AstroomUITests.swift */; };
 		BD7199E11EF71C170056A0D0 /* ASTUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7199E01EF71C170056A0D0 /* ASTUIViewExtension.swift */; };
-		BD82B7321EF87C02003260CF /* ARUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3CCC51EF87AD20083A656 /* ARUtilities.swift */; };
 		BD82B7381EF87CBC003260CF /* ASTInformationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD82B7371EF87CBC003260CF /* ASTInformationViewCell.swift */; };
 		BD82B73A1EF87CC5003260CF /* ASTInformationViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD82B7391EF87CC5003260CF /* ASTInformationViewCell.xib */; };
 		BD882A781EF6DC5400C1C8F9 /* ASTDeviceMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882A771EF6DC5400C1C8F9 /* ASTDeviceMotion.swift */; };
@@ -24,6 +23,7 @@
 		BD882ABD1EF705D700C1C8F9 /* ASTHelperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD882ABC1EF705D700C1C8F9 /* ASTHelperView.xib */; };
 		BD882ABF1EF70C2300C1C8F9 /* ASTHelperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882ABE1EF70C2300C1C8F9 /* ASTHelperConstants.swift */; };
 		BD882AC21EF70C6C00C1C8F9 /* ASTHelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882AC11EF70C6C00C1C8F9 /* ASTHelpViewModel.swift */; };
+		BDAEFD131F04421700C7EFA9 /* ASTSolarSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAEFD121F04421700C7EFA9 /* ASTSolarSystem.swift */; };
 		BDBFDD5F1EEF3E01004F3F0A /* ASTInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFDD5E1EEF3E01004F3F0A /* ASTInformationView.swift */; };
 		BDBFDD611EEF3E10004F3F0A /* ASTInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDBFDD601EEF3E10004F3F0A /* ASTInformationView.xib */; };
 		BDBFDD631EEF3FAB004F3F0A /* ASTUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */; };
@@ -71,6 +71,8 @@
 		BD882ABC1EF705D700C1C8F9 /* ASTHelperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASTHelperView.xib; sourceTree = "<group>"; };
 		BD882ABE1EF70C2300C1C8F9 /* ASTHelperConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTHelperConstants.swift; sourceTree = "<group>"; };
 		BD882AC11EF70C6C00C1C8F9 /* ASTHelpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTHelpViewModel.swift; sourceTree = "<group>"; };
+		BDAEFD101F043FED00C7EFA9 /* ASTGraveyard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTGraveyard.swift; sourceTree = "<group>"; };
+		BDAEFD121F04421700C7EFA9 /* ASTSolarSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTSolarSystem.swift; sourceTree = "<group>"; };
 		BDBFDD5E1EEF3E01004F3F0A /* ASTInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTInformationView.swift; sourceTree = "<group>"; };
 		BDBFDD601EEF3E10004F3F0A /* ASTInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASTInformationView.xib; sourceTree = "<group>"; };
 		BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTUIConstants.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				BD882A771EF6DC5400C1C8F9 /* ASTDeviceMotion.swift */,
+				BDAEFD101F043FED00C7EFA9 /* ASTGraveyard.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 		BD882AC41EF70CB300C1C8F9 /* Object Model */ = {
 			isa = PBXGroup;
 			children = (
+				BDAEFD121F04421700C7EFA9 /* ASTSolarSystem.swift */,
 				BDE4C7B21EF9DAC300FE3292 /* ASTSkyPlane.swift */,
 			);
 			path = "Object Model";
@@ -412,8 +416,8 @@
 				BD882ABF1EF70C2300C1C8F9 /* ASTHelperConstants.swift in Sources */,
 				BDBFDD631EEF3FAB004F3F0A /* ASTUIConstants.swift in Sources */,
 				BDBFDD5F1EEF3E01004F3F0A /* ASTInformationView.swift in Sources */,
-				BD82B7321EF87C02003260CF /* ARUtilities.swift in Sources */,
 				BD7199E11EF71C170056A0D0 /* ASTUIViewExtension.swift in Sources */,
+				BDAEFD131F04421700C7EFA9 /* ASTSolarSystem.swift in Sources */,
 				BDE4C7B31EF9DAC300FE3292 /* ASTSkyPlane.swift in Sources */,
 				BD604E5F1EEBEFFF005058C7 /* ASTMainViewController.swift in Sources */,
 				BD604E5B1EEBEFFF005058C7 /* AppDelegate.swift in Sources */,

@@ -1,25 +1,35 @@
 import UIKit
 
+// MARK: ASTDeviceMotionDelegate
+
+protocol ASTHelperViewDelegate {
+    func actionButtonPressed(button: UIButton) -> Void
+}
+
 // MARK: ASTHelperView
 
 class ASTHelperView : UIView {
+    // Delegate
+    var helperDelegate: ASTHelperViewDelegate?
     
     // Outlets
     @IBOutlet var helperImageView: UIImageView!
     @IBOutlet var helperTitleLabel: UILabel!
     @IBOutlet var helperDescriptionLabel: UILabel!
+    @IBOutlet var actionButton: UIButton!
+    
     var blurEffectView: UIVisualEffectView!
     
     // MARK: View Methods
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+        setUpView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupView()
+        setUpView()
     }
         
     // MARK: Format Methods
@@ -52,6 +62,13 @@ class ASTHelperView : UIView {
         }
     }
     
+    // MARK: Action Methods
+    
+    @IBAction func actionButtonPressed(sender: AnyObject) {
+        let actionButton = sender as! UIButton
+        helperDelegate?.actionButtonPressed(button: actionButton)
+    }
+    
     // MARK: Helper Methods
     
     private func calculateDisplayDuration(_ helperMessage: ASTHelpViewModel) -> TimeInterval {
@@ -80,15 +97,18 @@ class ASTHelperView : UIView {
     }
     
     private func addBlurEffectView() {
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
-        blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = self.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.addSubview(blurEffectView)
-        self.sendSubview(toBack: blurEffectView)
+        if blurEffectView == nil {
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+            blurEffectView = UIVisualEffectView(effect: blurEffect)
+            blurEffectView.frame = self.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.addSubview(blurEffectView)
+            self.sendSubview(toBack: blurEffectView)
+        }
     }
     
     private func removeBlurEffectView() {
         blurEffectView.removeFromSuperview()
+        blurEffectView = nil
     }
 }

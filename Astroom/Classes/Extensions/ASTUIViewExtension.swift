@@ -1,8 +1,8 @@
 import UIKit
 
 extension UIView {
-    // Performs the initial setup
-    func setupView() {
+    // Performs the initial setUp
+    func setUpView() {
         let view = viewFromNibForClass()
         view.frame = self.bounds
         

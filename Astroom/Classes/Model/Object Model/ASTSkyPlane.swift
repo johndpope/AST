@@ -7,16 +7,13 @@ class ASTSkyPlane : SCNNode {
     }
     
     init(anchor: ARPlaneAnchor) {
+        super.init()
+        
         // Create the plane geometry
         let plane = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))
         
         // Set up the material
-        let nightMaterial = SCNMaterial()
-        nightMaterial.diffuse.contents = #imageLiteral(resourceName: "night")
-        nightMaterial.isDoubleSided = true
-        plane.materials = [nightMaterial]
-        
-        super.init()
+        self.setUpSkyMaterialOn(plane: plane)
         
         // Create node with plane geometry and material
         self.geometry = plane
@@ -25,5 +22,12 @@ class ASTSkyPlane : SCNNode {
         // SCNPlanes are vertically oriented in their local coordinate space.
         // Rotate it to match the horizontal orientation of the ARPlaneAnchor.
         self.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
+    }
+    
+    private func setUpSkyMaterialOn(plane: SCNPlane) {
+        let nightMaterial = SCNMaterial()
+        nightMaterial.diffuse.contents = #imageLiteral(resourceName: "night")
+        nightMaterial.isDoubleSided = true
+        plane.materials = [nightMaterial]
     }
 }

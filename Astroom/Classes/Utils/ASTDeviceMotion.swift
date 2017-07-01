@@ -21,7 +21,7 @@ class ASTDeviceMotion {
     static let deviceMotionErrorMessage: String = "Error with the device motion manager."
     
     // Function sets up the motion manager
-    func setupDeviceMotionManager() {
+    func setUpDeviceMotionManager() {
         // Check that the device motion is available
         if motionManager.isDeviceMotionAvailable {
             // Set the device motion update interval

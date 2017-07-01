@@ -10,30 +10,48 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotionDelegate {
+class ASTMainViewController: UIViewController, ARSCNViewDelegate {
     
-    // Outlets
+    // MARK: Outlets
+    
     @IBOutlet var mainView: UIView!
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet var informationView: UIView!
     @IBOutlet var helperView: ASTHelperView!
-    @IBOutlet var actionButton: UIButton!
     
+    // MARK: Variables and Constants
+    
+    // Custom objects
     let deviceMotionManager = ASTDeviceMotion()
+    var skyPlane: ASTSkyPlane!
+    var solarSystem: ASTSolarSystem!
+    
+    // ARSession
     let session = ARSession()
     var sessionConfig: ARSessionConfiguration = ARWorldTrackingSessionConfiguration()
-    var skyPlane: ASTSkyPlane!
-
+    var screenCenter: CGPoint?
+    
+    // Tracking fallback
+    var use3DOFTracking = false {
+        didSet {
+            if use3DOFTracking {
+                sessionConfig = ARSessionConfiguration()
+            }
+            sessionConfig.isLightEstimationEnabled = true
+            session.run(sessionConfig)
+        }
+    }
+    var use3DOFTrackingFallback = false
+    var trackingFallbackTimer: Timer?
+    
     // MARK: View Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Setup device motion manager
-        deviceMotionManager.setupDeviceMotionManager()
-        deviceMotionManager.motionDelegate = self
-        
-        // Setup Scene
-        setupScene()
+        // Setup helper view
+        helperView.helperDelegate = self
+        // Setup scene
+        setUpScene()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -57,10 +75,9 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
         session.pause()
     }
     
-    // MARK: - ARKit / ARSCNView
-    var screenCenter: CGPoint?
+    // MARK: ARKit Methods
     
-    func setupScene() {
+    func setUpScene() {
         // set up sceneView
         sceneView.delegate = self
         sceneView.session = session
@@ -90,67 +107,29 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
         }
     }
     
-    // MARK: - ARSCNViewDelegate
-    
-    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        DispatchQueue.main.async {
-            
-        }
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        // Add another plane node
-        addPlane(node: node, on: planeAnchor)
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        // Remove existing plane nodes
-        removePlanes(node: node)
-        // Add another plane node
-        addPlane(node: node, on: planeAnchor)
-    }
-    
-    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
-        guard anchor is ARPlaneAnchor else { return }
-        // Remove existing plane nodes
-        removePlanes(node: node)
-    }
-    
     func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
         switch camera.trackingState {
-            case .notAvailable:
-                // Not available
-                helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateNotAvailable)
-            case .limited:
-                // Limited
-                helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateLimited)
-            case .normal:
-                // Normal
-                helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateNormal)
+        case .notAvailable:
+            // Not available
+            helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateNotAvailable)
+        case .limited:
+            // Limited
+            helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateLimited)
+            // Set up our tracking fallback system
+            setUpTrackingFallback()
+        case .normal:
+            // Normal
+            helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateNormal)
+            // Disable our tracking fallback system
+            disableTrackingFallback()
         }
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
-        guard let arError = error as? ARError else { return }
-        
-        let nsError = error as NSError
-        var sessionErrorMsg = "\(nsError.localizedDescription) \(nsError.localizedFailureReason ?? "")"
-        if let recoveryOptions = nsError.localizedRecoveryOptions {
-            for option in recoveryOptions {
-                sessionErrorMsg.append("\(option).")
-            }
+        guard let errorMessage = self.setUpErrorMessageWith(error) else {
+            return
         }
         
-        let isRecoverable = (arError.code == .worldTrackingFailed)
-        if isRecoverable {
-            sessionErrorMsg += "\nYou can try resetting the session or quit the application."
-        } else {
-            sessionErrorMsg += "\nThis is an unrecoverable error that requires to quit the application."
-        }
-        
-        let errorMessage = ASTHelpViewModel(image: #imageLiteral(resourceName: "ic_attention"), title: "Error", description: sessionErrorMsg)
         helperView.formatHelperViewForMessage(errorMessage)
     }
     
@@ -160,28 +139,45 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
     
     func sessionInterruptionEnded(_ session: ARSession) {
         session.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
-        restartSession(self)
+        restartSession(button: helperView.actionButton)
     }
     
-    // MARK: Action Methods
+    // MARK: - ARSCNViewDelegate
     
-    @IBAction func restartSession(_ sender: Any) {
-        guard actionButton.isUserInteractionEnabled else { return }
-        
-        DispatchQueue.main.async {
-            // Disable the button temporarily
-            self.actionButton.isUserInteractionEnabled = false
-            // Display user a message
-            self.helperView.formatHelperViewForMessage(ASTHelperConstants.newSession)
-            
-            // Disable Restart button for five seconds in order to give the session enough time to restart.
-            DispatchQueue.main.asyncAfter(deadline: .now() + ASTUIConstants.actionButtonDisableDuration, execute: {
-                self.actionButton.isUserInteractionEnabled = true
-            })
-        }
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        // Add another plane node
+        addPlane(node: node, on: planeAnchor)
+        // Add solar system to the scene
+        addSolarSytem(node: node, on: planeAnchor)
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        // Remove existing plane nodes
+        removePlanes()
+        // Add another plane node
+        addPlane(node: node, on: planeAnchor)
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+        guard anchor is ARPlaneAnchor else { return }
+        // Remove existing plane nodes
+        removePlanes()
     }
     
     // MARK: Helper Methods
+    
+    /// Add the solar system to the scene
+    private func addSolarSytem(node: SCNNode, on planeAnchor: ARPlaneAnchor) {
+        solarSystem = ASTSolarSystem(anchor: planeAnchor)
+        node.addChildNode(solarSystem)
+    }
+    
+    /// Removes the solar system from scene
+    private func removeSolarSytem() {
+        solarSystem.removeFromParentNode()
+    }
     
     /// Add a plane to a given node
     private func addPlane(node: SCNNode, on planeAnchor: ARPlaneAnchor) {
@@ -190,18 +186,84 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate, ASTDeviceMotio
     }
     
     /// Removes planes from the given node
-    private func removePlanes(node: SCNNode) {
+    private func removePlanes() {
         skyPlane.removeFromParentNode()
     }
     
-    // MARK: ASTDeviceMotionDelegate Methods
+    /// Function sets up error message for the ASTHelperView
+    private func setUpErrorMessageWith(_ error: Error) -> ASTHelpViewModel? {
+        guard let arError = error as? ARError else {
+            return nil
+        }
+        
+        let nsError = error as NSError
+        var sessionErrorMsg = "\(nsError.localizedDescription) \(nsError.localizedFailureReason ?? "")"
+        if let recoveryOptions = nsError.localizedRecoveryOptions {
+            for option in recoveryOptions {
+                sessionErrorMsg.append("\(option).")
+            }
+        }
+        
+        // Check if it is recoverable
+        if (arError.code == .worldTrackingFailed) {
+            sessionErrorMsg += "\nYou can try resetting the session or quit the application."
+        } else {
+            sessionErrorMsg += "\nThis is an unrecoverable error that requires to quit or restart the application."
+        }
+        
+        return ASTHelpViewModel(image: #imageLiteral(resourceName: "ic_attention"), title: "Error", description: sessionErrorMsg)
+    }
     
-    // Function gets called when the device motion manger recognizes the orientation has changed state
-    func orientationCorrectChanged(orientationCorrect: Bool) {
-//        if orientationCorrect {
-//            helperView.formatHelperViewForNoMessage()
-//        } else {
-//            helperView.formatHelperViewForMessage(ASTHelperConstants.orientationWarning)
-//        }
+    /// Function sets up tracking fallback option
+    private func setUpTrackingFallback() {
+        if use3DOFTrackingFallback {
+            // After 10 seconds of limited quality, fall back to 3DOF mode.
+            trackingFallbackTimer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false, block: { _ in
+                self.use3DOFTracking = true
+                self.trackingFallbackTimer?.invalidate()
+                self.trackingFallbackTimer = nil
+            })
+        }
+    }
+    
+    /// Function disables tracking fallback option
+    private func disableTrackingFallback() {
+        if use3DOFTrackingFallback && trackingFallbackTimer != nil {
+            trackingFallbackTimer!.invalidate()
+            trackingFallbackTimer = nil
+        }
+    }
+    
+    /// Function restarts the ARSession for the user, possibly because of an error
+    private func restartSession(button: UIButton) {
+        guard button.isUserInteractionEnabled else { return }
+        
+        DispatchQueue.main.async {
+            // Disable the button temporarily
+            button.isUserInteractionEnabled = false
+            // Remove all nodes
+            self.removePlanes()
+            self.removeSolarSytem()
+            // Restart plane detection
+            self.restartPlaneDetection()
+            // Display user a message
+            self.helperView.formatHelperViewForMessage(ASTHelperConstants.newSession)
+            // Reset our tracking bool
+            self.use3DOFTracking = false
+            
+            // Disable Restart button for five seconds in order to give the session enough time to restart.
+            DispatchQueue.main.asyncAfter(deadline: .now() + ASTUIConstants.actionButtonDisableDuration, execute: {
+                button.isUserInteractionEnabled = true
+            })
+        }
+    }
+}
+
+// MARK: ASTHelperViewDelegate Methods
+
+extension ASTMainViewController: ASTHelperViewDelegate {
+    /// Function gets called when the user presses the action button on the ASTHelperView
+    func actionButtonPressed(button: UIButton) {
+        restartSession(button: button)
     }
 }
