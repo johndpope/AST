@@ -89,7 +89,7 @@ class ASTHelperView : UIView {
     
     private func animateInView() {
         UIView.animate(withDuration: ASTUIConstants.shortAnimationDuration, animations: {
-            self.addBlurEffectView()
+            self.addBlurEffectViewToHelper()
             self.alpha = 1.0
         })
     }
@@ -97,12 +97,10 @@ class ASTHelperView : UIView {
     private func animateOutView() {
         UIView.animate(withDuration: ASTUIConstants.shortAnimationDuration, animations: {
             self.alpha = 0.0
-        }, completion: { (finished: Bool) in
-            self.removeBlurEffectView()
         })
     }
     
-    private func addBlurEffectView() {
+    private func addBlurEffectViewToHelper() {
         if blurEffectView == nil {
             let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
             blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -113,7 +111,7 @@ class ASTHelperView : UIView {
         }
     }
     
-    private func removeBlurEffectView() {
+    private func removeBlurEffectViewToHelper() {
         blurEffectView.removeFromSuperview()
         blurEffectView = nil
     }

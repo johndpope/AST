@@ -83,7 +83,7 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate {
         sceneView.automaticallyUpdatesLighting = false
         
         sceneView.preferredFramesPerSecond = 60
-        sceneView.contentScaleFactor = 1.3
+        sceneView.contentScaleFactor = 1.0
         
         DispatchQueue.main.async {
             self.screenCenter = self.sceneView.bounds.mid
@@ -144,6 +144,7 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        // Add plane to the scene
         addPlane(node: node, on: planeAnchor)
         // Add solar system to the scene
         addSolarSytem(node: node, on: planeAnchor)
@@ -151,40 +152,57 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        // Remove existing plane nodes
-        removePlanes()
-        // Add another plane node
-        addPlane(node: node, on: planeAnchor)
+        // Remove all nodes
+        //removeAllNodes()
+        // Add all nodes back
+        //addAllNodes(node: node, on: planeAnchor)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
-        guard anchor is ARPlaneAnchor else { return }
         // Remove existing plane nodes
-        removePlanes()
+        removeAllNodes()
     }
     
     // MARK: Helper Methods
     
+    /// Add all nodes to the scene
+    private func addAllNodes(node: SCNNode, on planeAnchor: ARPlaneAnchor) {
+        addPlane(node: node, on: planeAnchor)
+        addSolarSytem(node: node, on: planeAnchor)
+    }
+    
     /// Add the solar system to the scene
     private func addSolarSytem(node: SCNNode, on planeAnchor: ARPlaneAnchor) {
-        solarSystem = ASTSolarSystem(anchor: planeAnchor)
-        node.addChildNode(solarSystem)
+        if solarSystem == nil {
+            solarSystem = ASTSolarSystem(anchor: planeAnchor)
+            node.addChildNode(solarSystem)
+        }
+    }
+    
+    /// Add a plane to a given node
+    private func addPlane(node: SCNNode, on planeAnchor: ARPlaneAnchor) {
+        if skyPlane == nil {
+            skyPlane = ASTSkyPlane(anchor: planeAnchor)
+            node.addChildNode(skyPlane)
+        }
+    }
+    
+    /// Remove all nodes from scene
+    private func removeAllNodes() {
+        removeSkyPlane()
+        removeSolarSytem()
     }
     
     /// Removes the solar system from scene
     private func removeSolarSytem() {
         solarSystem.removeFromParentNode()
-    }
-    
-    /// Add a plane to a given node
-    private func addPlane(node: SCNNode, on planeAnchor: ARPlaneAnchor) {
-        skyPlane = ASTSkyPlane(anchor: planeAnchor)
-        node.addChildNode(skyPlane)
+        solarSystem = nil
     }
     
     /// Removes planes from the given node
-    private func removePlanes() {
+    private func removeSkyPlane() {
         skyPlane.removeFromParentNode()
+        skyPlane = nil
     }
     
     /// Function sets up error message for the ASTHelperView
@@ -239,7 +257,7 @@ class ASTMainViewController: UIViewController, ARSCNViewDelegate {
             // Disable the button temporarily
             button.isUserInteractionEnabled = false
             // Remove all nodes
-            self.removePlanes()
+            self.removeSkyPlane()
             self.removeSolarSytem()
             // Restart plane detection
             self.restartPlaneDetection()
