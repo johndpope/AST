@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ocA-d6-BXV">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Model-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="ASTModelController" customModule="Astroom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iFD-PD-CMK"/>
+                        <viewControllerLayoutGuide type="bottom" id="rGK-xc-2nG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rmn-GL-oql">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pOB-Ig-ues">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BV1-FR-VrT" id="RAE-re-HP1"/>
+                                </connections>
+                            </arscnView>
+                            <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgu-Ia-zR1" customClass="ASTHelperView" customModule="Astroom" customModuleProvider="target">
+                                <rect key="frame" x="16" y="28" width="343" height="56"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="XYS-az-N1v"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="q1X-nn-i9d"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="pOB-Ig-ues" secondAttribute="bottom" id="2Gv-Gu-CFQ"/>
+                            <constraint firstItem="pOB-Ig-ues" firstAttribute="top" secondItem="rmn-GL-oql" secondAttribute="top" id="4XS-pA-Oah"/>
+                            <constraint firstAttribute="trailing" secondItem="Mgu-Ia-zR1" secondAttribute="trailing" constant="16" id="EDJ-cQ-N25"/>
+                            <constraint firstItem="Mgu-Ia-zR1" firstAttribute="top" secondItem="rmn-GL-oql" secondAttribute="topMargin" constant="8" id="a41-f5-JFh"/>
+                            <constraint firstAttribute="trailing" secondItem="pOB-Ig-ues" secondAttribute="trailing" id="eXT-RB-cGw"/>
+                            <constraint firstItem="pOB-Ig-ues" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leading" id="hJK-cg-7nu"/>
+                            <constraint firstItem="Mgu-Ia-zR1" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leading" constant="16" id="vB6-sN-089"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Model" id="nRo-07-2bH"/>
+                    <connections>
+                        <outlet property="helperView" destination="Mgu-Ia-zR1" id="VZo-Ko-Akm"/>
+                        <outlet property="mainView" destination="rmn-GL-oql" id="aIN-Qi-LnB"/>
+                        <outlet property="sceneView" destination="pOB-Ig-ues" id="kDg-Xw-SWb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-79" y="-290"/>
+        </scene>
+        <!--Info-->
+        <scene sceneID="dJm-Ax-RDa">
+            <objects>
+                <viewController id="wNr-f6-9T6" customClass="ASTInfoController" customModule="Astroom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rhG-a2-STU"/>
+                        <viewControllerLayoutGuide type="bottom" id="ulS-3j-qTn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bLh-Zo-qhB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aNV-Jo-YQf">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Lhp-j0-N1u">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="planetCell" id="dML-ZK-xSw">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <size key="customSize" width="50" height="50"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="wNr-f6-9T6" id="gNQ-bP-twO"/>
+                                    <outlet property="delegate" destination="wNr-f6-9T6" id="J7O-br-BMR"/>
+                                    <outlet property="prefetchDataSource" destination="wNr-f6-9T6" id="2Hd-pO-Lh2"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aNV-Jo-YQf" firstAttribute="leading" secondItem="bLh-Zo-qhB" secondAttribute="leading" id="Zue-c3-c2q"/>
+                            <constraint firstAttribute="trailing" secondItem="aNV-Jo-YQf" secondAttribute="trailing" id="cZd-nE-1c4"/>
+                            <constraint firstItem="aNV-Jo-YQf" firstAttribute="top" secondItem="bLh-Zo-qhB" secondAttribute="top" id="dFR-1l-h3B"/>
+                            <constraint firstAttribute="bottom" secondItem="aNV-Jo-YQf" secondAttribute="bottom" id="iph-Fr-ROd"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Info" id="psW-PO-bid"/>
+                    <connections>
+                        <outlet property="collectionView" destination="aNV-Jo-YQf" id="hXc-LA-do1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lec-hd-UXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-79" y="457"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Eay-Ai-JIb">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ocA-d6-BXV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="rXR-Eb-BNA">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BV1-FR-VrT" kind="relationship" relationship="viewControllers" id="qQz-hm-nWu"/>
+                        <segue destination="wNr-f6-9T6" kind="relationship" relationship="viewControllers" id="pO2-zt-Hwa"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PLe-Z1-2T6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-993" y="36"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+</document>
