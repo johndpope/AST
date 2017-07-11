@@ -5,6 +5,7 @@ class ASTUIConstants {
     static let cornerRadius: CGFloat = 6.0
     static let tableViewCellHeight: CGFloat = 72.0
     static let blurEffectViewTag: Int = 99
+    static let infoCollectionReuseIdentifier: String = "planetCell"
     
     // Timings
     static let shortAnimationDuration: TimeInterval = 0.2

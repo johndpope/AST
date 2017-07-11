@@ -24,12 +24,11 @@ extension ASTInfoController: UICollectionViewDelegate {
         return planetArray.count
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "planetCell",
-                                                      for: indexPath)
+    private func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ASTUIConstants.infoCollectionReuseIdentifier, for: indexPath as IndexPath)
+        
         cell.backgroundColor = UIColor.black
-        // Configure the cell
+        
         return cell
     }
 }
