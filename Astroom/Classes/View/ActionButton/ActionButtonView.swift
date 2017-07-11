@@ -1,6 +1,6 @@
 import UIKit
 
-class ASTActionButtonView : UIView {
+class ActionButtonView : UIView {
     
     @IBOutlet var actionButtonImage: UIImageView!
     @IBOutlet var actionButton: UIButton!

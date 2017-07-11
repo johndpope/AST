@@ -10,18 +10,18 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ASTModelController: UIViewController, ARSCNViewDelegate {
+class MainViewController: UIViewController, ARSCNViewDelegate {
     
     // MARK: Outlets
     
     @IBOutlet var mainView: UIView!
     @IBOutlet var sceneView: ARSCNView!
-    @IBOutlet var helperView: ASTHelperView!
+    @IBOutlet var helperView: HelperView!
     
     // MARK: Variables and Constants
     
     // Custom objects
-    let deviceMotionManager = ASTDeviceMotion()
+    let deviceMotionManager = DeviceMotion()
     var skyPlane: ASTSkyPlane!
     var solarSystem: ASTSolarSystem!
     
@@ -47,8 +47,6 @@ class ASTModelController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Setup helper view
-        helperView.helperDelegate = self
         // Setup scene
         setUpScene()
     }
@@ -68,7 +66,7 @@ class ASTModelController: UIViewController, ARSCNViewDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        helperView.formatHelperViewForMessage(ASTHelperConstants.memoryWarning)
+        helperView.formatHelperViewForMessage(HelperConstants.memoryWarning)
         session.pause()
     }
     
@@ -108,15 +106,15 @@ class ASTModelController: UIViewController, ARSCNViewDelegate {
         switch camera.trackingState {
         case .notAvailable:
             // Not available
-            helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateNotAvailable)
+            helperView.formatHelperViewForMessage(HelperConstants.trackingStateNotAvailable)
         case .limited:
             // Limited
-            helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateLimited)
+            helperView.formatHelperViewForMessage(HelperConstants.trackingStateLimited)
             // Set up our tracking fallback system
             setUpTrackingFallback()
         case .normal:
             // Normal
-            helperView.formatHelperViewForMessage(ASTHelperConstants.trackingStateNormal)
+            helperView.formatHelperViewForMessage(HelperConstants.trackingStateNormal)
             // Disable our tracking fallback system
             disableTrackingFallback()
         }
@@ -131,12 +129,11 @@ class ASTModelController: UIViewController, ARSCNViewDelegate {
     }
     
     func sessionWasInterrupted(_ session: ARSession) {
-        helperView.formatHelperViewForMessage(ASTHelperConstants.sessionInterrupted)
+        helperView.formatHelperViewForMessage(HelperConstants.sessionInterrupted)
     }
     
     func sessionInterruptionEnded(_ session: ARSession) {
         session.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
-        restartSession(button: helperView.actionButton)
     }
     
     // MARK: - ARSCNViewDelegate
@@ -208,8 +205,8 @@ class ASTModelController: UIViewController, ARSCNViewDelegate {
         }
     }
     
-    /// Function sets up error message for the ASTHelperView
-    private func setUpErrorMessageWith(_ error: Error) -> ASTHelpViewModel? {
+    /// Function sets up error message for the HelperView
+    private func setUpErrorMessageWith(_ error: Error) -> HelpViewModel? {
         guard let arError = error as? ARError else {
             return nil
         }
@@ -229,7 +226,7 @@ class ASTModelController: UIViewController, ARSCNViewDelegate {
             sessionErrorMsg += "\nThis is an unrecoverable error that requires to quit or restart the application."
         }
         
-        return ASTHelpViewModel(image: #imageLiteral(resourceName: "ic_attention"), title: "Error", description: sessionErrorMsg)
+        return HelpViewModel(image: #imageLiteral(resourceName: "ic_attention"), title: "Error", description: sessionErrorMsg)
     }
     
     /// Function sets up tracking fallback option
@@ -265,23 +262,14 @@ class ASTModelController: UIViewController, ARSCNViewDelegate {
             // Restart plane detection
             self.restartPlaneDetection()
             // Display user a message
-            self.helperView.formatHelperViewForMessage(ASTHelperConstants.newSession)
+            self.helperView.formatHelperViewForMessage(HelperConstants.newSession)
             // Reset our tracking bool
             self.use3DOFTracking = false
             
             // Disable Restart button for five seconds in order to give the session enough time to restart.
-            DispatchQueue.main.asyncAfter(deadline: .now() + ASTUIConstants.actionButtonDisableDuration, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + UIConstants.actionButtonDisableDuration, execute: {
                 button.isUserInteractionEnabled = true
             })
         }
-    }
-}
-
-// MARK: ASTHelperViewDelegate Methods
-
-extension ASTModelController: ASTHelperViewDelegate {
-    /// Function gets called when the user presses the action button on the ASTHelperView
-    func actionButtonPressed(button: UIButton) {
-        restartSession(button: button)
     }
 }

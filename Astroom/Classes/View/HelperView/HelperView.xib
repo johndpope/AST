@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Optima.ttc">
+            <string>Optima-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HelperView" customModule="Astroom" customModuleProvider="target">
+            <connections>
+                <outlet property="helperDescriptionLabel" destination="Eqi-fr-ZJN" id="ykC-IS-qxJ"/>
+                <outlet property="helperImageView" destination="MqI-UI-T0c" id="VNl-9f-38j"/>
+                <outlet property="helperTitleLabel" destination="Si8-hn-cft" id="Yac-h6-KOv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pO7-Cx-Aqg">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="BP2-wx-EYv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wq1-sM-90B">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Vfp-ht-6UV">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V0I-aE-HxA">
+                                            <rect key="frame" x="8" y="8" width="48" height="48"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MqI-UI-T0c">
+                                                    <rect key="frame" x="8" y="8" width="32" height="32"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="32" id="fam-S5-iUN"/>
+                                                        <constraint firstAttribute="width" constant="32" id="t4y-IV-L2H"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="H94-Is-OtP"/>
+                                                <constraint firstItem="MqI-UI-T0c" firstAttribute="centerY" secondItem="V0I-aE-HxA" secondAttribute="centerY" id="PFJ-G9-3Y1"/>
+                                                <constraint firstItem="MqI-UI-T0c" firstAttribute="centerX" secondItem="V0I-aE-HxA" secondAttribute="centerX" id="bhp-XB-XP3"/>
+                                                <constraint firstAttribute="width" constant="48" id="fzk-fi-ySj"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Si8-hn-cft">
+                                            <rect key="frame" x="64" y="8" width="303" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="18" id="oSs-hq-VX3"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="16"/>
+                                            <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Eqi-fr-ZJN">
+                                            <rect key="frame" x="64" y="30" width="303" height="26"/>
+                                            <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="12"/>
+                                            <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="V0I-aE-HxA" firstAttribute="centerY" secondItem="Vfp-ht-6UV" secondAttribute="centerY" id="6Qr-fI-TLw"/>
+                                        <constraint firstItem="V0I-aE-HxA" firstAttribute="leading" secondItem="Vfp-ht-6UV" secondAttribute="leading" constant="8" id="Gvr-Qf-waA"/>
+                                        <constraint firstItem="Eqi-fr-ZJN" firstAttribute="leading" secondItem="V0I-aE-HxA" secondAttribute="trailing" constant="8" id="VCI-Ll-X7U"/>
+                                        <constraint firstItem="Si8-hn-cft" firstAttribute="leading" secondItem="V0I-aE-HxA" secondAttribute="trailing" constant="8" id="a65-Kd-50V"/>
+                                        <constraint firstAttribute="bottom" secondItem="Eqi-fr-ZJN" secondAttribute="bottom" constant="8" id="bsr-8p-uv4"/>
+                                        <constraint firstAttribute="trailing" secondItem="Si8-hn-cft" secondAttribute="trailing" constant="8" id="fAE-Fb-kpt"/>
+                                        <constraint firstItem="Eqi-fr-ZJN" firstAttribute="top" secondItem="Si8-hn-cft" secondAttribute="bottom" constant="4" id="jpy-MY-4x6"/>
+                                        <constraint firstAttribute="trailing" secondItem="Eqi-fr-ZJN" secondAttribute="trailing" constant="8" id="oGI-Vt-SMr"/>
+                                        <constraint firstItem="Si8-hn-cft" firstAttribute="top" secondItem="V0I-aE-HxA" secondAttribute="top" id="wku-Vf-f7c"/>
+                                    </constraints>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="light"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="wq1-sM-90B" firstAttribute="leading" secondItem="BP2-wx-EYv" secondAttribute="leading" id="DxL-Tf-wNI"/>
+                            <constraint firstAttribute="bottom" secondItem="wq1-sM-90B" secondAttribute="bottom" id="Jq6-Cc-x0b"/>
+                            <constraint firstAttribute="trailing" secondItem="wq1-sM-90B" secondAttribute="trailing" id="kbY-hy-7ZY"/>
+                            <constraint firstItem="wq1-sM-90B" firstAttribute="top" secondItem="BP2-wx-EYv" secondAttribute="top" id="vzH-Ms-PbV"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="pO7-Cx-Aqg" secondAttribute="trailing" id="H29-30-CYc"/>
+                <constraint firstItem="pO7-Cx-Aqg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="J5x-8a-dtK"/>
+                <constraint firstItem="pO7-Cx-Aqg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="VwQ-oK-odQ"/>
+                <constraint firstAttribute="bottom" secondItem="pO7-Cx-Aqg" secondAttribute="bottom" id="b3i-Fh-5eK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33.5" y="55"/>
+        </view>
+    </objects>
+</document>

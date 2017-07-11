@@ -6,9 +6,6 @@ class EarthModel: PlanetProtocol {
     var clockwiseSpin = false
     var spinTime = 24
     var orbitTime = 365.0
-    var numberOfMoons = 1
     var diameter = 12756
-    var radius = 6378
-    var averageTemperature = 15
-    var averageVelocity = 30
+    var funFact = "Earth has the largest mass of water"
 }

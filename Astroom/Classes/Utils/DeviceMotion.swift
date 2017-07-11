@@ -1,16 +1,16 @@
 import CoreMotion
 
-// MARK: ASTDeviceMotionDelegate
+// MARK: DeviceMotionDelegate
 
-protocol ASTDeviceMotionDelegate {
+protocol DeviceMotionDelegate {
     func orientationCorrectChanged(orientationCorrect : Bool) -> Void
 }
 
-// MARK: ASTDeviceMotion
+// MARK: DeviceMotion
 
-class ASTDeviceMotion {
+class DeviceMotion {
     // Delegate
-    var motionDelegate: ASTDeviceMotionDelegate?
+    var motionDelegate: DeviceMotionDelegate?
     
     // Variables
     let motionManager = CMMotionManager()
@@ -25,14 +25,14 @@ class ASTDeviceMotion {
         // Check that the device motion is available
         if motionManager.isDeviceMotionAvailable {
             // Set the device motion update interval
-            motionManager.deviceMotionUpdateInterval = ASTDeviceMotion.ASTdeviceUpdateInterval
+            motionManager.deviceMotionUpdateInterval = DeviceMotion.ASTdeviceUpdateInterval
             
             let queue = OperationQueue()
             motionManager.startDeviceMotionUpdates(to: queue, withHandler: { (deviceMotion, error) in
                 if(error == nil) {
                     self.recievedNewDeviceMotionUpdates(deviceMotion)
                 } else {
-                    print(ASTDeviceMotion.deviceMotionErrorMessage)
+                    print(DeviceMotion.deviceMotionErrorMessage)
                 }
             })
         }
@@ -48,19 +48,19 @@ class ASTDeviceMotion {
             self.motionDelegate?.orientationCorrectChanged(orientationCorrect: self.orientationCorrect)
         }
         
-        ASTDeviceMotion.printAttitudesWithDeviceMotion(motion)
+        DeviceMotion.printAttitudesWithDeviceMotion(motion)
     }
     
     // Function checks if the device orientation has changed
     private func hasDeviceOrientationChanged(_ deviceMotion: CMDeviceMotion) -> Bool {
         let oldOrientationCorrect = orientationCorrect
-        orientationCorrect = ASTDeviceMotion.isDeviceOrientatedCorrectly(deviceMotion)
+        orientationCorrect = DeviceMotion.isDeviceOrientatedCorrectly(deviceMotion)
         return (oldOrientationCorrect != orientationCorrect)
     }
     
     // Function checks if the device orientation is correct or incorrect
     private static func isDeviceOrientatedCorrectly(_ deviceMotion: CMDeviceMotion) -> Bool {
-        return (deviceMotion.attitude.roll > ASTDeviceMotion.rollAttitudeMax || deviceMotion.attitude.roll < -ASTDeviceMotion.rollAttitudeMax)
+        return (deviceMotion.attitude.roll > DeviceMotion.rollAttitudeMax || deviceMotion.attitude.roll < -DeviceMotion.rollAttitudeMax)
     }
     
     // Function prints out all of the device motion attitude data

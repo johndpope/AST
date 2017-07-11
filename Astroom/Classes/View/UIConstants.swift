@@ -1,6 +1,6 @@
 import UIKit
 
-class ASTUIConstants {
+class UIConstants {
     // Misc
     static let cornerRadius: CGFloat = 6.0
     static let tableViewCellHeight: CGFloat = 72.0

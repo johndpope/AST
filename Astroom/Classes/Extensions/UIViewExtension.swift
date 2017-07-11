@@ -17,14 +17,14 @@ extension UIView {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = self.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        blurEffectView.tag = ASTUIConstants.blurEffectViewTag
+        blurEffectView.tag = UIConstants.blurEffectViewTag
         addSubview(blurEffectView)
         sendSubview(toBack: blurEffectView)
     }
     
     /// Removes blur effect from the background of the view
     func removeBlurEffectView() {
-        let blurEffectViewOptional = subviews.filter{$0.tag == ASTUIConstants.blurEffectViewTag}.first
+        let blurEffectViewOptional = subviews.filter{$0.tag == UIConstants.blurEffectViewTag}.first
         guard let blurEffectView = blurEffectViewOptional else {
             return
         }

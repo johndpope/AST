@@ -6,9 +6,6 @@ class JupiterModel: PlanetProtocol {
     var clockwiseSpin = false
     var spinTime = 10
     var orbitTime = 88.0
-    var numberOfMoons = 0
     var diameter = 4880
-    var radius = 2440
-    var averageTemperature = -110
-    var averageVelocity = 48
+    var funFact = "Jupiter is the largest planet in the solar system"
 }

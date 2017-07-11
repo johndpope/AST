@@ -7,24 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		94311D1A1EFBE9FD00420071 /* ASTActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94311D191EFBE9FD00420071 /* ASTActionButtonView.swift */; };
-		94311D1E1EFBEF2000420071 /* ASTActionButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94311D1D1EFBEF2000420071 /* ASTActionButtonView.xib */; };
+		94311D1A1EFBE9FD00420071 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94311D191EFBE9FD00420071 /* ActionButtonView.swift */; };
+		94311D1E1EFBEF2000420071 /* ActionButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94311D1D1EFBEF2000420071 /* ActionButtonView.xib */; };
 		BD604E5B1EEBEFFF005058C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E5A1EEBEFFF005058C7 /* AppDelegate.swift */; };
 		BD604E5D1EEBEFFF005058C7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BD604E5C1EEBEFFF005058C7 /* art.scnassets */; };
-		BD604E5F1EEBEFFF005058C7 /* ASTModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E5E1EEBEFFF005058C7 /* ASTModelController.swift */; };
-		BD604E621EEBEFFF005058C7 /* ASTMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD604E601EEBEFFF005058C7 /* ASTMain.storyboard */; };
+		BD604E5F1EEBEFFF005058C7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E5E1EEBEFFF005058C7 /* MainViewController.swift */; };
+		BD604E621EEBEFFF005058C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD604E601EEBEFFF005058C7 /* Main.storyboard */; };
 		BD604E641EEBEFFF005058C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD604E631EEBEFFF005058C7 /* Assets.xcassets */; };
 		BD604E671EEBEFFF005058C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD604E651EEBEFFF005058C7 /* LaunchScreen.storyboard */; };
 		BD604E721EEBEFFF005058C7 /* AstroomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E711EEBEFFF005058C7 /* AstroomTests.swift */; };
 		BD604E7D1EEBEFFF005058C7 /* AstroomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E7C1EEBEFFF005058C7 /* AstroomUITests.swift */; };
-		BD6584831F09414700C2A567 /* ASTInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6584821F09414700C2A567 /* ASTInfoController.swift */; };
-		BD7199E11EF71C170056A0D0 /* ASTUIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7199E01EF71C170056A0D0 /* ASTUIViewExtension.swift */; };
-		BD82B7381EF87CBC003260CF /* ASTInformationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD82B7371EF87CBC003260CF /* ASTInformationViewCell.swift */; };
-		BD82B73A1EF87CC5003260CF /* ASTInformationViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD82B7391EF87CC5003260CF /* ASTInformationViewCell.xib */; };
-		BD882A781EF6DC5400C1C8F9 /* ASTDeviceMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882A771EF6DC5400C1C8F9 /* ASTDeviceMotion.swift */; };
-		BD882ABB1EF705CD00C1C8F9 /* ASTHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882ABA1EF705CD00C1C8F9 /* ASTHelperView.swift */; };
-		BD882ABD1EF705D700C1C8F9 /* ASTHelperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD882ABC1EF705D700C1C8F9 /* ASTHelperView.xib */; };
-		BD882ABF1EF70C2300C1C8F9 /* ASTHelperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882ABE1EF70C2300C1C8F9 /* ASTHelperConstants.swift */; };
+		BD7199E11EF71C170056A0D0 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7199E01EF71C170056A0D0 /* UIViewExtension.swift */; };
+		BD882A781EF6DC5400C1C8F9 /* DeviceMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882A771EF6DC5400C1C8F9 /* DeviceMotion.swift */; };
+		BD882ABB1EF705CD00C1C8F9 /* HelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882ABA1EF705CD00C1C8F9 /* HelperView.swift */; };
+		BD882ABD1EF705D700C1C8F9 /* HelperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD882ABC1EF705D700C1C8F9 /* HelperView.xib */; };
+		BD882ABF1EF70C2300C1C8F9 /* HelperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882ABE1EF70C2300C1C8F9 /* HelperConstants.swift */; };
 		BD882AC21EF70C6C00C1C8F9 /* ASTHelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882AC11EF70C6C00C1C8F9 /* ASTHelpViewModel.swift */; };
 		BD979A6A1F0C22A200DC6F11 /* SunModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD979A691F0C22A200DC6F11 /* SunModel.swift */; };
 		BD979A6C1F0C22C300DC6F11 /* PlanetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD979A6B1F0C22C300DC6F11 /* PlanetProtocol.swift */; };
@@ -37,12 +34,12 @@
 		BD979A7C1F0C28D200DC6F11 /* UranusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD979A7B1F0C28D200DC6F11 /* UranusModel.swift */; };
 		BD979A7E1F0C28D700DC6F11 /* NeptuneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD979A7D1F0C28D700DC6F11 /* NeptuneModel.swift */; };
 		BD979A801F0C28DF00DC6F11 /* PlutoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD979A7F1F0C28DF00DC6F11 /* PlutoModel.swift */; };
-		BDAEFD131F04421700C7EFA9 /* ASTSolarSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAEFD121F04421700C7EFA9 /* ASTSolarSystem.swift */; };
-		BDBFDD5F1EEF3E01004F3F0A /* ASTInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFDD5E1EEF3E01004F3F0A /* ASTInformationView.swift */; };
-		BDBFDD611EEF3E10004F3F0A /* ASTInformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDBFDD601EEF3E10004F3F0A /* ASTInformationView.xib */; };
-		BDBFDD631EEF3FAB004F3F0A /* ASTUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */; };
-		BDD3BBCE1EEF328300139070 /* ASTCGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BBCD1EEF328300139070 /* ASTCGRectExtension.swift */; };
-		BDE4C7B31EF9DAC300FE3292 /* ASTSkyPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4C7B21EF9DAC300FE3292 /* ASTSkyPlane.swift */; };
+		BD9C84221F1559BE009057A4 /* StarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9C84211F1559BE009057A4 /* StarProtocol.swift */; };
+		BD9C84251F155CCA009057A4 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9C84241F155CCA009057A4 /* TabBarView.swift */; };
+		BDAEFD131F04421700C7EFA9 /* SolarSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAEFD121F04421700C7EFA9 /* SolarSystem.swift */; };
+		BDBFDD631EEF3FAB004F3F0A /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFDD621EEF3FAB004F3F0A /* UIConstants.swift */; };
+		BDD3BBCE1EEF328300139070 /* CGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BBCD1EEF328300139070 /* CGRectExtension.swift */; };
+		BDE4C7B31EF9DAC300FE3292 /* SkyPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4C7B21EF9DAC300FE3292 /* SkyPlane.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,13 +60,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		94311D191EFBE9FD00420071 /* ASTActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTActionButtonView.swift; sourceTree = "<group>"; };
-		94311D1D1EFBEF2000420071 /* ASTActionButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASTActionButtonView.xib; sourceTree = "<group>"; };
+		94311D191EFBE9FD00420071 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
+		94311D1D1EFBEF2000420071 /* ActionButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionButtonView.xib; sourceTree = "<group>"; };
 		BD604E571EEBEFFF005058C7 /* Astroom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astroom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD604E5A1EEBEFFF005058C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD604E5C1EEBEFFF005058C7 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		BD604E5E1EEBEFFF005058C7 /* ASTModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTModelController.swift; sourceTree = "<group>"; };
-		BD604E611EEBEFFF005058C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ASTMain.storyboard; sourceTree = "<group>"; };
+		BD604E5E1EEBEFFF005058C7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		BD604E611EEBEFFF005058C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BD604E631EEBEFFF005058C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD604E661EEBEFFF005058C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD604E681EEBEFFF005058C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,14 +76,11 @@
 		BD604E781EEBEFFF005058C7 /* AstroomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AstroomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD604E7C1EEBEFFF005058C7 /* AstroomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroomUITests.swift; sourceTree = "<group>"; };
 		BD604E7E1EEBEFFF005058C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BD6584821F09414700C2A567 /* ASTInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTInfoController.swift; sourceTree = "<group>"; };
-		BD7199E01EF71C170056A0D0 /* ASTUIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTUIViewExtension.swift; sourceTree = "<group>"; };
-		BD82B7371EF87CBC003260CF /* ASTInformationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTInformationViewCell.swift; sourceTree = "<group>"; };
-		BD82B7391EF87CC5003260CF /* ASTInformationViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASTInformationViewCell.xib; sourceTree = "<group>"; };
-		BD882A771EF6DC5400C1C8F9 /* ASTDeviceMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTDeviceMotion.swift; sourceTree = "<group>"; };
-		BD882ABA1EF705CD00C1C8F9 /* ASTHelperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTHelperView.swift; sourceTree = "<group>"; };
-		BD882ABC1EF705D700C1C8F9 /* ASTHelperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASTHelperView.xib; sourceTree = "<group>"; };
-		BD882ABE1EF70C2300C1C8F9 /* ASTHelperConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTHelperConstants.swift; sourceTree = "<group>"; };
+		BD7199E01EF71C170056A0D0 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		BD882A771EF6DC5400C1C8F9 /* DeviceMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceMotion.swift; sourceTree = "<group>"; };
+		BD882ABA1EF705CD00C1C8F9 /* HelperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperView.swift; sourceTree = "<group>"; };
+		BD882ABC1EF705D700C1C8F9 /* HelperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelperView.xib; sourceTree = "<group>"; };
+		BD882ABE1EF70C2300C1C8F9 /* HelperConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperConstants.swift; sourceTree = "<group>"; };
 		BD882AC11EF70C6C00C1C8F9 /* ASTHelpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTHelpViewModel.swift; sourceTree = "<group>"; };
 		BD979A691F0C22A200DC6F11 /* SunModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunModel.swift; sourceTree = "<group>"; };
 		BD979A6B1F0C22C300DC6F11 /* PlanetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetProtocol.swift; sourceTree = "<group>"; };
@@ -99,14 +93,14 @@
 		BD979A7B1F0C28D200DC6F11 /* UranusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UranusModel.swift; sourceTree = "<group>"; };
 		BD979A7D1F0C28D700DC6F11 /* NeptuneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeptuneModel.swift; sourceTree = "<group>"; };
 		BD979A7F1F0C28DF00DC6F11 /* PlutoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlutoModel.swift; sourceTree = "<group>"; };
+		BD9C84211F1559BE009057A4 /* StarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarProtocol.swift; sourceTree = "<group>"; };
+		BD9C84241F155CCA009057A4 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		BDAEFD101F043FED00C7EFA9 /* ASTGraveyard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTGraveyard.swift; sourceTree = "<group>"; };
-		BDAEFD121F04421700C7EFA9 /* ASTSolarSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTSolarSystem.swift; sourceTree = "<group>"; };
-		BDBFDD5E1EEF3E01004F3F0A /* ASTInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTInformationView.swift; sourceTree = "<group>"; };
-		BDBFDD601EEF3E10004F3F0A /* ASTInformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ASTInformationView.xib; sourceTree = "<group>"; };
-		BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTUIConstants.swift; sourceTree = "<group>"; };
-		BDD3BBCD1EEF328300139070 /* ASTCGRectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTCGRectExtension.swift; sourceTree = "<group>"; };
+		BDAEFD121F04421700C7EFA9 /* SolarSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystem.swift; sourceTree = "<group>"; };
+		BDBFDD621EEF3FAB004F3F0A /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		BDD3BBCD1EEF328300139070 /* CGRectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExtension.swift; sourceTree = "<group>"; };
 		BDD3CCC51EF87AD20083A656 /* ARUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARUtilities.swift; sourceTree = "<group>"; };
-		BDE4C7B21EF9DAC300FE3292 /* ASTSkyPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTSkyPlane.swift; sourceTree = "<group>"; };
+		BDE4C7B21EF9DAC300FE3292 /* SkyPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyPlane.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,8 +131,8 @@
 		94311D181EFBE9E400420071 /* ActionButton */ = {
 			isa = PBXGroup;
 			children = (
-				94311D191EFBE9FD00420071 /* ASTActionButtonView.swift */,
-				94311D1D1EFBEF2000420071 /* ASTActionButtonView.xib */,
+				94311D191EFBE9FD00420071 /* ActionButtonView.swift */,
+				94311D1D1EFBEF2000420071 /* ActionButtonView.xib */,
 			);
 			path = ActionButton;
 			sourceTree = "<group>";
@@ -194,19 +188,10 @@
 			path = AstroomUITests;
 			sourceTree = "<group>";
 		};
-		BD82B7361EF87C91003260CF /* InformationViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				BD82B7371EF87CBC003260CF /* ASTInformationViewCell.swift */,
-				BD82B7391EF87CC5003260CF /* ASTInformationViewCell.xib */,
-			);
-			path = InformationViewCell;
-			sourceTree = "<group>";
-		};
 		BD882A791EF6DCF700C1C8F9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				BD882A771EF6DC5400C1C8F9 /* ASTDeviceMotion.swift */,
+				BD882A771EF6DC5400C1C8F9 /* DeviceMotion.swift */,
 				BDAEFD101F043FED00C7EFA9 /* ASTGraveyard.swift */,
 			);
 			path = Utils;
@@ -215,9 +200,6 @@
 		BD882AB81EF705A300C1C8F9 /* InformationView */ = {
 			isa = PBXGroup;
 			children = (
-				BD82B7361EF87C91003260CF /* InformationViewCell */,
-				BDBFDD5E1EEF3E01004F3F0A /* ASTInformationView.swift */,
-				BDBFDD601EEF3E10004F3F0A /* ASTInformationView.xib */,
 			);
 			path = InformationView;
 			sourceTree = "<group>";
@@ -225,9 +207,9 @@
 		BD882AB91EF705B300C1C8F9 /* HelperView */ = {
 			isa = PBXGroup;
 			children = (
-				BD882ABE1EF70C2300C1C8F9 /* ASTHelperConstants.swift */,
-				BD882ABA1EF705CD00C1C8F9 /* ASTHelperView.swift */,
-				BD882ABC1EF705D700C1C8F9 /* ASTHelperView.xib */,
+				BD882ABE1EF70C2300C1C8F9 /* HelperConstants.swift */,
+				BD882ABA1EF705CD00C1C8F9 /* HelperView.swift */,
+				BD882ABC1EF705D700C1C8F9 /* HelperView.xib */,
 			);
 			path = HelperView;
 			sourceTree = "<group>";
@@ -253,8 +235,8 @@
 		BD882AC41EF70CB300C1C8F9 /* Object Model */ = {
 			isa = PBXGroup;
 			children = (
-				BDAEFD121F04421700C7EFA9 /* ASTSolarSystem.swift */,
-				BDE4C7B21EF9DAC300FE3292 /* ASTSkyPlane.swift */,
+				BDAEFD121F04421700C7EFA9 /* SolarSystem.swift */,
+				BDE4C7B21EF9DAC300FE3292 /* SkyPlane.swift */,
 			);
 			path = "Object Model";
 			sourceTree = "<group>";
@@ -280,15 +262,24 @@
 			isa = PBXGroup;
 			children = (
 				BD979A6B1F0C22C300DC6F11 /* PlanetProtocol.swift */,
+				BD9C84211F1559BE009057A4 /* StarProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BD9C84231F155CAE009057A4 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				BD9C84241F155CCA009057A4 /* TabBarView.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		BDBFDD5B1EEF3DCF004F3F0A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BD7199E01EF71C170056A0D0 /* ASTUIViewExtension.swift */,
-				BDD3BBCD1EEF328300139070 /* ASTCGRectExtension.swift */,
+				BD7199E01EF71C170056A0D0 /* UIViewExtension.swift */,
+				BDD3BBCD1EEF328300139070 /* CGRectExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,9 +287,8 @@
 		BDBFDD5C1EEF3DDC004F3F0A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BD6584821F09414700C2A567 /* ASTInfoController.swift */,
-				BD604E5E1EEBEFFF005058C7 /* ASTModelController.swift */,
-				BD604E601EEBEFFF005058C7 /* ASTMain.storyboard */,
+				BD604E5E1EEBEFFF005058C7 /* MainViewController.swift */,
+				BD604E601EEBEFFF005058C7 /* Main.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -306,7 +296,8 @@
 		BDBFDD5D1EEF3DF4004F3F0A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BDBFDD621EEF3FAB004F3F0A /* ASTUIConstants.swift */,
+				BDBFDD621EEF3FAB004F3F0A /* UIConstants.swift */,
+				BD9C84231F155CAE009057A4 /* TabBar */,
 				94311D181EFBE9E400420071 /* ActionButton */,
 				BD882AB81EF705A300C1C8F9 /* InformationView */,
 				BD882AB91EF705B300C1C8F9 /* HelperView */,
@@ -450,12 +441,10 @@
 			files = (
 				BD604E5D1EEBEFFF005058C7 /* art.scnassets in Resources */,
 				BD604E671EEBEFFF005058C7 /* LaunchScreen.storyboard in Resources */,
-				BDBFDD611EEF3E10004F3F0A /* ASTInformationView.xib in Resources */,
 				BD604E641EEBEFFF005058C7 /* Assets.xcassets in Resources */,
-				BD604E621EEBEFFF005058C7 /* ASTMain.storyboard in Resources */,
-				BD882ABD1EF705D700C1C8F9 /* ASTHelperView.xib in Resources */,
-				94311D1E1EFBEF2000420071 /* ASTActionButtonView.xib in Resources */,
-				BD82B73A1EF87CC5003260CF /* ASTInformationViewCell.xib in Resources */,
+				BD604E621EEBEFFF005058C7 /* Main.storyboard in Resources */,
+				BD882ABD1EF705D700C1C8F9 /* HelperView.xib in Resources */,
+				94311D1E1EFBEF2000420071 /* ActionButtonView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,29 +470,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD979A6A1F0C22A200DC6F11 /* SunModel.swift in Sources */,
-				BD882ABF1EF70C2300C1C8F9 /* ASTHelperConstants.swift in Sources */,
-				BDBFDD631EEF3FAB004F3F0A /* ASTUIConstants.swift in Sources */,
-				BDBFDD5F1EEF3E01004F3F0A /* ASTInformationView.swift in Sources */,
+				BD9C84251F155CCA009057A4 /* TabBarView.swift in Sources */,
+				BD882ABF1EF70C2300C1C8F9 /* HelperConstants.swift in Sources */,
+				BDBFDD631EEF3FAB004F3F0A /* UIConstants.swift in Sources */,
 				BD979A761F0C28BC00DC6F11 /* EarthModel.swift in Sources */,
-				BD6584831F09414700C2A567 /* ASTInfoController.swift in Sources */,
-				BD7199E11EF71C170056A0D0 /* ASTUIViewExtension.swift in Sources */,
+				BD7199E11EF71C170056A0D0 /* UIViewExtension.swift in Sources */,
 				BD979A741F0C28B600DC6F11 /* MarsModel.swift in Sources */,
-				BDAEFD131F04421700C7EFA9 /* ASTSolarSystem.swift in Sources */,
-				BDE4C7B31EF9DAC300FE3292 /* ASTSkyPlane.swift in Sources */,
-				BD604E5F1EEBEFFF005058C7 /* ASTModelController.swift in Sources */,
+				BDAEFD131F04421700C7EFA9 /* SolarSystem.swift in Sources */,
+				BD9C84221F1559BE009057A4 /* StarProtocol.swift in Sources */,
+				BDE4C7B31EF9DAC300FE3292 /* SkyPlane.swift in Sources */,
+				BD604E5F1EEBEFFF005058C7 /* MainViewController.swift in Sources */,
 				BD979A781F0C28C600DC6F11 /* JupiterModel.swift in Sources */,
 				BD979A7A1F0C28CD00DC6F11 /* SaturnModel.swift in Sources */,
 				BD604E5B1EEBEFFF005058C7 /* AppDelegate.swift in Sources */,
-				94311D1A1EFBE9FD00420071 /* ASTActionButtonView.swift in Sources */,
+				94311D1A1EFBE9FD00420071 /* ActionButtonView.swift in Sources */,
 				BD979A6C1F0C22C300DC6F11 /* PlanetProtocol.swift in Sources */,
-				BD82B7381EF87CBC003260CF /* ASTInformationViewCell.swift in Sources */,
-				BD882A781EF6DC5400C1C8F9 /* ASTDeviceMotion.swift in Sources */,
+				BD882A781EF6DC5400C1C8F9 /* DeviceMotion.swift in Sources */,
 				BD979A7E1F0C28D700DC6F11 /* NeptuneModel.swift in Sources */,
-				BDD3BBCE1EEF328300139070 /* ASTCGRectExtension.swift in Sources */,
+				BDD3BBCE1EEF328300139070 /* CGRectExtension.swift in Sources */,
 				BD979A801F0C28DF00DC6F11 /* PlutoModel.swift in Sources */,
 				BD979A7C1F0C28D200DC6F11 /* UranusModel.swift in Sources */,
 				BD882AC21EF70C6C00C1C8F9 /* ASTHelpViewModel.swift in Sources */,
-				BD882ABB1EF705CD00C1C8F9 /* ASTHelperView.swift in Sources */,
+				BD882ABB1EF705CD00C1C8F9 /* HelperView.swift in Sources */,
 				BD979A721F0C28AE00DC6F11 /* VenusModel.swift in Sources */,
 				BD979A6E1F0C24B600DC6F11 /* MercuryModel.swift in Sources */,
 			);
@@ -541,12 +529,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		BD604E601EEBEFFF005058C7 /* ASTMain.storyboard */ = {
+		BD604E601EEBEFFF005058C7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BD604E611EEBEFFF005058C7 /* Base */,
 			);
-			name = ASTMain.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		BD604E651EEBEFFF005058C7 /* LaunchScreen.storyboard */ = {

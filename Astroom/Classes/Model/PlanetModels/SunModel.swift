@@ -1,14 +1,9 @@
 import Foundation
 
-class SunModel: PlanetProtocol {    
+class SunModel: StarProtocol {
     var name = "Sun"
-    var index = 0
     var clockwiseSpin = false
-    var spinTime = 1407
-    var orbitTime = 0.0
-    var numberOfMoons = 0
-    var diameter = 4880
-    var radius = 2440
-    var averageTemperature = 1000000000
-    var averageVelocity = 48
+    var spinTime = 587
+    var diameter = 1391400
+    var funFact = "The sun is 4.6 billion years old"
 }

@@ -11,14 +11,8 @@ protocol PlanetProtocol {
     var spinTime: Int {get}
     /// Number of days the planet takes to do full orbit around the sun
     var orbitTime: Double {get}
-    /// Number of moons the planet has
-    var numberOfMoons: Int {get}
     /// Diameter of the planet in kilometers
     var diameter: Int {get}
-    /// Radius of the planet in kilometers
-    var radius: Int {get}
-    /// Average temperature of the planet in degress celcius
-    var averageTemperature: Int {get}
-    /// Average velocity of the planet in kilometers per second
-    var averageVelocity: Int {get}
+    /// Fun fact
+    var funFact: String {get}
 }

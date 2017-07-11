@@ -6,9 +6,6 @@ class PlutoModel: PlanetProtocol {
     var clockwiseSpin = false
     var spinTime = 1407
     var orbitTime = 88.0
-    var numberOfMoons = 0
     var diameter = 4880
-    var radius = 2440
-    var averageTemperature = -225
-    var averageVelocity = 48
+    var funFact = "Pluto is the furthest planet from the sun"
 }
