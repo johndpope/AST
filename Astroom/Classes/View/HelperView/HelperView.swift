@@ -71,12 +71,14 @@ class HelperView : UIView {
     
     private func animateInView() {
         UIView.animate(withDuration: UIConstants.shortAnimationDuration, animations: {
+            self.frame.origin.y -= self.frame.height
             self.alpha = 1.0
         })
     }
     
     private func animateOutView() {
         UIView.animate(withDuration: UIConstants.shortAnimationDuration, animations: {
+            self.frame.origin.y += self.frame.height
             self.alpha = 0.0
         })
     }

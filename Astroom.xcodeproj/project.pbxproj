@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		94311D1A1EFBE9FD00420071 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94311D191EFBE9FD00420071 /* ActionButtonView.swift */; };
 		94311D1E1EFBEF2000420071 /* ActionButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94311D1D1EFBEF2000420071 /* ActionButtonView.xib */; };
+		BD40B2DA1F1E952600F766F0 /* SunNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD40B2D91F1E952600F766F0 /* SunNode.swift */; };
+		BD40B2DC1F1E952D00F766F0 /* MercuryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD40B2DB1F1E952D00F766F0 /* MercuryNode.swift */; };
+		BD40B2DE1F1E953400F766F0 /* VenusNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD40B2DD1F1E953400F766F0 /* VenusNode.swift */; };
 		BD604E5B1EEBEFFF005058C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E5A1EEBEFFF005058C7 /* AppDelegate.swift */; };
 		BD604E5D1EEBEFFF005058C7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = BD604E5C1EEBEFFF005058C7 /* art.scnassets */; };
 		BD604E5F1EEBEFFF005058C7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E5E1EEBEFFF005058C7 /* MainViewController.swift */; };
@@ -18,6 +21,7 @@
 		BD604E721EEBEFFF005058C7 /* AstroomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E711EEBEFFF005058C7 /* AstroomTests.swift */; };
 		BD604E7D1EEBEFFF005058C7 /* AstroomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E7C1EEBEFFF005058C7 /* AstroomUITests.swift */; };
 		BD7199E11EF71C170056A0D0 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7199E01EF71C170056A0D0 /* UIViewExtension.swift */; };
+		BD81A4C91F16B8F60058AFF1 /* EarthNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD81A4C81F16B8F60058AFF1 /* EarthNode.swift */; };
 		BD882A781EF6DC5400C1C8F9 /* DeviceMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882A771EF6DC5400C1C8F9 /* DeviceMotion.swift */; };
 		BD882ABB1EF705CD00C1C8F9 /* HelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882ABA1EF705CD00C1C8F9 /* HelperView.swift */; };
 		BD882ABD1EF705D700C1C8F9 /* HelperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD882ABC1EF705D700C1C8F9 /* HelperView.xib */; };
@@ -62,6 +66,9 @@
 /* Begin PBXFileReference section */
 		94311D191EFBE9FD00420071 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
 		94311D1D1EFBEF2000420071 /* ActionButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionButtonView.xib; sourceTree = "<group>"; };
+		BD40B2D91F1E952600F766F0 /* SunNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunNode.swift; sourceTree = "<group>"; };
+		BD40B2DB1F1E952D00F766F0 /* MercuryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercuryNode.swift; sourceTree = "<group>"; };
+		BD40B2DD1F1E953400F766F0 /* VenusNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenusNode.swift; sourceTree = "<group>"; };
 		BD604E571EEBEFFF005058C7 /* Astroom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astroom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD604E5A1EEBEFFF005058C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BD604E5C1EEBEFFF005058C7 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -77,6 +84,7 @@
 		BD604E7C1EEBEFFF005058C7 /* AstroomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AstroomUITests.swift; sourceTree = "<group>"; };
 		BD604E7E1EEBEFFF005058C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BD7199E01EF71C170056A0D0 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		BD81A4C81F16B8F60058AFF1 /* EarthNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthNode.swift; sourceTree = "<group>"; };
 		BD882A771EF6DC5400C1C8F9 /* DeviceMotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceMotion.swift; sourceTree = "<group>"; };
 		BD882ABA1EF705CD00C1C8F9 /* HelperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperView.swift; sourceTree = "<group>"; };
 		BD882ABC1EF705D700C1C8F9 /* HelperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelperView.xib; sourceTree = "<group>"; };
@@ -235,6 +243,10 @@
 		BD882AC41EF70CB300C1C8F9 /* Object Model */ = {
 			isa = PBXGroup;
 			children = (
+				BD40B2D91F1E952600F766F0 /* SunNode.swift */,
+				BD40B2DB1F1E952D00F766F0 /* MercuryNode.swift */,
+				BD40B2DD1F1E953400F766F0 /* VenusNode.swift */,
+				BD81A4C81F16B8F60058AFF1 /* EarthNode.swift */,
 				BDAEFD121F04421700C7EFA9 /* SolarSystem.swift */,
 				BDE4C7B21EF9DAC300FE3292 /* SkyPlane.swift */,
 			);
@@ -469,6 +481,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD40B2DA1F1E952600F766F0 /* SunNode.swift in Sources */,
+				BD81A4C91F16B8F60058AFF1 /* EarthNode.swift in Sources */,
 				BD979A6A1F0C22A200DC6F11 /* SunModel.swift in Sources */,
 				BD9C84251F155CCA009057A4 /* TabBarView.swift in Sources */,
 				BD882ABF1EF70C2300C1C8F9 /* HelperConstants.swift in Sources */,
@@ -492,6 +506,8 @@
 				BD979A7C1F0C28D200DC6F11 /* UranusModel.swift in Sources */,
 				BD882AC21EF70C6C00C1C8F9 /* ASTHelpViewModel.swift in Sources */,
 				BD882ABB1EF705CD00C1C8F9 /* HelperView.swift in Sources */,
+				BD40B2DE1F1E953400F766F0 /* VenusNode.swift in Sources */,
+				BD40B2DC1F1E952D00F766F0 /* MercuryNode.swift in Sources */,
 				BD979A721F0C28AE00DC6F11 /* VenusModel.swift in Sources */,
 				BD979A6E1F0C24B600DC6F11 /* MercuryModel.swift in Sources */,
 			);
@@ -568,6 +584,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
@@ -623,6 +641,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;

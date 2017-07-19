@@ -1,6 +1,6 @@
 import UIKit
 
-struct ASTHelpViewModel {
+struct HelpViewModel {
     let image: UIImage!
     let title: String!
     let description: String

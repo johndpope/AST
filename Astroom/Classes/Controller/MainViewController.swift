@@ -23,7 +23,16 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     // Custom objects
     let deviceMotionManager = DeviceMotion()
     var skyPlane: ASTSkyPlane!
-    var solarSystem: ASTSolarSystem!
+    var sun: SunNode!
+    var mercury: MercuryNode!
+    var venus: VenusNode!
+    var earth: EarthNode!
+    var mars: EarthNode!
+    var jupiter: EarthNode!
+    var saturn: EarthNode!
+    var uranus: EarthNode!
+    var neptune: EarthNode!
+    var pluto: EarthNode!
     
     // ARSession
     let session = ARSession()
@@ -169,9 +178,28 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     
     /// Add the solar system to the scene
     private func addSolarSytem(node: SCNNode, on planeAnchor: ARPlaneAnchor) {
-        if solarSystem == nil {
-            solarSystem = ASTSolarSystem(anchor: planeAnchor)
-            node.addChildNode(solarSystem)
+        // Sun
+        if sun == nil {
+            sun = SunNode(anchor: planeAnchor)
+            node.addChildNode(sun)
+        }
+        
+        // Mercury
+        if mercury == nil {
+            mercury = MercuryNode(anchor: planeAnchor)
+            node.addChildNode(mercury)
+        }
+        
+        // Venus
+        if venus == nil {
+            venus = VenusNode(anchor: planeAnchor)
+            node.addChildNode(venus)
+        }
+        
+        // Earth
+        if earth == nil {
+            earth = EarthNode(anchor: planeAnchor)
+            node.addChildNode(earth)
         }
     }
     
@@ -191,9 +219,9 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     
     /// Removes the solar system from scene
     private func removeSolarSytem() {
-        if solarSystem != nil {
-            solarSystem.removeFromParentNode()
-            solarSystem = nil
+        if earth != nil {
+            earth.removeFromParentNode()
+            earth = nil
         }
     }
     

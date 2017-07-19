@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.14"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -31,65 +32,58 @@
                                     <outlet property="delegate" destination="BV1-FR-VrT" id="RAE-re-HP1"/>
                                 </connections>
                             </arscnView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPo-3W-BSH">
-                                <rect key="frame" x="0.0" y="603" width="375" height="64"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bcM-9z-Kma">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHi-Wk-jVx">
-                                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="64"/>
-                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                            <state key="normal" title="Share"/>
-                                        </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvZ-pu-2z4">
-                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="64"/>
-                                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                            <state key="normal" title="Refresh"/>
-                                        </button>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="HHi-Wk-jVx" secondAttribute="trailing" id="1kB-Ks-0Il"/>
-                                        <constraint firstItem="HHi-Wk-jVx" firstAttribute="width" secondItem="CvZ-pu-2z4" secondAttribute="width" id="1l4-J6-sI0"/>
-                                        <constraint firstAttribute="bottom" secondItem="HHi-Wk-jVx" secondAttribute="bottom" id="2QU-DJ-hcc"/>
-                                        <constraint firstItem="CvZ-pu-2z4" firstAttribute="leading" secondItem="bcM-9z-Kma" secondAttribute="leading" id="MHl-qo-EF4"/>
-                                        <constraint firstItem="HHi-Wk-jVx" firstAttribute="leading" secondItem="CvZ-pu-2z4" secondAttribute="trailing" id="Xld-Na-4AF"/>
-                                        <constraint firstItem="HHi-Wk-jVx" firstAttribute="top" secondItem="bcM-9z-Kma" secondAttribute="top" id="Y6g-GF-TOD"/>
-                                        <constraint firstItem="CvZ-pu-2z4" firstAttribute="top" secondItem="bcM-9z-Kma" secondAttribute="top" id="aPO-8N-GMS"/>
-                                        <constraint firstAttribute="bottom" secondItem="CvZ-pu-2z4" secondAttribute="bottom" id="hoC-UP-WGV"/>
-                                        <constraint firstItem="HHi-Wk-jVx" firstAttribute="leading" secondItem="CvZ-pu-2z4" secondAttribute="trailing" id="lGW-8T-SmI"/>
-                                    </constraints>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="yBt-oa-b3D"/>
-                                </constraints>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
-                            <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mgu-Ia-zR1" customClass="HelperView" customModule="Astroom" customModuleProvider="target">
+                            <view clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mgu-Ia-zR1" customClass="HelperView" customModule="Astroom" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="539" width="375" height="64"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="XYS-az-N1v"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="q1X-nn-i9d"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0f-oO-bfE">
+                                <rect key="frame" x="0.0" y="603" width="375" height="64"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bb2-Ns-9nK">
+                                        <rect key="frame" x="0.0" y="0.0" width="187.5" height="64"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                        <state key="normal" title="Share">
+                                            <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2N-3H-Sxy">
+                                        <rect key="frame" x="187.5" y="0.0" width="187.5" height="64"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                                        <state key="normal" title="Restart">
+                                            <color key="titleColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="r2N-3H-Sxy" secondAttribute="trailing" id="6oj-hv-ybV"/>
+                                    <constraint firstItem="bb2-Ns-9nK" firstAttribute="top" secondItem="b0f-oO-bfE" secondAttribute="top" id="C2m-UR-jBU"/>
+                                    <constraint firstItem="r2N-3H-Sxy" firstAttribute="top" secondItem="b0f-oO-bfE" secondAttribute="top" id="KiR-s9-gFY"/>
+                                    <constraint firstItem="r2N-3H-Sxy" firstAttribute="leading" secondItem="bb2-Ns-9nK" secondAttribute="trailing" id="QtX-P4-cFq"/>
+                                    <constraint firstAttribute="height" constant="64" id="UO3-Rj-F9x"/>
+                                    <constraint firstItem="r2N-3H-Sxy" firstAttribute="width" secondItem="bb2-Ns-9nK" secondAttribute="width" id="VEx-OF-wTL"/>
+                                    <constraint firstAttribute="bottom" secondItem="bb2-Ns-9nK" secondAttribute="bottom" id="Vap-zz-bet"/>
+                                    <constraint firstAttribute="bottom" secondItem="r2N-3H-Sxy" secondAttribute="bottom" id="bh9-SA-Vf1"/>
+                                    <constraint firstItem="bb2-Ns-9nK" firstAttribute="leading" secondItem="b0f-oO-bfE" secondAttribute="leading" id="czG-ab-mPN"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="pOB-Ig-ues" secondAttribute="bottom" id="2Gv-Gu-CFQ"/>
                             <constraint firstItem="pOB-Ig-ues" firstAttribute="top" secondItem="rmn-GL-oql" secondAttribute="top" id="4XS-pA-Oah"/>
-                            <constraint firstItem="kPo-3W-BSH" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leading" id="R9e-K6-gsK"/>
+                            <constraint firstAttribute="trailing" secondItem="b0f-oO-bfE" secondAttribute="trailing" id="GYQ-TQ-MA0"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="b0f-oO-bfE" secondAttribute="bottom" id="WLx-MG-OTp"/>
+                            <constraint firstAttribute="bottom" secondItem="Mgu-Ia-zR1" secondAttribute="bottom" constant="64" id="YiB-YW-2cm"/>
                             <constraint firstAttribute="trailing" secondItem="Mgu-Ia-zR1" secondAttribute="trailing" id="YwJ-FT-SJz"/>
-                            <constraint firstAttribute="trailing" secondItem="kPo-3W-BSH" secondAttribute="trailing" id="Znd-Vr-Npd"/>
                             <constraint firstItem="Mgu-Ia-zR1" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leading" id="auV-l0-9wn"/>
                             <constraint firstAttribute="trailing" secondItem="pOB-Ig-ues" secondAttribute="trailing" id="eXT-RB-cGw"/>
                             <constraint firstItem="pOB-Ig-ues" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leading" id="hJK-cg-7nu"/>
-                            <constraint firstAttribute="bottom" secondItem="kPo-3W-BSH" secondAttribute="bottom" id="lBO-Uq-Lr1"/>
+                            <constraint firstItem="b0f-oO-bfE" firstAttribute="leading" secondItem="rmn-GL-oql" secondAttribute="leading" id="lZv-Jv-zou"/>
                         </constraints>
                     </view>
                     <connections>
