@@ -1,15 +1,22 @@
 import ARKit
 
+/// Class represents the Sun node
 class SunNode: SCNNode {
     
-    let name = "Sun"
-    let clockwiseSpin = false
-    let spinTime = 587
-    let diameter = 1391400
-    let funFact = "The sun is 4.6 billion years old"
+    /// Name of the star in English
+    let sunName: String = "Sun"
+    /// Star spins clockwise from top
+    let clockwiseSpin: Bool = false
+    /// Number of hours the star takes to do full rotation
+    let spinTime: Int = 587
+    /// Diameter of the star in kilometers
+    let diameter: Int = 1391400
+    /// Fun fact
+    let funFact: String = "The sun is 4.6 billion years old"
     
     init(anchor: ARPlaneAnchor) {
         super.init()
+        
         setupSun(anchor)
     }
     

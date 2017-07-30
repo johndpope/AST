@@ -5,7 +5,7 @@ class SolarSytemHelper {
     static func addSolarSystem(mainVC: MainViewController, node: SCNNode, on planeAnchor: ARPlaneAnchor) {
         // Sky Plane
         if mainVC.skyPlane == nil {
-            mainVC.skyPlane = ASTSkyPlane(anchor: planeAnchor)
+            mainVC.skyPlane = SkyPlane(anchor: planeAnchor)
             node.addChildNode(mainVC.skyPlane)
         }
         
@@ -31,6 +31,42 @@ class SolarSytemHelper {
         if mainVC.earth == nil {
             mainVC.earth = PlanetNode(planet: PlanetConstants.earth, on: planeAnchor)
             node.addChildNode(mainVC.earth)
+        }
+        
+        // Mars
+        if mainVC.mars == nil {
+            mainVC.mars = PlanetNode(planet: PlanetConstants.mars, on: planeAnchor)
+            node.addChildNode(mainVC.mars)
+        }
+        
+        // Jupiter
+        if mainVC.jupiter == nil {
+            mainVC.jupiter = PlanetNode(planet: PlanetConstants.jupiter, on: planeAnchor)
+            node.addChildNode(mainVC.jupiter)
+        }
+        
+        // Saturn
+        if mainVC.saturn == nil {
+            mainVC.saturn = PlanetNode(planet: PlanetConstants.saturn, on: planeAnchor)
+            node.addChildNode(mainVC.saturn)
+        }
+        
+        // Uranus
+        if mainVC.uranus == nil {
+            mainVC.uranus = PlanetNode(planet: PlanetConstants.uranus, on: planeAnchor)
+            node.addChildNode(mainVC.uranus)
+        }
+        
+        // Neptune
+        if mainVC.neptune == nil {
+            mainVC.neptune = PlanetNode(planet: PlanetConstants.neptune, on: planeAnchor)
+            node.addChildNode(mainVC.neptune)
+        }
+        
+        // Pluto
+        if mainVC.pluto == nil {
+            mainVC.pluto = PlanetNode(planet: PlanetConstants.pluto, on: planeAnchor)
+            node.addChildNode(mainVC.pluto)
         }
     }
     

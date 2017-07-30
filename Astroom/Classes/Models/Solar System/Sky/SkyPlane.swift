@@ -1,10 +1,9 @@
 import ARKit
 
-class ASTSkyPlane : SCNNode {
+/// Class represents the SkyPlane node
+class SkyPlane : SCNNode {
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    // MARK: Initialization Method
     
     init(anchor: ARPlaneAnchor) {
         super.init()
@@ -23,6 +22,12 @@ class ASTSkyPlane : SCNNode {
         // Rotate it to match the horizontal orientation of the ARPlaneAnchor.
         self.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
     }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: Helper Method
     
     private func setUpSkyMaterialOn(plane: SCNPlane) {
         let nightMaterial = SCNMaterial()

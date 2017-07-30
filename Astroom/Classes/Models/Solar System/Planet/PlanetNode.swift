@@ -1,15 +1,28 @@
 import ARKit
 
+/// Class represents a planet node
 class PlanetNode: SCNNode {
     
+    // MARK: Variables
+    
+    /// Name of the planet in English
     var planetName: String!
+    /// Index of the planet to the sun, i.e sun is 0, mercury is 1...
     var index: Int!
+    /// Planet spins clockwise from top
     var clockwiseSpin: Bool!
+    /// Number of hours the planet takes to do full rotation
     var spinTime: Int!
+    /// Number of days the planet takes to do full orbit around the sun
     var orbitTime: Double!
+    /// Diameter of the planet in kilometers
     var diameter: Int!
+    /// Texture image of the planet
     var texture: UIImage!
+    /// Fun fact
     var funFact: String!
+    
+    // MARK: Initialization Methods
     
     init(planet: PlanetViewModel, on anchor: ARPlaneAnchor) {
         super.init()
@@ -29,6 +42,8 @@ class PlanetNode: SCNNode {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    // MARK: Helper Methods
     
     private func setupPlanet(_ anchor: ARPlaneAnchor) {
         calculatePlanetGeometry(anchor)

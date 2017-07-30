@@ -22,13 +22,10 @@
 		BD604E721EEBEFFF005058C7 /* AstroomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E711EEBEFFF005058C7 /* AstroomTests.swift */; };
 		BD604E7D1EEBEFFF005058C7 /* AstroomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD604E7C1EEBEFFF005058C7 /* AstroomUITests.swift */; };
 		BD7199E11EF71C170056A0D0 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7199E01EF71C170056A0D0 /* UIViewExtension.swift */; };
-		BD882A781EF6DC5400C1C8F9 /* DeviceMotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882A771EF6DC5400C1C8F9 /* DeviceMotion.swift */; };
 		BD882ABB1EF705CD00C1C8F9 /* HelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882ABA1EF705CD00C1C8F9 /* HelperView.swift */; };
 		BD882ABD1EF705D700C1C8F9 /* HelperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD882ABC1EF705D700C1C8F9 /* HelperView.xib */; };
 		BD882ABF1EF70C2300C1C8F9 /* HelperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882ABE1EF70C2300C1C8F9 /* HelperConstants.swift */; };
 		BD882AC21EF70C6C00C1C8F9 /* HelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882AC11EF70C6C00C1C8F9 /* HelpViewModel.swift */; };
-		BD979A6C1F0C22C300DC6F11 /* PlanetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD979A6B1F0C22C300DC6F11 /* PlanetProtocol.swift */; };
-		BD9C84221F1559BE009057A4 /* StarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9C84211F1559BE009057A4 /* StarProtocol.swift */; };
 		BD9C84251F155CCA009057A4 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9C84241F155CCA009057A4 /* TabBarView.swift */; };
 		BDB47B041F2CC7BA004A9F12 /* SolarSystemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB47B031F2CC7BA004A9F12 /* SolarSystemHelper.swift */; };
 		BDBFDD631EEF3FAB004F3F0A /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFDD621EEF3FAB004F3F0A /* UIConstants.swift */; };
@@ -81,18 +78,6 @@
 		BD882ABC1EF705D700C1C8F9 /* HelperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelperView.xib; sourceTree = "<group>"; };
 		BD882ABE1EF70C2300C1C8F9 /* HelperConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperConstants.swift; sourceTree = "<group>"; };
 		BD882AC11EF70C6C00C1C8F9 /* HelpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewModel.swift; sourceTree = "<group>"; };
-		BD979A691F0C22A200DC6F11 /* SunModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunModel.swift; sourceTree = "<group>"; };
-		BD979A6B1F0C22C300DC6F11 /* PlanetProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetProtocol.swift; sourceTree = "<group>"; };
-		BD979A6D1F0C24B600DC6F11 /* MercuryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MercuryModel.swift; sourceTree = "<group>"; };
-		BD979A711F0C28AE00DC6F11 /* VenusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenusModel.swift; sourceTree = "<group>"; };
-		BD979A731F0C28B600DC6F11 /* MarsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarsModel.swift; sourceTree = "<group>"; };
-		BD979A751F0C28BC00DC6F11 /* EarthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarthModel.swift; sourceTree = "<group>"; };
-		BD979A771F0C28C600DC6F11 /* JupiterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JupiterModel.swift; sourceTree = "<group>"; };
-		BD979A791F0C28CD00DC6F11 /* SaturnModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaturnModel.swift; sourceTree = "<group>"; };
-		BD979A7B1F0C28D200DC6F11 /* UranusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UranusModel.swift; sourceTree = "<group>"; };
-		BD979A7D1F0C28D700DC6F11 /* NeptuneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeptuneModel.swift; sourceTree = "<group>"; };
-		BD979A7F1F0C28DF00DC6F11 /* PlutoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlutoModel.swift; sourceTree = "<group>"; };
-		BD9C84211F1559BE009057A4 /* StarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarProtocol.swift; sourceTree = "<group>"; };
 		BD9C84241F155CCA009057A4 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		BDAEFD101F043FED00C7EFA9 /* ASTGraveyard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTGraveyard.swift; sourceTree = "<group>"; };
 		BDAEFD121F04421700C7EFA9 /* SolarSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystem.swift; sourceTree = "<group>"; };
@@ -200,13 +185,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		BD882AB81EF705A300C1C8F9 /* InformationView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = InformationView;
-			sourceTree = "<group>";
-		};
 		BD882AB91EF705B300C1C8F9 /* HelperView */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				BDE1A3721F2E0295009EE119 /* Solar System */,
-				BD882AC41EF70CB300C1C8F9 /* Object Model */,
 				BD882AC31EF70CA400C1C8F9 /* View Model */,
 			);
 			path = Models;
@@ -236,28 +213,11 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
-		BD882AC41EF70CB300C1C8F9 /* Object Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Object Model";
-			sourceTree = "<group>";
-		};
 		BD979A6F1F0C288200DC6F11 /* Planet */ = {
 			isa = PBXGroup;
 			children = (
 				BD40B2ED1F1FF48B00F766F0 /* PlanetConstants.swift */,
 				BD40B2DB1F1E952D00F766F0 /* PlanetNode.swift */,
-				BD979A691F0C22A200DC6F11 /* SunModel.swift */,
-				BD979A6D1F0C24B600DC6F11 /* MercuryModel.swift */,
-				BD979A711F0C28AE00DC6F11 /* VenusModel.swift */,
-				BD979A751F0C28BC00DC6F11 /* EarthModel.swift */,
-				BD979A731F0C28B600DC6F11 /* MarsModel.swift */,
-				BD979A771F0C28C600DC6F11 /* JupiterModel.swift */,
-				BD979A791F0C28CD00DC6F11 /* SaturnModel.swift */,
-				BD979A7B1F0C28D200DC6F11 /* UranusModel.swift */,
-				BD979A7D1F0C28D700DC6F11 /* NeptuneModel.swift */,
-				BD979A7F1F0C28DF00DC6F11 /* PlutoModel.swift */,
 			);
 			path = Planet;
 			sourceTree = "<group>";
@@ -265,8 +225,6 @@
 		BD979A701F0C289800DC6F11 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				BD979A6B1F0C22C300DC6F11 /* PlanetProtocol.swift */,
-				BD9C84211F1559BE009057A4 /* StarProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -303,7 +261,6 @@
 				BDBFDD621EEF3FAB004F3F0A /* UIConstants.swift */,
 				BD9C84231F155CAE009057A4 /* TabBar */,
 				94311D181EFBE9E400420071 /* ActionButton */,
-				BD882AB81EF705A300C1C8F9 /* InformationView */,
 				BD882AB91EF705B300C1C8F9 /* HelperView */,
 			);
 			path = View;
@@ -505,14 +462,11 @@
 				BD882ABF1EF70C2300C1C8F9 /* HelperConstants.swift in Sources */,
 				BDBFDD631EEF3FAB004F3F0A /* UIConstants.swift in Sources */,
 				BD7199E11EF71C170056A0D0 /* UIViewExtension.swift in Sources */,
-				BD9C84221F1559BE009057A4 /* StarProtocol.swift in Sources */,
 				BDB47B041F2CC7BA004A9F12 /* SolarSystemHelper.swift in Sources */,
 				BDE4C7B31EF9DAC300FE3292 /* SkyPlane.swift in Sources */,
 				BD604E5F1EEBEFFF005058C7 /* MainViewController.swift in Sources */,
 				BD604E5B1EEBEFFF005058C7 /* AppDelegate.swift in Sources */,
 				94311D1A1EFBE9FD00420071 /* ActionButtonView.swift in Sources */,
-				BD979A6C1F0C22C300DC6F11 /* PlanetProtocol.swift in Sources */,
-				BD882A781EF6DC5400C1C8F9 /* DeviceMotion.swift in Sources */,
 				BDD3BBCE1EEF328300139070 /* CGRectExtension.swift in Sources */,
 				BD40B2EC1F1FF3F900F766F0 /* PlanetViewModel.swift in Sources */,
 				BD40B2EE1F1FF48B00F766F0 /* PlanetConstants.swift in Sources */,

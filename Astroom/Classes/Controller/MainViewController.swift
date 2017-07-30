@@ -21,8 +21,7 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     // MARK: Variables and Constants
     
     // Custom objects
-    let deviceMotionManager = DeviceMotion()
-    var skyPlane: ASTSkyPlane!
+    var skyPlane: SkyPlane!
     var sun: SunNode!
     var mercury: PlanetNode!
     var venus: PlanetNode!
