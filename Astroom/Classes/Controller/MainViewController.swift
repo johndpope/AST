@@ -24,15 +24,15 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     let deviceMotionManager = DeviceMotion()
     var skyPlane: ASTSkyPlane!
     var sun: SunNode!
-    var mercury: MercuryNode!
-    var venus: VenusNode!
-    var earth: EarthNode!
-    var mars: EarthNode!
-    var jupiter: EarthNode!
-    var saturn: EarthNode!
-    var uranus: EarthNode!
-    var neptune: EarthNode!
-    var pluto: EarthNode!
+    var mercury: PlanetNode!
+    var venus: PlanetNode!
+    var earth: PlanetNode!
+    var mars: PlanetNode!
+    var jupiter: PlanetNode!
+    var saturn: PlanetNode!
+    var uranus: PlanetNode!
+    var neptune: PlanetNode!
+    var pluto: PlanetNode!
     
     // ARSession
     let session = ARSession()
@@ -149,10 +149,8 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        // Add plane to the scene
-        addPlane(node: node, on: planeAnchor)
         // Add solar system to the scene
-        addSolarSytem(node: node, on: planeAnchor)
+        SolarSytemHelper.addSolarSystem(mainVC: self, node: node, on: planeAnchor)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
@@ -165,73 +163,10 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
         // Remove existing plane nodes
-        removeAllNodes()
+        SolarSytemHelper.removeSolarSystem(mainVC: self)
     }
     
     // MARK: Helper Methods
-    
-    /// Add all nodes to the scene
-    private func addAllNodes(node: SCNNode, on planeAnchor: ARPlaneAnchor) {
-        addPlane(node: node, on: planeAnchor)
-        addSolarSytem(node: node, on: planeAnchor)
-    }
-    
-    /// Add the solar system to the scene
-    private func addSolarSytem(node: SCNNode, on planeAnchor: ARPlaneAnchor) {
-        // Sun
-        if sun == nil {
-            sun = SunNode(anchor: planeAnchor)
-            node.addChildNode(sun)
-        }
-        
-        // Mercury
-        if mercury == nil {
-            mercury = MercuryNode(anchor: planeAnchor)
-            node.addChildNode(mercury)
-        }
-        
-        // Venus
-        if venus == nil {
-            venus = VenusNode(anchor: planeAnchor)
-            node.addChildNode(venus)
-        }
-        
-        // Earth
-        if earth == nil {
-            earth = EarthNode(anchor: planeAnchor)
-            node.addChildNode(earth)
-        }
-    }
-    
-    /// Add a plane to a given node
-    private func addPlane(node: SCNNode, on planeAnchor: ARPlaneAnchor) {
-        if skyPlane == nil {
-            skyPlane = ASTSkyPlane(anchor: planeAnchor)
-            node.addChildNode(skyPlane)
-        }
-    }
-    
-    /// Remove all nodes from scene
-    private func removeAllNodes() {
-        removeSkyPlane()
-        removeSolarSytem()
-    }
-    
-    /// Removes the solar system from scene
-    private func removeSolarSytem() {
-        if earth != nil {
-            earth.removeFromParentNode()
-            earth = nil
-        }
-    }
-    
-    /// Removes planes from the given node
-    private func removeSkyPlane() {
-        if skyPlane != nil {
-            skyPlane.removeFromParentNode()
-            skyPlane = nil
-        }
-    }
     
     /// Function sets up error message for the HelperView
     private func setUpErrorMessageWith(_ error: Error) -> HelpViewModel? {
@@ -285,8 +220,7 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
             // Disable the button temporarily
             button.isUserInteractionEnabled = false
             // Remove all nodes
-            self.removeSkyPlane()
-            self.removeSolarSytem()
+            SolarSytemHelper.removeSolarSystem(mainVC: self)
             // Restart plane detection
             self.restartPlaneDetection()
             // Display user a message
