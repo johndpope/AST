@@ -9,6 +9,8 @@ class PlanetNode: SCNNode {
     var planetName: String!
     /// Index of the planet to the sun, i.e sun is 0, mercury is 1...
     var index: Int!
+    /// Distance to the sun in kilometers
+    var distanceToSun: Float!
     /// Planet spins clockwise from top
     var clockwiseSpin: Bool!
     /// Number of hours the planet takes to do full rotation
@@ -16,7 +18,7 @@ class PlanetNode: SCNNode {
     /// Number of days the planet takes to do full orbit around the sun
     var orbitTime: Double!
     /// Diameter of the planet in kilometers
-    var diameter: Int!
+    var diameter: Float!
     /// Texture image of the planet
     var texture: UIImage!
     /// Fun fact
@@ -29,6 +31,7 @@ class PlanetNode: SCNNode {
         
         self.planetName = planet.name
         self.index = planet.index
+        self.distanceToSun = planet.distanceToSun
         self.clockwiseSpin = planet.clockwiseSpin
         self.spinTime = planet.spinTime
         self.orbitTime = planet.orbitTime
@@ -52,17 +55,13 @@ class PlanetNode: SCNNode {
     
     /// Function calculates the geometry of the planet
     private func calculatePlanetGeometry(_ anchor: ARPlaneAnchor) {
-        let size = (min(anchor.extent.x, anchor.extent.z)/8)
-        let earthSphere = SCNSphere(radius: CGFloat(size))
+        let earthSphere = SCNSphere(radius: PlanetUnitMapper.radiusScaleMapping(diameter: self.diameter, anchor: anchor))
         earthSphere.firstMaterial?.diffuse.contents = texture
         self.geometry = earthSphere
     }
     
     /// Function calculates the position of the planet
     private func calculatePlanetPosition(_ anchor: ARPlaneAnchor) {
-        let xPosition = anchor.center.x + 0.5
-        let yPosition = (((anchor.extent.x + anchor.extent.z)/2)/2)
-        let zPosition = anchor.center.z
-        self.position = SCNVector3Make(xPosition, yPosition, zPosition)
+        self.position = PlanetUnitMapper.positionMapping(distanceToSun: self.distanceToSun, anchor: anchor)
     }
 }

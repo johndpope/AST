@@ -3,6 +3,7 @@ import UIKit
 class PlanetConstants {
     static let mercury = PlanetViewModel(name: "Mercury",
                                          index: 1,
+                                         distanceToSun: 59223859,
                                          clockwiseSpin: false,
                                          spinTime: 1407,
                                          orbitTime: 88.0,
@@ -12,6 +13,7 @@ class PlanetConstants {
     
     static let venus = PlanetViewModel(name: "Venus",
                                          index: 2,
+                                         distanceToSun: 108147916,
                                          clockwiseSpin: true,
                                          spinTime: -5832,
                                          orbitTime: 224.7,
@@ -21,6 +23,7 @@ class PlanetConstants {
     
     static let earth = PlanetViewModel(name: "Earth",
                                          index: 3,
+                                         distanceToSun: 149668992,
                                          clockwiseSpin: false,
                                          spinTime: 24,
                                          orbitTime: 365.0,
@@ -30,6 +33,7 @@ class PlanetConstants {
     
     static let mars = PlanetViewModel(name: "Mars",
                                          index: 4,
+                                         distanceToSun: 227883110,
                                          clockwiseSpin: false,
                                          spinTime: 25,
                                          orbitTime: 687.0,
@@ -39,6 +43,7 @@ class PlanetConstants {
     
     static let jupiter = PlanetViewModel(name: "Jupiter",
                                          index: 5,
+                                         distanceToSun: 778278758,
                                          clockwiseSpin: false,
                                          spinTime: 10,
                                          orbitTime: 4331.0,
@@ -48,6 +53,7 @@ class PlanetConstants {
     
     static let saturn = PlanetViewModel(name: "Saturn",
                                          index: 6,
+                                         distanceToSun: 1426683456,
                                          clockwiseSpin: false,
                                          spinTime: 11,
                                          orbitTime: 10747.0,
@@ -57,6 +63,7 @@ class PlanetConstants {
     
     static let uranus = PlanetViewModel(name: "Uranus",
                                          index: 7,
+                                         distanceToSun: 2870586892,
                                          clockwiseSpin: true,
                                          spinTime: -17,
                                          orbitTime: 30589.0,
@@ -66,6 +73,7 @@ class PlanetConstants {
     
     static let neptune = PlanetViewModel(name: "Neptune",
                                          index: 8,
+                                         distanceToSun: 4498438348,
                                          clockwiseSpin: false,
                                          spinTime: 16,
                                          orbitTime: 59800.0,
@@ -75,6 +83,7 @@ class PlanetConstants {
     
     static let pluto = PlanetViewModel(name: "Pluto",
                                          index: 9,
+                                         distanceToSun: 5906453414,
                                          clockwiseSpin: false,
                                          spinTime: -153,
                                          orbitTime: 90560.0,

@@ -165,6 +165,17 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
         SolarSytemHelper.removeSolarSystem(mainVC: self)
     }
     
+    // MARK: Action Methods
+    
+    @IBAction func shareButtonPressed() {
+        
+    }
+    
+    @IBAction func restartButtonPressed(sender: AnyObject) {
+        let restartButton = sender as! UIButton
+        restartSession(button: restartButton)
+    }
+    
     // MARK: Helper Methods
     
     /// Function sets up error message for the HelperView
