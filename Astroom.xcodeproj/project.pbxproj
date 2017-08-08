@@ -32,6 +32,7 @@
 		BDD3BBCE1EEF328300139070 /* CGRectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3BBCD1EEF328300139070 /* CGRectExtension.swift */; };
 		BDE1A3741F2E03EA009EE119 /* PlanetUnitMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB47B011F2CC79A004A9F12 /* PlanetUnitMapper.swift */; };
 		BDE4C7B31EF9DAC300FE3292 /* SkyPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4C7B21EF9DAC300FE3292 /* SkyPlane.swift */; };
+		BDFAA87C1F3A538C00038A30 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFAA87B1F3A538C00038A30 /* UIImageExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		BDD3BBCD1EEF328300139070 /* CGRectExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExtension.swift; sourceTree = "<group>"; };
 		BDD3CCC51EF87AD20083A656 /* ARUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARUtilities.swift; sourceTree = "<group>"; };
 		BDE4C7B21EF9DAC300FE3292 /* SkyPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyPlane.swift; sourceTree = "<group>"; };
+		BDFAA87B1F3A538C00038A30 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +244,7 @@
 			children = (
 				BD7199E01EF71C170056A0D0 /* UIViewExtension.swift */,
 				BDD3BBCD1EEF328300139070 /* CGRectExtension.swift */,
+				BDFAA87B1F3A538C00038A30 /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				BD882ABF1EF70C2300C1C8F9 /* HelperConstants.swift in Sources */,
 				BDBFDD631EEF3FAB004F3F0A /* UIConstants.swift in Sources */,
 				BD7199E11EF71C170056A0D0 /* UIViewExtension.swift in Sources */,
+				BDFAA87C1F3A538C00038A30 /* UIImageExtension.swift in Sources */,
 				BDB47B041F2CC7BA004A9F12 /* SolarSystemHelper.swift in Sources */,
 				BDE4C7B31EF9DAC300FE3292 /* SkyPlane.swift in Sources */,
 				BD604E5F1EEBEFFF005058C7 /* MainViewController.swift in Sources */,

@@ -56,7 +56,9 @@ class PlanetNode: SCNNode {
     /// Function calculates the geometry of the planet
     private func calculatePlanetGeometry(_ anchor: ARPlaneAnchor) {
         let earthSphere = SCNSphere(radius: PlanetUnitMapper.radiusScaleMapping(diameter: self.diameter, anchor: anchor))
+        
         earthSphere.firstMaterial?.diffuse.contents = texture
+        
         self.geometry = earthSphere
     }
     

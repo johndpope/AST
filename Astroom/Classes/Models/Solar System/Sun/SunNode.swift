@@ -10,7 +10,9 @@ class SunNode: SCNNode {
     /// Number of hours the star takes to do full rotation
     let spinTime: Int = 587
     /// Diameter of the star in kilometers
-    let diameter: Float = 1391400
+    let diameter: Float = 20
+    /// Texture image of the planet
+    var texture: UIImage!
     /// Fun fact
     let funFact: String = "The sun is 4.6 billion years old"
     
@@ -32,7 +34,7 @@ class SunNode: SCNNode {
     /// Function calculates the geometry of the planet
     private func calculateSunGeometry(_ anchor: ARPlaneAnchor) {
         let earthSphere = SCNSphere(radius: PlanetUnitMapper.radiusScaleMapping(diameter: self.diameter, anchor: anchor))
-        earthSphere.firstMaterial?.diffuse.contents = UIColor.orange
+        earthSphere.firstMaterial?.diffuse.contents = #imageLiteral(resourceName: "SunText.jpg")
         self.geometry = earthSphere
     }
     

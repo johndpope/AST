@@ -31,7 +31,7 @@ class SkyPlane : SCNNode {
     
     private func setUpSkyMaterialOn(plane: SCNPlane) {
         let nightMaterial = SCNMaterial()
-        nightMaterial.diffuse.contents = #imageLiteral(resourceName: "night")
+        nightMaterial.diffuse.contents = #imageLiteral(resourceName: "SkyText")
         nightMaterial.isDoubleSided = true
         plane.materials = [nightMaterial]
     }
