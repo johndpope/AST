@@ -10,7 +10,7 @@ struct PlanetViewModel {
     /// Planet spins clockwise from top
     let clockwiseSpin: Bool!
     /// Number of hours the planet takes to do full rotation
-    let spinTime: Int!
+    let spinTime: Double!
     /// Number of days the planet takes to do full orbit around the sun
     let orbitTime: Double!
     /// Diameter of the planet in kilometers

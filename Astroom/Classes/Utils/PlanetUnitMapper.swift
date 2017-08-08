@@ -6,9 +6,7 @@ class PlanetUnitMapper {
         let solarSystemLength = Float(208.0)
         let skyPlaneMinimumLength = min(anchor.extent.x, anchor.extent.z)
         let percentageRadius = ((diameter/2) / solarSystemLength)
-        print(percentageRadius)
         let totalRadius = percentageRadius * skyPlaneMinimumLength
-        print(totalRadius)
         return CGFloat(totalRadius)
     }
     
@@ -22,7 +20,11 @@ class PlanetUnitMapper {
         return SCNVector3Make(xPosition, yPosition, zPosition)
     }
     
-    func rotationMapping(planet: PlanetNode) {
-        
+    static func orbitRotationMapping(orbitTime: Double) -> CFTimeInterval {
+        return CFTimeInterval(orbitTime/100.0)
+    }
+    
+    static func axisRotationMapping(spinTime: Double) -> CFTimeInterval {
+        return CFTimeInterval(spinTime/24.0)
     }
 }

@@ -14,7 +14,7 @@ class PlanetNode: SCNNode {
     /// Planet spins clockwise from top
     var clockwiseSpin: Bool!
     /// Number of hours the planet takes to do full rotation
-    var spinTime: Int!
+    var spinTime: Double!
     /// Number of days the planet takes to do full orbit around the sun
     var orbitTime: Double!
     /// Diameter of the planet in kilometers
@@ -51,19 +51,38 @@ class PlanetNode: SCNNode {
     private func setupPlanet(_ anchor: ARPlaneAnchor) {
         calculatePlanetGeometry(anchor)
         calculatePlanetPosition(anchor)
+        calculatePlanetRotation()
     }
     
     /// Function calculates the geometry of the planet
     private func calculatePlanetGeometry(_ anchor: ARPlaneAnchor) {
         let earthSphere = SCNSphere(radius: PlanetUnitMapper.radiusScaleMapping(diameter: self.diameter, anchor: anchor))
-        
-        earthSphere.firstMaterial?.diffuse.contents = texture
-        
+        earthSphere.firstMaterial?.diffuse.contents = texture        
         self.geometry = earthSphere
     }
     
     /// Function calculates the position of the planet
     private func calculatePlanetPosition(_ anchor: ARPlaneAnchor) {
         self.position = PlanetUnitMapper.positionMapping(distanceToSun: self.distanceToSun, anchor: anchor)
+    }
+    
+    /// Function animates planets
+    private func calculatePlanetRotation() {
+        rotatePlanetOnOrbit()
+        rotatePlanetOnAxis()
+    }
+    
+    /// Function orbits the planet around the sun
+    private func rotatePlanetOnOrbit() {
+        
+    }
+    
+    /// Function rotates the planet on its own axis
+    private func rotatePlanetOnAxis() {
+        let animation = CABasicAnimation(keyPath: "rotation")
+        animation.toValue = SCNVector4Make(0.0, 1.0, 0.0, Float(Double.pi*2))
+        animation.duration = PlanetUnitMapper.axisRotationMapping(spinTime: spinTime)
+        animation.repeatCount = MAXFLOAT
+        addAnimation(animation, forKey: nil)
     }
 }
