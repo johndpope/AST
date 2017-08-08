@@ -10,10 +10,10 @@ class SolarSytemHelper {
         }
         
         // Sun
-        //if mainVC.sun == nil {
-        //    mainVC.sun = SunNode(anchor: planeAnchor)
-        //    node.addChildNode(mainVC.sun)
-        //}
+        if mainVC.sun == nil {
+            mainVC.sun = SunNode(anchor: planeAnchor)
+            node.addChildNode(mainVC.sun)
+        }
         
         // Mercury
         if mainVC.mercury == nil {
