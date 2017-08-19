@@ -56,7 +56,7 @@ class SolarSytemHelper {
             mainVC.uranus = PlanetNode(planet: PlanetConstants.uranus, on: planeAnchor)
             node.addChildNode(mainVC.uranus)
         }
-        
+
         // Neptune
         if mainVC.neptune == nil {
             mainVC.neptune = PlanetNode(planet: PlanetConstants.neptune, on: planeAnchor)

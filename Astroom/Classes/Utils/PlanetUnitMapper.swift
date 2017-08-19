@@ -21,7 +21,7 @@ class PlanetUnitMapper {
     }
     
     static func orbitRotationMapping(orbitTime: Double) -> CFTimeInterval {
-        return CFTimeInterval(orbitTime/100.0)
+        return CFTimeInterval(orbitTime/50.0)
     }
     
     static func axisRotationMapping(spinTime: Double) -> CFTimeInterval {
