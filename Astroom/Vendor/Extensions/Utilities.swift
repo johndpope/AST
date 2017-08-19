@@ -335,6 +335,15 @@ func *= (left: inout CGSize, right: CGFloat) {
     left = left * right
 }
 
+// MARK: - CGRect extensions
+
+extension CGRect {
+    
+    var mid: CGPoint {
+        return CGPoint(x: midX, y: midY)
+    }
+}
+
 func rayIntersectionWithHorizontalPlane(rayOrigin: SCNVector3, direction: SCNVector3, planeY: Float) -> SCNVector3? {
     
     let direction = direction.normalized()

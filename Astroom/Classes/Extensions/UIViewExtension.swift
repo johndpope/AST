@@ -5,9 +5,7 @@ extension UIView {
     func setUpView() {
         let view = viewFromNibForClass()
         view.frame = self.bounds
-        
         view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
-        
         addSubview(view)
     }
     

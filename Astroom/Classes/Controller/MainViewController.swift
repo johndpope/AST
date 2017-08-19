@@ -51,12 +51,16 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     var use3DOFTrackingFallback = false
     var trackingFallbackTimer: Timer?
     
+    // Focus square
+    var focusSquare: FocusSquare?
+    
     // MARK: View Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Setup scene
         setUpScene()
+        setUpFocusSquare()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -144,7 +148,13 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
         session.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
     }
     
-    // MARK: - ARSCNViewDelegate
+    // MARK: ARSCNViewDelegate
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        DispatchQueue.main.async {
+            self.updateFocusSquare()
+        }
+    }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
@@ -163,6 +173,25 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
         // Remove existing plane nodes
         SolarSytemHelper.removeSolarSystem(mainVC: self)
+    }
+    
+    // MARK: Focus Square
+    
+    func setUpFocusSquare() {
+        focusSquare?.isHidden = true
+        focusSquare?.removeFromParentNode()
+        focusSquare = FocusSquare()
+        sceneView.scene.rootNode.addChildNode(focusSquare!)
+    }
+    
+    func updateFocusSquare() {
+        guard let screenCenter = screenCenter else { return }
+        sun != nil ? focusSquare?.hide() : focusSquare?.unhide()
+        
+        let (worldPos, planeAnchor, _) = worldPositionFromScreenPosition(screenCenter, objectPos: focusSquare?.position)
+        if let worldPos = worldPos {
+            focusSquare?.update(for: worldPos, planeAnchor: planeAnchor, camera: self.session.currentFrame?.camera)
+        }
     }
     
     // MARK: Action Methods
@@ -222,6 +251,75 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
         }
     }
     
+    func worldPositionFromScreenPosition(_ position: CGPoint,
+                                         objectPos: SCNVector3?,
+                                         infinitePlane: Bool = false) -> (position: SCNVector3?, planeAnchor: ARPlaneAnchor?, hitAPlane: Bool) {
+        
+        // -------------------------------------------------------------------------------
+        // 1. Always do a hit test against exisiting plane anchors first.
+        //    (If any such anchors exist & only within their extents.)
+        
+        let planeHitTestResults = sceneView.hitTest(position, types: .existingPlaneUsingExtent)
+        if let result = planeHitTestResults.first {
+            
+            let planeHitTestPosition = SCNVector3.positionFromTransform(result.worldTransform)
+            let planeAnchor = result.anchor
+            
+            // Return immediately - this is the best possible outcome.
+            return (planeHitTestPosition, planeAnchor as? ARPlaneAnchor, true)
+        }
+        
+        // -------------------------------------------------------------------------------
+        // 2. Collect more information about the environment by hit testing against
+        //    the feature point cloud, but do not return the result yet.
+        
+        var featureHitTestPosition: SCNVector3?
+        var highQualityFeatureHitTestResult = false
+        
+        let highQualityfeatureHitTestResults = sceneView.hitTestWithFeatures(position, coneOpeningAngleInDegrees: 18, minDistance: 0.2, maxDistance: 2.0)
+        
+        if !highQualityfeatureHitTestResults.isEmpty {
+            let result = highQualityfeatureHitTestResults[0]
+            featureHitTestPosition = result.position
+            highQualityFeatureHitTestResult = true
+        }
+        
+        // -------------------------------------------------------------------------------
+        // 3. If desired or necessary (no good feature hit test result): Hit test
+        //    against an infinite, horizontal plane (ignoring the real world).
+        
+        if !highQualityFeatureHitTestResult {
+            
+            let pointOnPlane = objectPos ?? SCNVector3Zero
+            
+            let pointOnInfinitePlane = sceneView.hitTestWithInfiniteHorizontalPlane(position, pointOnPlane)
+            if pointOnInfinitePlane != nil {
+                return (pointOnInfinitePlane, nil, true)
+            }
+        }
+        
+        // -------------------------------------------------------------------------------
+        // 4. If available, return the result of the hit test against high quality
+        //    features if the hit tests against infinite planes were skipped or no
+        //    infinite plane was hit.
+        
+        if highQualityFeatureHitTestResult {
+            return (featureHitTestPosition, nil, false)
+        }
+        
+        // -------------------------------------------------------------------------------
+        // 5. As a last resort, perform a second, unfiltered hit test against features.
+        //    If there are no features in the scene, the result returned here will be nil.
+        
+        let unfilteredFeatureHitTestResults = sceneView.hitTestWithFeatures(position)
+        if !unfilteredFeatureHitTestResults.isEmpty {
+            let result = unfilteredFeatureHitTestResults[0]
+            return (result.position, nil, false)
+        }
+        
+        return (nil, nil, false)
+    }
+    
     /// Function restarts the ARSession for the user, possibly because of an error
     private func restartSession(button: UIButton) {
         guard button.isUserInteractionEnabled else { return }
@@ -231,6 +329,8 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
             button.isUserInteractionEnabled = false
             // Remove all nodes
             SolarSytemHelper.removeSolarSystem(mainVC: self)
+            // Re set up focus square
+            self.setUpFocusSquare()
             // Restart plane detection
             self.restartPlaneDetection()
             // Display user a message
