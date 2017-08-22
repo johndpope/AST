@@ -22,16 +22,7 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     
     // Custom objects
     var skyPlane: SkyPlane!
-    var sun: SunNode!
-    var mercury: PlanetNode!
-    var venus: PlanetNode!
-    var earth: PlanetNode!
-    var mars: PlanetNode!
-    var jupiter: PlanetNode!
-    var saturn: PlanetNode!
-    var uranus: PlanetNode!
-    var neptune: PlanetNode!
-    var pluto: PlanetNode!
+    var solarSystem: SolarSystemNode!
     
     // ARSession
     let session = ARSession()
@@ -157,9 +148,7 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        // Add solar system to the scene
-        SolarSytemHelper.addSolarSystem(mainVC: self, node: node, on: planeAnchor)
+        addSolarSystem(node: node, anchor: anchor)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
@@ -171,8 +160,7 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
-        // Remove existing plane nodes
-        SolarSytemHelper.removeSolarSystem(mainVC: self)
+        removeSolarSystem()
     }
     
     // MARK: Focus Square
@@ -186,7 +174,7 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     
     func updateFocusSquare() {
         guard let screenCenter = screenCenter else { return }
-        sun != nil ? focusSquare?.hide() : focusSquare?.unhide()
+        solarSystem != nil ? focusSquare?.hide() : focusSquare?.unhide()
         
         let (worldPos, planeAnchor, _) = worldPositionFromScreenPosition(screenCenter, objectPos: focusSquare?.position)
         if let worldPos = worldPos {
@@ -206,6 +194,23 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     }
     
     // MARK: Helper Methods
+    
+    /// Function adds solar system to node
+    private func addSolarSystem(node: SCNNode, anchor: ARAnchor) {
+        if solarSystem == nil {
+            guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+            solarSystem = SolarSystemNode(anchor: planeAnchor)
+            node.addChildNode(solarSystem)
+        }
+    }
+    
+    /// Function removes solar system from node
+    private func removeSolarSystem() {
+        if solarSystem != nil {
+            solarSystem.removeFromParentNode()
+            solarSystem = nil
+        }
+    }
     
     /// Function sets up error message for the HelperView
     private func setUpErrorMessageWith(_ error: Error) -> HelpViewModel? {
@@ -328,7 +333,7 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
             // Disable the button temporarily
             button.isUserInteractionEnabled = false
             // Remove all nodes
-            SolarSytemHelper.removeSolarSystem(mainVC: self)
+            self.removeSolarSystem()
             // Re set up focus square
             self.setUpFocusSquare()
             // Restart plane detection

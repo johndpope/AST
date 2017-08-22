@@ -8,7 +8,7 @@ class SunNode: SCNNode {
     /// Star spins clockwise from top
     let clockwiseSpin: Bool = false
     /// Number of hours the star takes to do full rotation
-    let spinTime: Int = 587
+    let spinTime: Double = 587
     /// Diameter of the star in kilometers
     let diameter: Float = 20
     /// Texture image of the planet
@@ -29,6 +29,7 @@ class SunNode: SCNNode {
     private func setupSun(_ anchor: ARPlaneAnchor) {
         calculateSunGeometry(anchor)
         calculateSunPosition(anchor)
+        rotatePlanetOnAxis()
     }
     
     /// Function calculates the geometry of the planet
@@ -41,5 +42,14 @@ class SunNode: SCNNode {
     /// Function calculates the position of the planet
     private func calculateSunPosition(_ anchor: ARPlaneAnchor) {
         self.position = PlanetUnitMapper.positionMapping(distanceToSun: 0, anchor: anchor)
+    }
+    
+    /// Function rotates the planet on its own axis
+    private func rotatePlanetOnAxis() {
+        let animation = CABasicAnimation(keyPath: "rotation")
+        animation.toValue = SCNVector4Make(0.0, 1.0, 0.0, Float.pi*2)
+        animation.duration = PlanetUnitMapper.axisRotationMapping(spinTime: spinTime)
+        animation.repeatCount = MAXFLOAT
+        addAnimation(animation, forKey: nil)
     }
 }

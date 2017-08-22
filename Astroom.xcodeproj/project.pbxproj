@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		94311D1A1EFBE9FD00420071 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94311D191EFBE9FD00420071 /* ActionButtonView.swift */; };
 		94311D1E1EFBEF2000420071 /* ActionButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94311D1D1EFBEF2000420071 /* ActionButtonView.xib */; };
+		BD0447D61F489D5A00CDD313 /* SolarSystemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAEFD121F04421700C7EFA9 /* SolarSystemNode.swift */; };
 		BD2945331F48815400752AE1 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2945321F48815400752AE1 /* FocusSquare.swift */; };
 		BD2945381F4888D700752AE1 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3CCC51EF87AD20083A656 /* Utilities.swift */; };
 		BD40B2DA1F1E952600F766F0 /* SunNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD40B2D91F1E952600F766F0 /* SunNode.swift */; };
@@ -29,7 +30,6 @@
 		BD882ABF1EF70C2300C1C8F9 /* HelperConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882ABE1EF70C2300C1C8F9 /* HelperConstants.swift */; };
 		BD882AC21EF70C6C00C1C8F9 /* HelpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD882AC11EF70C6C00C1C8F9 /* HelpViewModel.swift */; };
 		BD9C84251F155CCA009057A4 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9C84241F155CCA009057A4 /* TabBarView.swift */; };
-		BDB47B041F2CC7BA004A9F12 /* SolarSystemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB47B031F2CC7BA004A9F12 /* SolarSystemHelper.swift */; };
 		BDBFDD631EEF3FAB004F3F0A /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFDD621EEF3FAB004F3F0A /* UIConstants.swift */; };
 		BDE1A3741F2E03EA009EE119 /* PlanetUnitMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB47B011F2CC79A004A9F12 /* PlanetUnitMapper.swift */; };
 		BDE4C7B31EF9DAC300FE3292 /* SkyPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4C7B21EF9DAC300FE3292 /* SkyPlane.swift */; };
@@ -85,7 +85,6 @@
 		BDAEFD101F043FED00C7EFA9 /* ASTGraveyard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTGraveyard.swift; sourceTree = "<group>"; };
 		BDAEFD121F04421700C7EFA9 /* SolarSystemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemNode.swift; sourceTree = "<group>"; };
 		BDB47B011F2CC79A004A9F12 /* PlanetUnitMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetUnitMapper.swift; sourceTree = "<group>"; };
-		BDB47B031F2CC7BA004A9F12 /* SolarSystemHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemHelper.swift; sourceTree = "<group>"; };
 		BDBFDD621EEF3FAB004F3F0A /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		BDD3CCC51EF87AD20083A656 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		BDE4C7B21EF9DAC300FE3292 /* SkyPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyPlane.swift; sourceTree = "<group>"; };
@@ -180,7 +179,6 @@
 		BD882A791EF6DCF700C1C8F9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				BDB47B031F2CC7BA004A9F12 /* SolarSystemHelper.swift */,
 				BDB47B011F2CC79A004A9F12 /* PlanetUnitMapper.swift */,
 				BD882A771EF6DC5400C1C8F9 /* DeviceMotion.swift */,
 				BDAEFD101F043FED00C7EFA9 /* ASTGraveyard.swift */,
@@ -201,6 +199,7 @@
 		BD882AC01EF70C4D00C1C8F9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BDE1A3731F2E02A8009EE119 /* Sky */,
 				BDE1A3721F2E0295009EE119 /* Solar System */,
 				BD882AC31EF70CA400C1C8F9 /* View Model */,
 			);
@@ -304,7 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				BDAEFD121F04421700C7EFA9 /* SolarSystemNode.swift */,
-				BDE1A3731F2E02A8009EE119 /* Sky */,
 				BDE1A3711F2E0276009EE119 /* Sun */,
 				BD979A6F1F0C288200DC6F11 /* Planet */,
 			);
@@ -453,6 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD0447D61F489D5A00CDD313 /* SolarSystemNode.swift in Sources */,
 				BD40B2DA1F1E952600F766F0 /* SunNode.swift in Sources */,
 				BD9C84251F155CCA009057A4 /* TabBarView.swift in Sources */,
 				BD882ABF1EF70C2300C1C8F9 /* HelperConstants.swift in Sources */,
@@ -461,7 +460,6 @@
 				BD7199E11EF71C170056A0D0 /* UIViewExtension.swift in Sources */,
 				BDFAA87C1F3A538C00038A30 /* UIImageExtension.swift in Sources */,
 				BD2945331F48815400752AE1 /* FocusSquare.swift in Sources */,
-				BDB47B041F2CC7BA004A9F12 /* SolarSystemHelper.swift in Sources */,
 				BDE4C7B31EF9DAC300FE3292 /* SkyPlane.swift in Sources */,
 				BD604E5F1EEBEFFF005058C7 /* MainViewController.swift in Sources */,
 				BD604E5B1EEBEFFF005058C7 /* AppDelegate.swift in Sources */,

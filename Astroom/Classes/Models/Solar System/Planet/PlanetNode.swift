@@ -51,7 +51,7 @@ class PlanetNode: SCNNode {
     private func setupPlanet(_ anchor: ARPlaneAnchor) {
         calculatePlanetGeometry(anchor)
         calculatePlanetPosition(anchor)
-        calculatePlanetRotation(anchor)
+        rotatePlanetOnAxis()
     }
     
     /// Function calculates the geometry of the planet
@@ -66,22 +66,6 @@ class PlanetNode: SCNNode {
         position = PlanetUnitMapper.positionMapping(distanceToSun: self.distanceToSun, anchor: anchor)
     }
     
-    /// Function animates planets
-    private func calculatePlanetRotation(_ anchor: ARPlaneAnchor) {
-        rotatePlanetOnAxis()
-        rotatePlanetOnOrbit(anchor)
-    }
-    
-    /// Function orbits the planet around the sun
-    private func rotatePlanetOnOrbit(_ anchor: ARPlaneAnchor) {
-        pivot = SCNMatrix4MakeTranslation(0.1, 0, 0)
-        let animation = CABasicAnimation(keyPath: "rotation")
-        animation.toValue = SCNVector4Make(0.0, 1.0, 0.0, Float.pi*2)
-        animation.duration = PlanetUnitMapper.orbitRotationMapping(orbitTime: orbitTime)
-        animation.repeatCount = MAXFLOAT
-        addAnimation(animation, forKey: nil)
-    }
-    
     /// Function rotates the planet on its own axis
     private func rotatePlanetOnAxis() {
         let animation = CABasicAnimation(keyPath: "rotation")
@@ -89,12 +73,5 @@ class PlanetNode: SCNNode {
         animation.duration = PlanetUnitMapper.axisRotationMapping(spinTime: spinTime)
         animation.repeatCount = MAXFLOAT
         addAnimation(animation, forKey: nil)
-    }
-    
-    /// Function returns the midway point of the solar system
-    private func midwayPointSolarSystem(_ anchor: ARPlaneAnchor) -> SCNMatrix4 {
-        let matrix = SCNMatrix4MakeTranslation(2*position.x, 0, 0)
-        //print(matrix)
-        return matrix
     }
 }
