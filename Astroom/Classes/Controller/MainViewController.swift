@@ -21,7 +21,6 @@ class MainViewController: UIViewController, ARSCNViewDelegate {
     // MARK: Variables and Constants
     
     // Custom objects
-    var skyPlane: SkyPlane!
     var solarSystem: SolarSystemNode!
     
     // ARSession

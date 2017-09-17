@@ -10,6 +10,10 @@
 		94311D1A1EFBE9FD00420071 /* ActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94311D191EFBE9FD00420071 /* ActionButtonView.swift */; };
 		94311D1E1EFBEF2000420071 /* ActionButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94311D1D1EFBEF2000420071 /* ActionButtonView.xib */; };
 		BD0447D61F489D5A00CDD313 /* SolarSystemNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAEFD121F04421700C7EFA9 /* SolarSystemNode.swift */; };
+		BD1E9D7A1F5C4861002CFA63 /* SkyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E9D791F5C4861002CFA63 /* SkyTests.swift */; };
+		BD1E9D7C1F5C499B002CFA63 /* SolarSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E9D7B1F5C499B002CFA63 /* SolarSystemTests.swift */; };
+		BD1E9D7E1F5C49A9002CFA63 /* PlanetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E9D7D1F5C49A9002CFA63 /* PlanetTests.swift */; };
+		BD1E9D811F5C4B6F002CFA63 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1E9D801F5C4B6F002CFA63 /* LandingViewController.swift */; };
 		BD2945331F48815400752AE1 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2945321F48815400752AE1 /* FocusSquare.swift */; };
 		BD2945381F4888D700752AE1 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD3CCC51EF87AD20083A656 /* Utilities.swift */; };
 		BD40B2DA1F1E952600F766F0 /* SunNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD40B2D91F1E952600F766F0 /* SunNode.swift */; };
@@ -32,7 +36,6 @@
 		BD9C84251F155CCA009057A4 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9C84241F155CCA009057A4 /* TabBarView.swift */; };
 		BDBFDD631EEF3FAB004F3F0A /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBFDD621EEF3FAB004F3F0A /* UIConstants.swift */; };
 		BDE1A3741F2E03EA009EE119 /* PlanetUnitMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB47B011F2CC79A004A9F12 /* PlanetUnitMapper.swift */; };
-		BDE4C7B31EF9DAC300FE3292 /* SkyPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE4C7B21EF9DAC300FE3292 /* SkyPlane.swift */; };
 		BDFAA87C1F3A538C00038A30 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFAA87B1F3A538C00038A30 /* UIImageExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,10 @@
 /* Begin PBXFileReference section */
 		94311D191EFBE9FD00420071 /* ActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonView.swift; sourceTree = "<group>"; };
 		94311D1D1EFBEF2000420071 /* ActionButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionButtonView.xib; sourceTree = "<group>"; };
+		BD1E9D791F5C4861002CFA63 /* SkyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyTests.swift; sourceTree = "<group>"; };
+		BD1E9D7B1F5C499B002CFA63 /* SolarSystemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemTests.swift; sourceTree = "<group>"; };
+		BD1E9D7D1F5C49A9002CFA63 /* PlanetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTests.swift; sourceTree = "<group>"; };
+		BD1E9D801F5C4B6F002CFA63 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		BD2945321F48815400752AE1 /* FocusSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 		BD40B2D91F1E952600F766F0 /* SunNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunNode.swift; sourceTree = "<group>"; };
 		BD40B2DB1F1E952D00F766F0 /* PlanetNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetNode.swift; sourceTree = "<group>"; };
@@ -82,7 +89,7 @@
 		BD882ABE1EF70C2300C1C8F9 /* HelperConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperConstants.swift; sourceTree = "<group>"; };
 		BD882AC11EF70C6C00C1C8F9 /* HelpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewModel.swift; sourceTree = "<group>"; };
 		BD9C84241F155CCA009057A4 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
-		BDAEFD101F043FED00C7EFA9 /* ASTGraveyard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASTGraveyard.swift; sourceTree = "<group>"; };
+		BDAEFD101F043FED00C7EFA9 /* Graveyard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graveyard.swift; sourceTree = "<group>"; };
 		BDAEFD121F04421700C7EFA9 /* SolarSystemNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemNode.swift; sourceTree = "<group>"; };
 		BDB47B011F2CC79A004A9F12 /* PlanetUnitMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetUnitMapper.swift; sourceTree = "<group>"; };
 		BDBFDD621EEF3FAB004F3F0A /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
@@ -125,6 +132,25 @@
 			path = ActionButton;
 			sourceTree = "<group>";
 		};
+		BD1E9D781F5C4851002CFA63 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BD1E9D791F5C4861002CFA63 /* SkyTests.swift */,
+				BD1E9D7B1F5C499B002CFA63 /* SolarSystemTests.swift */,
+				BD1E9D7D1F5C49A9002CFA63 /* PlanetTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BD1E9D7F1F5C49E7002CFA63 /* Graveyard */ = {
+			isa = PBXGroup;
+			children = (
+				BDAEFD101F043FED00C7EFA9 /* Graveyard.swift */,
+				BDE1A3731F2E02A8009EE119 /* Sky */,
+			);
+			path = Graveyard;
+			sourceTree = "<group>";
+		};
 		BD604E4E1EEBEFFF005058C7 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +187,7 @@
 		BD604E701EEBEFFF005058C7 /* AstroomTests */ = {
 			isa = PBXGroup;
 			children = (
+				BD1E9D781F5C4851002CFA63 /* Model */,
 				BD604E711EEBEFFF005058C7 /* AstroomTests.swift */,
 				BD604E731EEBEFFF005058C7 /* Info.plist */,
 			);
@@ -179,9 +206,9 @@
 		BD882A791EF6DCF700C1C8F9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BD1E9D7F1F5C49E7002CFA63 /* Graveyard */,
 				BDB47B011F2CC79A004A9F12 /* PlanetUnitMapper.swift */,
 				BD882A771EF6DC5400C1C8F9 /* DeviceMotion.swift */,
-				BDAEFD101F043FED00C7EFA9 /* ASTGraveyard.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -199,8 +226,7 @@
 		BD882AC01EF70C4D00C1C8F9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BDE1A3731F2E02A8009EE119 /* Sky */,
-				BDE1A3721F2E0295009EE119 /* Solar System */,
+				BDE1A3721F2E0295009EE119 /* Node Model */,
 				BD882AC31EF70CA400C1C8F9 /* View Model */,
 			);
 			path = Models;
@@ -244,6 +270,7 @@
 		BDBFDD5C1EEF3DDC004F3F0A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BD1E9D801F5C4B6F002CFA63 /* LandingViewController.swift */,
 				BD604E5E1EEBEFFF005058C7 /* MainViewController.swift */,
 				BD604E601EEBEFFF005058C7 /* Main.storyboard */,
 			);
@@ -299,14 +326,14 @@
 			path = Sun;
 			sourceTree = "<group>";
 		};
-		BDE1A3721F2E0295009EE119 /* Solar System */ = {
+		BDE1A3721F2E0295009EE119 /* Node Model */ = {
 			isa = PBXGroup;
 			children = (
 				BDAEFD121F04421700C7EFA9 /* SolarSystemNode.swift */,
 				BDE1A3711F2E0276009EE119 /* Sun */,
 				BD979A6F1F0C288200DC6F11 /* Planet */,
 			);
-			path = "Solar System";
+			path = "Node Model";
 			sourceTree = "<group>";
 		};
 		BDE1A3731F2E02A8009EE119 /* Sky */ = {
@@ -460,10 +487,10 @@
 				BD7199E11EF71C170056A0D0 /* UIViewExtension.swift in Sources */,
 				BDFAA87C1F3A538C00038A30 /* UIImageExtension.swift in Sources */,
 				BD2945331F48815400752AE1 /* FocusSquare.swift in Sources */,
-				BDE4C7B31EF9DAC300FE3292 /* SkyPlane.swift in Sources */,
 				BD604E5F1EEBEFFF005058C7 /* MainViewController.swift in Sources */,
 				BD604E5B1EEBEFFF005058C7 /* AppDelegate.swift in Sources */,
 				94311D1A1EFBE9FD00420071 /* ActionButtonView.swift in Sources */,
+				BD1E9D811F5C4B6F002CFA63 /* LandingViewController.swift in Sources */,
 				BD40B2EC1F1FF3F900F766F0 /* PlanetViewModel.swift in Sources */,
 				BD40B2EE1F1FF48B00F766F0 /* PlanetConstants.swift in Sources */,
 				BD882AC21EF70C6C00C1C8F9 /* HelpViewModel.swift in Sources */,
@@ -478,6 +505,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD604E721EEBEFFF005058C7 /* AstroomTests.swift in Sources */,
+				BD1E9D7C1F5C499B002CFA63 /* SolarSystemTests.swift in Sources */,
+				BD1E9D7A1F5C4861002CFA63 /* SkyTests.swift in Sources */,
+				BD1E9D7E1F5C49A9002CFA63 /* PlanetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
